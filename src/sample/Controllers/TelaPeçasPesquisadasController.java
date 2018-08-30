@@ -1,4 +1,4 @@
-package sample.TelaPeçasPesquisadas;
+package sample.Controllers;
 
 import javafx.application.Application;
 
