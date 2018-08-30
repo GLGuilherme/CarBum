@@ -15,6 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Tela1.fxml"));
+        primaryStage.resizableProperty().setValue(Boolean.FALSE);
+        primaryStage.setMaximized(true);
         primaryStage.setTitle("CarBum");
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
