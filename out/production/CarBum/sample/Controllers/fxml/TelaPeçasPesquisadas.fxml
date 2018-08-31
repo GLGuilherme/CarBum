@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TelaPeçasPesquisadasController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TelaPeçasPesquisadasController">
    <children>
       <ImageView fitHeight="165.0" fitWidth="126.0" layoutX="40.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,12 +20,12 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button depthTest="DISABLE" layoutX="1756.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Minha Conta" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="21.0">
+      <Button depthTest="DISABLE" layoutX="1113.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Minha Conta" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="21.0">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1580.0" layoutY="31.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Vender Peça" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="21.0">
+      <Button layoutX="938.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Vender Peça" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="21.0">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
