@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="btBuscar1" fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TelaInicialController">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TelaInicialController">
    <children>
       <ImageView fitHeight="165.0" fitWidth="126.0" layoutX="584.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,7 +18,7 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Button id="btBuscar1" fx:id="bucar1" layoutX="855.0" layoutY="256.0" mnemonicParsing="false" onAction="#buscar" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #f75959; -fx-border-width: 0;" text="Buscar">
+      <Button id="btBuscar1" fx:id="bucar1" layoutX="860.0" layoutY="255.0" mnemonicParsing="false" onAction="#buscar" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #f75959; -fx-border-width: 0;" text="Buscar">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Button>
