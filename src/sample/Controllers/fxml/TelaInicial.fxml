@@ -18,17 +18,19 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Button id="btBuscar1" fx:id="buscar1" layoutX="860.0" layoutY="255.0" mnemonicParsing="false" onAction="#buscar" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #f75959; -fx-border-width: 0;" text="Buscar">
+      <Button id="btBuscar1" fx:id="buscar1" layoutX="860.0" layoutY="255.0" mnemonicParsing="false" onAction="#buscar" prefHeight="41.0" prefWidth="78.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Buscar" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Button>
-      <Button depthTest="DISABLE" layoutX="1746.0" layoutY="21.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Minha Conta" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="21.0">
+      <Button id="btBuscar1" fx:id="buscar11" layoutX="1027.0" layoutY="14.0" mnemonicParsing="false" onAction="#buscar" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Vender Peça" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font></Button>
-      <Button layoutX="1564.0" layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: red;" text="Vender Peça" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="21.0">
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Button id="btBuscar1" fx:id="buscar12" layoutX="1151.0" layoutY="14.0" mnemonicParsing="false" onAction="#buscar" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Minha Conta" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font></Button>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
