@@ -1,6 +1,6 @@
 package Pessoa;
 
-import sample.ConexaoBanco;
+import main.ConexaoBanco;
 
 import java.sql.Connection;
 
@@ -9,7 +9,7 @@ public class DAOPessoa {
     private String sql;
 
     public DAOPessoa (){
-        conexao = new ConexaoBanco();
+        //conexao = new ConexaoBanco();
     }
 
 
