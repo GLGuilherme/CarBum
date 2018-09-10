@@ -15,140 +15,140 @@
                 <Image url="@../Images/LogoCarBum.jpeg" />
             </image>
         </ImageView>
-        <TextField id="inputNome" fx:id="title" layoutX="89.0" layoutY="215.0" prefHeight="41.0" prefWidth="500.0">
+        <TextField id="inputNome" fx:id="title" layoutX="112.0" layoutY="204.0" prefHeight="41.0" prefWidth="500.0">
             <font>
                 <Font size="14.0" />
             </font></TextField>
-        <Button id="btSalvarPessoa" fx:id="btSalvarPessoa" layoutX="1077.0" layoutY="714.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
+        <Button id="btSalvarPessoa" fx:id="btSalvarPessoa" layoutX="1054.0" layoutY="697.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
             <font>
                 <Font name="System Bold Italic" size="14.0" />
             </font></Button>
-      <TextField id="inputCpf" fx:id="title1" layoutX="692.0" layoutY="215.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputCpf" fx:id="title1" layoutX="669.0" layoutY="204.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputEmail" fx:id="title11" layoutX="692.0" layoutY="307.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputEmail" fx:id="title11" layoutX="669.0" layoutY="296.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputDDD" fx:id="title12" layoutX="89.0" layoutY="307.0" prefHeight="41.0" prefWidth="115.0">
+      <TextField id="inputDDD" fx:id="title12" layoutX="112.0" layoutY="296.0" prefHeight="41.0" prefWidth="115.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputTelefone" fx:id="title121" layoutX="264.0" layoutY="307.0" prefHeight="41.0" prefWidth="325.0">
+      <TextField id="inputTelefone" fx:id="title121" layoutX="287.0" layoutY="296.0" prefHeight="41.0" prefWidth="325.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputRua" fx:id="title2" layoutX="89.0" layoutY="437.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputRua" fx:id="title2" layoutX="112.0" layoutY="426.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputNumero" fx:id="title13" layoutX="692.0" layoutY="437.0" prefHeight="41.0" prefWidth="115.0">
+      <TextField id="inputNumero" fx:id="title13" layoutX="669.0" layoutY="426.0" prefHeight="41.0" prefWidth="115.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputComplemento" fx:id="title111" layoutX="692.0" layoutY="536.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputComplemento" fx:id="title111" layoutX="669.0" layoutY="525.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputBairro" fx:id="title122" layoutX="89.0" layoutY="536.0" prefHeight="41.0" prefWidth="325.0">
+      <TextField id="inputBairro" fx:id="title122" layoutX="112.0" layoutY="525.0" prefHeight="41.0" prefWidth="325.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputEstado" fx:id="title112" layoutX="692.0" layoutY="628.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputEstado" fx:id="title112" layoutX="669.0" layoutY="617.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputCidade" fx:id="title123" layoutX="89.0" layoutY="628.0" prefHeight="41.0" prefWidth="500.0">
+      <TextField id="inputCidade" fx:id="title123" layoutX="112.0" layoutY="617.0" prefHeight="41.0" prefWidth="500.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField id="inputCep" fx:id="title12121" layoutX="474.0" layoutY="536.0" prefHeight="41.0" prefWidth="115.0">
+      <TextField id="inputCep" fx:id="title12121" layoutX="497.0" layoutY="525.0" prefHeight="41.0" prefWidth="115.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="89.0" layoutY="198.0" prefHeight="18.0" prefWidth="149.0" text="Nome completo">
+      <Label layoutX="112.0" layoutY="184.0" prefHeight="18.0" prefWidth="149.0" text="Nome completo">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="692.0" layoutY="198.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
+      <Label focusTraversable="false" layoutX="669.0" layoutY="184.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="290.0" prefHeight="18.0" prefWidth="115.0" text="DDD">
+      <Label layoutX="112.0" layoutY="276.0" prefHeight="18.0" prefWidth="115.0" text="DDD">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="264.0" layoutY="290.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
+      <Label layoutX="287.0" layoutY="276.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="692.0" layoutY="290.0" prefHeight="17.0" prefWidth="59.0" text="E-mail">
+      <Label layoutX="669.0" layoutY="276.0" prefHeight="17.0" prefWidth="59.0" text="E-mail">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="692.0" layoutY="421.0" prefHeight="17.0" prefWidth="59.0" text="Número">
+      <Label layoutX="669.0" layoutY="407.0" prefHeight="17.0" prefWidth="59.0" text="Número">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="692.0" layoutY="518.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
+      <Label layoutX="669.0" layoutY="504.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="692.0" layoutY="610.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
+      <Label layoutX="669.0" layoutY="596.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="421.0" prefHeight="17.0" prefWidth="59.0" text="Rua">
+      <Label layoutX="112.0" layoutY="407.0" prefHeight="17.0" prefWidth="59.0" text="Rua">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="518.0" prefHeight="17.0" prefWidth="59.0" text="Bairro">
+      <Label layoutX="112.0" layoutY="504.0" prefHeight="17.0" prefWidth="59.0" text="Bairro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="474.0" layoutY="518.0" prefHeight="17.0" prefWidth="59.0" text="CEP">
+      <Label layoutX="497.0" layoutY="504.0" prefHeight="17.0" prefWidth="59.0" text="CEP">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="610.0" prefHeight="17.0" prefWidth="59.0" text="Cidade">
+      <Label layoutX="112.0" layoutY="596.0" prefHeight="17.0" prefWidth="59.0" text="Cidade">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="148.0" text="Dados Pessoais">
+      <Label layoutX="112.0" layoutY="141.0" text="Dados Pessoais">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="365.0" text="Endereço">
+      <Label layoutX="112.0" layoutY="364.0" text="Endereço">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="536.0" layoutY="80.0" text="Cadastro de Pessoa">
+      <Label alignment="CENTER" layoutX="540.0" layoutY="66.0" text="Cadastro de Pessoa">
          <font>
             <Font size="22.0" />
          </font>
