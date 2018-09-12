@@ -11,7 +11,7 @@ public class DAOPessoa {
     private ConexaoBanco conexao;
     private String sql;
 
-    public DAOPessoa (){
+    public DAOPessoa () throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         conexao = new ConexaoBanco();
     }
 
