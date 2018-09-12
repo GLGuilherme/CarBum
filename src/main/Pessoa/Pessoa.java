@@ -1,4 +1,4 @@
-package main.Controllers.Pessoa;
+package main.Pessoa;
 
 public class Pessoa {
     private String Nome;
