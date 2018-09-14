@@ -64,7 +64,7 @@ public class Endereco {
     }
 
     public void setCEP(String CEP) {
-        this.CEP = CEP;
+        CEP = CEP;
     }
 
     public void setPais(String pais) {

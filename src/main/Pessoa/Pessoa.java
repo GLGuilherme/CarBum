@@ -1,12 +1,24 @@
 package main.Pessoa;
 
+import java.sql.SQLException;
+
 public class Pessoa {
     private String Nome;
     private String EmailLogin;
     private String Senha;
+    private String CPF;
     private float Avaliacao;
 
     public Pessoa(){}
+
+    /*public Pessoa(String Nome, String EmailLogin, String Senha) throws SQLException {
+        this.Nome = Nome;
+        this.EmailLogin = EmailLogin;
+        this.Senha = Senha;
+        Avaliacao = 0.0;
+        DAOPessoa PessoaNova = new DAOPessoa();
+        PessoaNova.inserirPessoaNova(this);
+    }*/
 
     public String getEmailLogin() {
         return EmailLogin;
@@ -24,20 +36,27 @@ public class Pessoa {
         return Senha;
     }
 
+    public String getCPF() {
+        return CPF;
+    }
+
     public void setAvaliacao(float avaliacao) {
-        Avaliacao = avaliacao;
+        this.Avaliacao = avaliacao;
     }
 
     public void setEmailLogin(String emailLogin) {
-        EmailLogin = emailLogin;
+        this.EmailLogin = emailLogin;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.Nome = nome;
     }
 
     public void setSenha(String senha) {
-        Senha = senha;
+        this.Senha = senha;
     }
 
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
 }
