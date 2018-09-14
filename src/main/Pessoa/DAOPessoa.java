@@ -12,17 +12,16 @@ public class DAOPessoa {
     private String sql;
 
     public DAOPessoa () throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        conexao = new ConexaoBanco();
+        this.conexao = new ConexaoBanco();
     }
 
     public int buscarPessoaBanco(String email) throws SQLException {
-        Pessoa pessoa = new Pessoa();
 
         sql = "SELECT IdPessoa from Email where emailpessoal = " + email;
 
         Statement stm = conexao.getConnection().createStatement();
         ResultSet rs = stm.executeQuery(sql);
-        if(rs.hasNext() != null){
+        if(rs.next()){
             return rs.getInt("IdPessoa");
         }
         else {
@@ -31,13 +30,15 @@ public class DAOPessoa {
     }
 
     public boolean inserirPessoaNova(Pessoa pessoa) throws SQLException {
-        if (this.buscarPessoaBanco(pessoa.getEmailLogin()) == 0) {
+        int codigo;
+
+        if ( this.buscarPessoaBanco(pessoa.getEmailLogin()) == 0) {
             sql = "Insert into Pessoa(NomePessoa, EmailLogin, Senha) values " +
-                    "('" + pessoa.getNome() + "', '" + pessoa.getEmailLogin() + "', '" + pessoa.getSenha() + "');";
+                    "('" + pessoa.getNome() + "'," + "'" + pessoa.getEmailLogin() + "'," + "'" + pessoa.getSenha() + "')";
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
 
-            int codigo = buscarPessoaBanco(pessoa.getEmailLogin());
+            codigo = buscarPessoaBanco(pessoa.getEmailLogin());
             sql = "INSERT Into Email(IdPessoa, EmailPessoal) values (" + codigo + ", '" + pessoa.getEmailLogin() + "');";
             stm.execute(sql);
             return true;
@@ -45,5 +46,12 @@ public class DAOPessoa {
             return false;
         }
     }
+
+    public void inserirTelefone(String telefone, int IdPessoa) throws SQLException {
+        sql = "Insert into Telefone (IdPessoa, Telefone) values (" + IdPessoa + ", '" + telefone + "');";
+        Statement stm = conexao.getConnection().createStatement();
+        stm.execute(sql);
+    }
+
 
 }
