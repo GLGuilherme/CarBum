@@ -11,5 +11,11 @@
         <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="CarBum2@localhost" uuid="e876c9a3-4364-428c-bd7c-f37b4b8c8d6f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/CarBum2</jdbc-url>
+    </data-source>
   </component>
 </project>
