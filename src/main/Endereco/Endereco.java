@@ -1,4 +1,4 @@
-package Endereco;
+package main.Endereco;
 
 public class Endereco {
     private String Pais;
@@ -10,6 +10,17 @@ public class Endereco {
     private String CEP;
     private String Complemento;
     private String LinkGoogleMaps;
+
+    public Endereco(String Pais, String Estado, String Cidade, String Rua, String Numero, String Bairro, String CEP, String Complemento){
+        this.Pais = Pais;
+        this.Estado = Estado;
+        this.Cidade = Cidade;
+        this.Rua = Rua;
+        this.Numero = Numero;
+        this.Bairro = Bairro;
+        this.CEP = CEP;
+        this.Complemento = Complemento;
+    }
 
     public String getPais() {
         return Pais;

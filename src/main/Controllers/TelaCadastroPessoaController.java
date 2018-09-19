@@ -1,10 +1,11 @@
 package main.Controllers;
 
 
+import main.Endereco.DAOEndereco;
+import main.Endereco.Endereco;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import main.Pessoa.DAOPessoa;
@@ -57,12 +58,17 @@ public class TelaCadastroPessoaController  {
         pessoaNova.setCPF(inputCpf.getText());
         pessoaNova.setEmailLogin(inputEmail.getText());
         //pessoaNova.setSenha(); Precisa inserir campo senha na tela
-        DAOPessoa inserir = new DAOPessoa();
+        DAOPessoa inserirPessoa = new DAOPessoa();
 
 
-        operacaoCompleta = inserir.inserirPessoaNova(pessoaNova);
+        operacaoCompleta = inserirPessoa.inserirPessoaNova(pessoaNova);
         if(operacaoCompleta){
             //mensagem de exito
+            int IdPessoa;
+            IdPessoa = inserirPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
+            DAOEndereco inserirEndereco = new DAOEndereco();
+            Endereco enderecoPessoaNova =  new Endereco("Brasil", Estado, Cidade, Rua, Numero, Bairro, CEP, Complemento);
+            inserirEndereco.inserirEndereco(enderecoPessoaNova, IdPessoa);
         }
         else{
             //apresentar erro na inserção, pessoa já existi no banco
