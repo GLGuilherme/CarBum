@@ -1,4 +1,4 @@
-package main.Peca;
+package main.Controllers.Peca;
 
 public class Peca {
     private String NomePeca;

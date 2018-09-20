@@ -1,4 +1,4 @@
-package main.Endereco;
+package main.Controllers.Endereco;
 
 import main.ConexaoBanco;
 

@@ -1,7 +1,7 @@
-package main.Catalogo;
+package main.Controllers.Catalogo;
 
-import main.Peca.Peca;
-import main.Pessoa.Pessoa;
+import main.Controllers.Peca.Peca;
+import main.Controllers.Pessoa.Pessoa;
 
 public class Catalogo {
     private Peca PecaAnunciada;

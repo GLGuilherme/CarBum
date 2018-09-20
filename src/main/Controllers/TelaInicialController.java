@@ -9,25 +9,25 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public class TelaInicialController  {
+public class TelaInicialController {
 
-   @FXML
+    @FXML
     private AnchorPane rootPane;
-   private Scene scene;
+    private Scene scene;
 
 
-   @FXML
+    @FXML
     public void buscar(ActionEvent event) throws IOException {
-       rootPane.getChildren().clear();
+        rootPane.getChildren().clear();
 
-       try {
-           AnchorPane telaPecaPesquisas = FXMLLoader.load(getClass()
-                   .getResource("../Views/TelaPecasPesquisadas.fxml"));
+        try {
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("../Views/TelaPecasPesquisadas.fxml"));
 
-           rootPane.getChildren().setAll(telaPecaPesquisas);
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -35,7 +35,7 @@ public class TelaInicialController  {
         rootPane.getChildren().clear();
 
         try {
-            AnchorPane telaPecaPesquisas = FXMLLoader.load(getClass()
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
                     .getResource("../Views/TelaCadastroPessoa.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
@@ -46,7 +46,15 @@ public class TelaInicialController  {
 
     @FXML
     public void vender(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Views/TelaCadastroPessoa.fxml"));
-        rootPane.getChildren().setAll(pane);
+        rootPane.getChildren().clear();
+
+        try {
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("../Views/TelaCadastroPeca.fxml"));
+
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

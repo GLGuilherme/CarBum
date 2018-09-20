@@ -1,4 +1,4 @@
-package main.Peca;
+package main.Controllers.Peca;
 
 import main.ConexaoBanco;
 

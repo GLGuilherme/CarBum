@@ -1,6 +1,4 @@
-package main.Pessoa;
-
-import java.sql.SQLException;
+package main.Controllers.Pessoa;
 
 public class Pessoa {
     private String Nome;

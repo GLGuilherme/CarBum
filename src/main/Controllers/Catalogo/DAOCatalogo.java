@@ -1,4 +1,4 @@
-package main.Catalogo;
+package main.Controllers.Catalogo;
 
 import main.ConexaoBanco;
 
