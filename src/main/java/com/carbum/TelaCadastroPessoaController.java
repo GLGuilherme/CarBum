@@ -45,7 +45,8 @@ public class TelaCadastroPessoaController {
         pessoaNova.setNome(nome);
         pessoaNova.setCPF(cpf);
         pessoaNova.setEmailLogin(email);
-        //pessoaNova.setSenha(); Precisa inserir campo senha na tela
+        pessoaNova.setSenha("123456");
+        //TODO Precisa inserir campo senha na tela
         DAOPessoa daoPessoa = new DAOPessoa();
 
         operacaoCompleta = daoPessoa.inserirPessoaNova(pessoaNova);

@@ -35,7 +35,7 @@ public class DAOPessoa {
             sql = "INSERT INTO pessoa (nomepessoa, emaillogin, senha) VALUES ('"
                     + pessoa.getNome() + "', '"
                     + pessoa.getEmailLogin() + "', '"
-                    + "123');";
+                    + pessoa.getSenha() + "');";
 
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);

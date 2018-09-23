@@ -12,13 +12,14 @@ public class ConexaoBanco {
         System.out.println("Iniciando criação da conexão");
 
         try {
+//            DriverManager.registerDriver(new org.postgresql.Driver());
             String databaseURL = "jdbc:postgresql://ec2-23-23-253-106.compute-1.amazonaws.com:5432/d522goirgv8c99";
             String usuario = "yotvedmivxvbzx";
             String senha = "709485c1623f57c49f41f460c0da8e750bd201eacfb0aee6297eb37b1e87b06d";
             String driverName = "org.postgresql.Driver";
             Class.forName(driverName).newInstance();
 
-            connection = DriverManager.getConnection("postgres://yotvedmivxvbzx:709485c1623f57c49f41f460c0da8e750bd201eacfb0aee6297eb37b1e87b06d@ec2-23-23-253-106.compute-1.amazonaws.com:5432/d522goirgv8c99");
+            connection = DriverManager.getConnection(databaseURL, usuario, senha);
 
             if (connection != null) {
                 System.out.println("connection created successfully using properties file");
