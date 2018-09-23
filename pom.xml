@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.carbum</groupId>
-    <artifactId>hello-javafx-maven-example</artifactId>
-    <name>JavaFX Example Maven Project</name>
+    <artifactId>carbum</artifactId>
+    <name>CarBum</name>
     <organization>
         <name>CarBum</name>
     </organization>

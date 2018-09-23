@@ -15,17 +15,17 @@ public class DAOPessoa {
     }
 
     public int buscarPessoaBanco(String email) throws SQLException {
-//
-//        sql = "SELECT IdPessoa from Email where emailpessoal = " + email;
-//
-//        Statement stm = conexao.getConnection().createStatement();
-//        ResultSet rs = stm.executeQuery(sql);
-//        if(rs.next()){
-//            return rs.getInt("IdPessoa");
-//        }
-//        else {
+
+        sql = "SELECT idPessoa FROM email WHERE emailpessoal = " + email;
+
+        Statement stm = conexao.getConnection().createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        if(rs.next()){
+            return rs.getInt("IdPessoa");
+        }
+        else {
             return 0;
-//        }
+        }
     }
 
     public boolean inserirPessoaNova(Pessoa pessoa) throws SQLException {
@@ -41,7 +41,7 @@ public class DAOPessoa {
             stm.execute(sql);
 
             codigo = buscarPessoaBanco(pessoa.getEmailLogin());
-            sql = "INSERT INTO email(idpessoa, emailpessoa) values ('"
+            sql = "INSERT INTO email(idpessoa, emailpessoa) VALUES ('"
                     + codigo + "',"
                     + pessoa.getEmailLogin() + ");";
             stm.execute(sql);
@@ -51,11 +51,9 @@ public class DAOPessoa {
         }
     }
 
-    public void inserirTelefone(String telefone, int IdPessoa) throws SQLException {
-        sql = "Insert into Telefone (IdPessoa, Telefone) values (" + IdPessoa + ", '" + telefone + "');";
+    public void inserirTelefone(String telefone, int idPessoa) throws SQLException {
+        sql = "INSERT INTO telefone(idpessoa, telefone) VALUES (" + idPessoa+ ", '" + telefone + "');";
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
     }
-
-
 }

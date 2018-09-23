@@ -51,8 +51,7 @@ public class TelaCadastroPessoaController {
         operacaoCompleta = daoPessoa.inserirPessoaNova(pessoaNova);
         if (operacaoCompleta) {
             //mensagem de exito
-            int idPessoa;
-            idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
+            int idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
             DAOEndereco inserirEndereco = new DAOEndereco();
             Endereco enderecoPessoaNova = new Endereco("Brasil", estado, cidade, rua, numero, bairro, cep, complemento);
             inserirEndereco.inserirEndereco(enderecoPessoaNova, idPessoa);

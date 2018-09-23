@@ -1,0 +1,13 @@
+com/carbum/peca/Peca.class
+com/carbum/catalogo/DAOCatalogo.class
+com/carbum/TelaCadastroPecaController.class
+com/carbum/endereco/DAOEndereco.class
+com/carbum/pessoa/Pessoa.class
+com/carbum/Main.class
+com/carbum/TelaInicialController.class
+com/carbum/endereco/Endereco.class
+com/carbum/ConexaoBanco.class
+com/carbum/peca/DAOPeca.class
+com/carbum/TelaCadastroPessoaController.class
+com/carbum/catalogo/Catalogo.class
+com/carbum/pessoa/DAOPessoa.class
