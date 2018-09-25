@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="carbum" />
+        <module name="CarBum" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CarBum" target="1.5" />
       <module name="carbum" target="1.5" />
     </bytecodeTargetLevel>
   </component>
