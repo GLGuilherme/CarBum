@@ -41,14 +41,10 @@ public class TelaCadastroPessoaController {
                 estado = inputEstado.getText(),
                 cep = inputCep.getText();
 
-        Pessoa pessoaNova = new Pessoa();
-        pessoaNova.setNome(nome);
-        pessoaNova.setCPF(cpf);
+        Pessoa pessoaNova = new Pessoa(nome, cpf, email, "123456");
         pessoaNova.setEmailLogin(email);
-        pessoaNova.setSenha("123456");
-        //TODO Precisa inserir campo senha na tela
-        DAOPessoa daoPessoa = new DAOPessoa();
 
+        DAOPessoa daoPessoa = new DAOPessoa();
         operacaoCompleta = daoPessoa.inserirPessoaNova(pessoaNova);
         if (operacaoCompleta) {
             //mensagem de exito

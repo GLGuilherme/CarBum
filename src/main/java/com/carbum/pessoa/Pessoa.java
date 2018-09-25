@@ -10,8 +10,9 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String emailLogin, String senha) {
+    public Pessoa(String nome, String cpf, String emailLogin, String senha) {
         this.nome = nome;
+        this.CPF = cpf;
         this.emailLogin = emailLogin;
         this.senha = senha;
         this.avaliacao = 0;
@@ -23,14 +24,6 @@ public class Pessoa {
 
     public void setEmailLogin(String emailLogin) {
         this.emailLogin = emailLogin;
-    }
-
-    public float getAvaliacao() {
-        return avaliacao;
-    }
-
-    public void setAvaliacao(float avaliacao) {
-        this.avaliacao = avaliacao;
     }
 
     public String getNome() {

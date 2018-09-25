@@ -13,9 +13,9 @@ public class DAOEndereco {
         this.conexao = new ConexaoBanco();
     }
 
-    public void inserirEndereco(Endereco endereco, int IdPessoa) throws SQLException {
-        sql = "Insert into Endereco (IdPessoa, Pais, Estado, Cidade, CEP, Rua, Bairro, Numero, Complemento, LinkGoogleMaps) values (" +
-                IdPessoa + ", '" + endereco.getPais() + "', '" + endereco.getEstado() + "', '" + endereco.getCidade() + "', '" +
+    public void inserirEndereco(Endereco endereco, int idPessoa) throws SQLException {
+        sql = "INSERT INITO endereco (idpessoa, pais, estado, cidade, cep, rua, bairro, numero, complemento, linkgooglemaps) values ('" +
+                idPessoa + "', '" + endereco.getPais() + "', '" + endereco.getEstado() + "', '" + endereco.getCidade() + "', '" +
                 endereco.getCEP() + "', '" + endereco.getRua() + "', '" + endereco.getBairro() + "', '" + endereco.getNumero() + "', '" +
                 endereco.getComplemento() + "', '" + endereco.getLinkGoogleMaps() + "');";
 

@@ -15,7 +15,7 @@ public class ConexaoBanco {
             DriverManager.registerDriver(new org.postgresql.Driver());
             String databaseURL = "jdbc:postgresql://localhost:5432/carbum";
             String usuario = "postgres";
-            String senha = "gabrielopes";
+            String senha = "";
             String driverName = "org.postgresql.Driver";
             Class.forName(driverName).newInstance();
 
@@ -28,17 +28,6 @@ public class ConexaoBanco {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 

@@ -14,9 +14,9 @@ public class DAOPessoa {
         conexao = new ConexaoBanco();
     }
 
-    public int buscarPessoaBanco(String emailPessoa) throws SQLException {
+    public int buscarPessoaBanco(String email) throws SQLException {
 
-        sql = "SELECT idPessoa FROM email WHERE emailpessoal = " + emailPessoa;
+        sql = "SELECT idPessoa FROM pessoa WHERE emaillogin = '" + email + "';";
 
         Statement stm = conexao.getConnection().createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -29,8 +29,6 @@ public class DAOPessoa {
     }
 
     public boolean inserirPessoaNova(Pessoa pessoa) throws SQLException {
-        int codigo;
-
         if (this.buscarPessoaBanco(pessoa.getEmailLogin()) == 0) {
             sql = "INSERT INTO pessoa (nomepessoa, emaillogin, senha) VALUES ('"
                     + pessoa.getNome() + "', '"
@@ -40,11 +38,6 @@ public class DAOPessoa {
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
 
-            codigo = buscarPessoaBanco(pessoa.getEmailLogin());
-            sql = "INSERT INTO email(idpessoa, emailpessoa) VALUES ('"
-                    + codigo + "',"
-                    + pessoa.getEmailLogin() + ");";
-            stm.execute(sql);
             return true;
         } else {
             return false;
