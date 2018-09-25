@@ -1,57 +1,56 @@
 package com.carbum.pessoa;
 
 public class Pessoa {
-    private String Nome;
-    private String EmailLogin;
-    private String Senha;
+    private String nome;
+    private String emailLogin;
+    private String senha;
     private String CPF;
-    private float Avaliacao;
+    private float avaliacao;
 
-    public Pessoa(){}
+    public Pessoa() {
+    }
 
-    /*public Pessoa(String Nome, String EmailLogin, String Senha) throws SQLException {
-        this.Nome = Nome;
-        this.EmailLogin = EmailLogin;
-        this.Senha = Senha;
-        Avaliacao = 0.0;
-        DAOPessoa PessoaNova = new DAOPessoa();
-        PessoaNova.inserirPessoaNova(this);
-    }*/
+    public Pessoa(String nome, String emailLogin, String senha) {
+        this.nome = nome;
+        this.emailLogin = emailLogin;
+        this.senha = senha;
+        this.avaliacao = 0;
+    }
 
     public String getEmailLogin() {
-        return EmailLogin;
+        return emailLogin;
+    }
+
+    public void setEmailLogin(String emailLogin) {
+        this.emailLogin = emailLogin;
     }
 
     public float getAvaliacao() {
-        return Avaliacao;
+        return avaliacao;
+    }
+
+    public void setAvaliacao(float avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSenha() {
-        return Senha;
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getCPF() {
         return CPF;
-    }
-
-    public void setAvaliacao(float avaliacao) {
-        this.Avaliacao = avaliacao;
-    }
-
-    public void setEmailLogin(String emailLogin) {
-        this.EmailLogin = emailLogin;
-    }
-
-    public void setNome(String nome) {
-        this.Nome = nome;
-    }
-
-    public void setSenha(String senha) {
-        this.Senha = senha;
     }
 
     public void setCPF(String CPF) {

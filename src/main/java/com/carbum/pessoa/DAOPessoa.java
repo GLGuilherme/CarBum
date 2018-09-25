@@ -14,14 +14,14 @@ public class DAOPessoa {
         conexao = new ConexaoBanco();
     }
 
-    public int buscarPessoaBanco(String email) throws SQLException {
+    public int buscarPessoaBanco(String emailPessoa) throws SQLException {
 
-        sql = "SELECT idPessoa FROM email WHERE emailpessoal = " + email;
+        sql = "SELECT idPessoa FROM email WHERE emailpessoal = " + emailPessoa;
 
         Statement stm = conexao.getConnection().createStatement();
         ResultSet rs = stm.executeQuery(sql);
         if(rs.next()){
-            return rs.getInt("IdPessoa");
+            return rs.getInt("idPessoa");
         }
         else {
             return 0;
