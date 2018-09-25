@@ -12,10 +12,10 @@ public class ConexaoBanco {
         System.out.println("Iniciando criação da conexão");
 
         try {
-//            DriverManager.registerDriver(new org.postgresql.Driver());
-            String databaseURL = "jdbc:postgresql://ec2-23-23-253-106.compute-1.amazonaws.com:5432/d522goirgv8c99";
-            String usuario = "yotvedmivxvbzx";
-            String senha = "709485c1623f57c49f41f460c0da8e750bd201eacfb0aee6297eb37b1e87b06d";
+            DriverManager.registerDriver(new org.postgresql.Driver());
+            String databaseURL = "jdbc:postgresql://localhost:5432/carbum";
+            String usuario = "postgres";
+            String senha = "";
             String driverName = "org.postgresql.Driver";
             Class.forName(driverName).newInstance();
 
@@ -32,7 +32,6 @@ public class ConexaoBanco {
         catch (Exception e) {
             e.printStackTrace();
         } finally {
-
             try {
                 if (connection != null) {
                     connection.close();
