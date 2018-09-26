@@ -49,21 +49,19 @@ public class TelaCadastroPessoaController {
         if (operacaoCompleta) {
             //mensagem de exito
             int idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
-            DAOEndereco inserirEndereco = new DAOEndereco();
+            DAOEndereco daoEndereco = new DAOEndereco();
             Endereco enderecoPessoaNova = new Endereco("Brasil", estado, cidade, rua, numero, bairro, cep, complemento);
-            inserirEndereco.inserirEndereco(enderecoPessoaNova, idPessoa);
+            daoEndereco.inserirEndereco(enderecoPessoaNova, idPessoa);
 
             this.navegaTelaInicial();
-
         } else {
-            //apresentar erro na inserção, pessoa já existi no banco
+            //apresentar erro na inserção, pessoa já existe no banco
         }
     }
 
     @FXML
     public void navegaTelaInicial() throws IOException {
         rootPane.getChildren().clear();
-
         try {
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
                     .getResource("/fxml/TelaInicial.fxml"));

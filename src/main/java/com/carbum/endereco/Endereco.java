@@ -59,7 +59,7 @@ public class Endereco {
     }
 
     public String getLinkGoogleMaps() {
-        return LinkGoogleMaps;
+        return "";
     }
 
     public void setBairro(String bairro) {

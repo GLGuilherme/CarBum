@@ -22,8 +22,7 @@ public class DAOPessoa {
         ResultSet rs = stm.executeQuery(sql);
         if(rs.next()){
             return rs.getInt("idPessoa");
-        }
-        else {
+        } else {
             return 0;
         }
     }

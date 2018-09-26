@@ -14,10 +14,20 @@ public class DAOEndereco {
     }
 
     public void inserirEndereco(Endereco endereco, int idPessoa) throws SQLException {
-        sql = "INSERT INITO endereco (idpessoa, pais, estado, cidade, cep, rua, bairro, numero, complemento, linkgooglemaps) values ('" +
-                idPessoa + "', '" + endereco.getPais() + "', '" + endereco.getEstado() + "', '" + endereco.getCidade() + "', '" +
-                endereco.getCEP() + "', '" + endereco.getRua() + "', '" + endereco.getBairro() + "', '" + endereco.getNumero() + "', '" +
-                endereco.getComplemento() + "', '" + endereco.getLinkGoogleMaps() + "');";
+        sql = "INSERT INTO endereco (" +
+                "idpessoa, " +
+                "pais, estado, cidade, cep, rua, bairro, numero, complemento, linkgooglemaps) values (" +
+                "'" + idPessoa +
+                "', '" + endereco.getPais() +
+                "', '" + endereco.getEstado() +
+                "', '" + endereco.getCidade() +
+                "', '" + endereco.getCEP() +
+                "', '" + endereco.getRua() +
+                "', '" + endereco.getBairro() +
+                "', '" + endereco.getNumero() +
+                "', '" + endereco.getComplemento() +
+                "', '" + endereco.getLinkGoogleMaps() +
+            "');";
 
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
