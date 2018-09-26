@@ -3,6 +3,7 @@ package com.carbum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
@@ -53,9 +54,20 @@ public class TelaCadastroPessoaController {
             Endereco enderecoPessoaNova = new Endereco("Brasil", estado, cidade, rua, numero, bairro, cep, complemento);
             daoEndereco.inserirEndereco(enderecoPessoaNova, idPessoa);
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro de pessoa");
+            alert.setHeaderText(null);
+            alert.setContentText("Pessoa cadastrada com sucesso!");
+
+            alert.showAndWait();
             this.navegaTelaInicial();
         } else {
-            //apresentar erro na inserção, pessoa já existe no banco
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Pessoa já existente");
+            alert.setHeaderText(null);
+            alert.setContentText("Este e-mail já está cadastrado no sistema!");
+
+            alert.showAndWait();
         }
     }
 
