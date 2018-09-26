@@ -22,9 +22,9 @@ public class ConexaoBanco {
             connection = DriverManager.getConnection(databaseURL, usuario, senha);
 
             if (connection != null) {
-                System.out.println("connection created successfully using properties file");
+                System.out.println("Conexão criada com sucesso");
             } else {
-                System.out.println(" unable to create connection");
+                System.out.println("Impossível criar conexão");
             }
         } catch (SQLException e) {
             e.printStackTrace();

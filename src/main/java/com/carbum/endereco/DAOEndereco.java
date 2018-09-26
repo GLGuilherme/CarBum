@@ -14,9 +14,7 @@ public class DAOEndereco {
     }
 
     public void inserirEndereco(Endereco endereco, int idPessoa) throws SQLException {
-        sql = "INSERT INTO endereco (" +
-                "idpessoa, " +
-                "pais, estado, cidade, cep, rua, bairro, numero, complemento, linkgooglemaps) values (" +
+        sql = "INSERT INTO endereco (idpessoa, pais, estado, cidade, cep, rua, bairro, numero, complemento, linkgooglemaps) values (" +
                 "'" + idPessoa +
                 "', '" + endereco.getPais() +
                 "', '" + endereco.getEstado() +
