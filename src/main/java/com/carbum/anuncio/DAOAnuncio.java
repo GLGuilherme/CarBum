@@ -1,10 +1,7 @@
 package com.carbum.anuncio;
 
 import com.carbum.ConexaoBanco;
-import com.carbum.TelaCadastroPecaController;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -21,15 +18,16 @@ public class DAOAnuncio {
     }
 
     public boolean inserirAnuncio(Anuncio AnuncioNovo) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
-        sql = "Insert into  anuncio (NomePeca, ParteCarro, descricao, conservacao, nomecarro, marcacarro, ano, modelo) values ('"
-                + AnuncioNovo.getNomePeca() + "', '"
+        sql = "Insert into  anuncio (NomePeca, ParteCarro, descricao, conservacao, nomecarro, marcacarro, ano, modelo, imagem1) values ('"
+                + AnuncioNovo.getTitulo() + "', '"
                 + AnuncioNovo.getParteCarro() + "', '"
                 + AnuncioNovo.getDescricao() + "', '"
                 + AnuncioNovo.getConservacao() + "', '"
                 + AnuncioNovo.getNomeCarro() + "', '"
                 + AnuncioNovo.getMarcaCarro() + "', '"
                 + AnuncioNovo.getAno() + "', '"
-                + AnuncioNovo.getModelo() + "');";
+                + AnuncioNovo.getModelo() + "', '"
+                + AnuncioNovo.getImagem1() +"');";
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
         return true;
