@@ -1,31 +1,48 @@
 package com.carbum.peca;
 
 public class Peca {
-    private String NomePeca;
-    private String Marca;
-    private String ParteCarro;
+    private String nomePeca;
+    private String parteCarro;
+    private String consevacao;
+    private String descricao;
+
+    public Peca() {
+    }
+
+    public Peca(String titulo, String descricao) {
+        this.nomePeca = titulo;
+        this.descricao = descricao;
+    }
 
     public String getNomePeca() {
-        return NomePeca;
+        return nomePeca;
     }
 
     public void setNomePeca(String nomePeca) {
-        NomePeca = nomePeca;
-    }
-
-    public String getMarca() {
-        return Marca;
-    }
-
-    public void setMarca(String marca) {
-        Marca = marca;
+        this.nomePeca = nomePeca;
     }
 
     public String getParteCarro() {
-        return ParteCarro;
+        return parteCarro;
     }
 
     public void setParteCarro(String parteCarro) {
-        ParteCarro = parteCarro;
+        this.parteCarro = parteCarro;
+    }
+
+    public String getConsevacao() {
+        return consevacao;
+    }
+
+    public void setConsevacao(String consevacao) {
+        this.consevacao = consevacao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
