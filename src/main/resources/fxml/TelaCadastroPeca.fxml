@@ -22,7 +22,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <ComboBox fx:id="inputMarca" layoutX="112.0" layoutY="188.0" prefHeight="41.0" prefWidth="240.0" />
+        <ComboBox fx:id="inputMarca" layoutX="112.0" layoutY="188.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a Marca" />
         <ComboBox fx:id="inputModelo" layoutX="372.0" layoutY="188.0" prefHeight="41.0" prefWidth="240.0" />
         <ComboBox fx:id="inputAno" layoutX="112.0" layoutY="259.0" prefHeight="41.0" prefWidth="240.0" />
         <ComboBox fx:id="inputConservacao" layoutX="372.0" layoutY="259.0" prefHeight="41.0" prefWidth="240.0" />

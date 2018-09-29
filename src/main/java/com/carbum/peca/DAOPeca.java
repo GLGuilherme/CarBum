@@ -17,10 +17,15 @@ public class DAOPeca {
         return conexao;
     }
 
-    public void inserirPecaAcervo(Peca PecaNova) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
-        sql = "Insert into Peca (NomePeca, MarcaPeca, ParteCarro) values ('" + PecaNova.getNomePeca() + "', '" + PecaNova.getMarca() + "', '" + PecaNova.getParteCarro() + "');";
+    public boolean inserirPecaAcervo(Peca PecaNova) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
+        sql = "Insert into Peca (NomePeca, ParteCarro, descricao, conservacao) values ('"
+                + PecaNova.getNomePeca() + "', '"
+                + PecaNova.getParteCarro() + "', '"
+                + PecaNova.getDescricao() + "', '"
+                + PecaNova.getConsevacao() +"');";
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
+        return true;
     }
 
 }
