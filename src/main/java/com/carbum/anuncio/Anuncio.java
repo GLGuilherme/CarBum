@@ -97,7 +97,7 @@ public class Anuncio {
     public void setImagem1(String imagem1) {
         this.imagem1 = imagem1;
     }
-    
+
 
     @Override
     public String toString() {
