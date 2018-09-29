@@ -3,21 +3,34 @@ package com.carbum;
 
 import com.carbum.anuncio.Anuncio;
 import com.carbum.anuncio.DAOAnuncio;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import com.jfoenix.controls.JFXComboBox;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import org.apache.commons.lang.ObjectUtils;
+import org.postgresql.util.Base64;
+import sun.misc.BASE64Decoder;
 
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -32,6 +45,10 @@ public class TelaCadastroPecaController implements Initializable {
     public ComboBox<String> inputConservacao;
     public TextArea inputDescricao;
     public Button btSalvarPeca;
+    public ImageView imagemPeca1;
+    public String imagem1;
+    public JFXComboBox<String> inputNomeCarro;
+    public JFXComboBox<String> inputPeca;
 
     private ConexaoBanco conexao;
     private String sql;
@@ -56,10 +73,12 @@ public class TelaCadastroPecaController implements Initializable {
         String modelo = inputModelo.getValue();
         String ano = inputAno.getValue();
         String conservacao = inputConservacao.getValue();
+        String nomeCarro = inputNomeCarro.getValue();
         String descricao = inputDescricao.getText();
+        String peca = inputPeca.getValue();
 
-        Anuncio anuncioNovo = new Anuncio(titulo,"Porta", descricao, conservacao, "Cruze",
-                marca, ano, modelo);
+        Anuncio anuncioNovo = new Anuncio(titulo, peca, descricao, conservacao, nomeCarro,
+                marca, ano, modelo, imagem1);
 
         DAOAnuncio daoAnuncio = new DAOAnuncio();
         operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
@@ -86,11 +105,13 @@ public class TelaCadastroPecaController implements Initializable {
         }
     }
 
+    
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public ComboBox<String> getInputMarca() {
+
         try {
 
-            sql = "SELECT * FROM marca";
+            sql = "SELECT DISTINCT marca FROM nomecarroemarca";
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
             ResultSet rs = stm.executeQuery(sql);
@@ -103,6 +124,41 @@ public class TelaCadastroPecaController implements Initializable {
 
         }
 
+        
+
+
+        return inputMarca;
+    }
+
+    public JFXComboBox<String> getInputNomeCarro() {
+
+        try {
+
+            sql = "SELECT nomecarro FROM nomecarroemarca";
+            PreparedStatement stm = conexao.getConnection().prepareStatement(sql);
+            //stm.setString(1, String.valueOf(getInputMarca()));
+            ResultSet resultSet = stm.executeQuery();
+            /*Statement stm = conexao.getConnection().createStatement();
+            stm.execute(sql);
+            ResultSet rs = stm.executeQuery(sql);*/
+            while (resultSet.next()) {
+                String nomeCarro = resultSet.getString("nomecarro");
+                inputNomeCarro.getItems().add(nomeCarro);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return inputNomeCarro;
+    }
+
+    @FXML
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        getInputMarca();
+        getInputNomeCarro();
         try {
             sql = "SELECT * FROM anomodelo";
             Statement stm = conexao.getConnection().createStatement();
@@ -131,5 +187,94 @@ public class TelaCadastroPecaController implements Initializable {
             e.printStackTrace();
 
         }
+
+        try {
+            sql = "SELECT * FROM partecarro";
+            Statement stm = conexao.getConnection().createStatement();
+            stm.execute(sql);
+            ResultSet rs = stm.executeQuery(sql);
+            while (rs.next()){
+                String parteCarro = rs.getString("partecarro");
+                inputPeca.getItems().add(parteCarro);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        /*try { Código para recuperar base64 do banco e transformar em imagem
+            sql = "SELECT imagem1 FROM anuncio WHERE idanuncio = 9";
+            Statement stm = conexao.getConnection().createStatement();
+            stm.execute(sql);
+            ResultSet rs = stm.executeQuery(sql);
+            while (rs.next()){
+                String imagem = rs.getString("imagem1");
+
+                BufferedImage bufferedImage = decodeToImage(imagem);
+                Image card = SwingFXUtils.toFXImage(bufferedImage, null );
+
+                imagemTeste.setImage(card);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }*/
+
+    }
+
+    @FXML
+    public String selecionarImagem(MouseEvent mouseEvent) throws IOException {
+        Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+
+        try {
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Selecionar Imagem");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpeg", "*.jpg"),
+                    new FileChooser.ExtensionFilter("All Files", "*.*"));
+
+            File arq = fileChooser.showOpenDialog(stage);
+
+            if (arq != null) {
+
+                Image image = new Image(arq.toURI().toURL().toExternalForm());
+
+                imagemPeca1.setImage(image);
+
+                String encodefile = null;
+                FileInputStream fileInputStream = new FileInputStream(arq);
+
+                byte[] bytes = new byte[(int)arq.length()];
+                fileInputStream.read(bytes);
+                encodefile = Base64.encodeBytes(bytes).toString();
+
+                imagem1 = encodefile;
+            }
+
+        }catch (Exception e){
+            System.err.println(e);
+        }
+
+        return imagem1;
+
+    }
+
+    public static BufferedImage decodeToImage(String imageString) {
+
+        BufferedImage image = null;
+        byte[] imageByte;
+        try {
+            BASE64Decoder decoder = new BASE64Decoder();
+            imageByte = decoder.decodeBuffer(imageString);
+            ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
+            image = ImageIO.read(bis);
+            bis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return image;
     }
 }
