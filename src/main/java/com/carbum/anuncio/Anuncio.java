@@ -10,11 +10,14 @@ public class Anuncio {
     private String ano;
     private String modelo;
     private String imagem1;
+    private String imagem2;
 
     public Anuncio() {
     }
 
-    public Anuncio(String titulo, String parteCarro, String descricao, String conservacao, String nomeCarro, String marcaCarro, String ano, String modelo, String imagem1) {
+    public Anuncio(String titulo, String parteCarro, String descricao, String conservacao, String nomeCarro,
+                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2) {
+
         this.titulo = titulo;
         this.parteCarro = parteCarro;
         this.descricao = descricao;
@@ -24,6 +27,7 @@ public class Anuncio {
         this.ano = ano;
         this.modelo = modelo;
         this.imagem1 = imagem1;
+        this.imagem2 = imagem2;
     }
 
     public String getTitulo() {
@@ -98,6 +102,13 @@ public class Anuncio {
         this.imagem1 = imagem1;
     }
 
+    public String getImagem2() {
+        return imagem2;
+    }
+
+    public void setImagem2(String imagem2) {
+        this.imagem2 = imagem2;
+    }
 
     @Override
     public String toString() {
