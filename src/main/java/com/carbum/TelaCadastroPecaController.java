@@ -46,9 +46,12 @@ public class TelaCadastroPecaController implements Initializable {
     public TextArea inputDescricao;
     public Button btSalvarPeca;
     public ImageView imagemPeca1;
+    public ImageView imagemPeca2;
     public String imagem1;
+    public String imagem2;
     public JFXComboBox<String> inputNomeCarro;
     public JFXComboBox<String> inputPeca;
+
 
     private ConexaoBanco conexao;
     private String sql;
@@ -78,7 +81,7 @@ public class TelaCadastroPecaController implements Initializable {
         String peca = inputPeca.getValue();
 
         Anuncio anuncioNovo = new Anuncio(titulo, peca, descricao, conservacao, nomeCarro,
-                marca, ano, modelo, imagem1);
+                marca, ano, modelo, imagem1, imagem2);
 
         DAOAnuncio daoAnuncio = new DAOAnuncio();
         operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
@@ -156,7 +159,6 @@ public class TelaCadastroPecaController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         getInputMarca();
         getInputNomeCarro();
         try {
@@ -224,7 +226,7 @@ public class TelaCadastroPecaController implements Initializable {
     }
 
     @FXML
-    public String selecionarImagem(MouseEvent mouseEvent) throws IOException {
+    public String selecionarImagem1(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
 
         try {
@@ -261,6 +263,44 @@ public class TelaCadastroPecaController implements Initializable {
 
     }
 
+    public String selecionarImagem2(MouseEvent mouseEvent) {
+
+        Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+
+        try {
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Selecionar Imagem");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpeg", "*.jpg"),
+                    new FileChooser.ExtensionFilter("All Files", "*.*"));
+
+            File arq = fileChooser.showOpenDialog(stage);
+
+            if (arq != null) {
+
+                Image image = new Image(arq.toURI().toURL().toExternalForm());
+
+                imagemPeca2.setImage(image);
+
+                String encodefile = null;
+                FileInputStream fileInputStream = new FileInputStream(arq);
+
+                byte[] bytes = new byte[(int)arq.length()];
+                fileInputStream.read(bytes);
+                encodefile = Base64.encodeBytes(bytes).toString();
+
+                imagem2 = encodefile;
+            }
+
+        }catch (Exception e){
+            System.err.println(e);
+        }
+
+        return imagem2;
+
+    }
+
     public static BufferedImage decodeToImage(String imageString) {
 
         BufferedImage image = null;
@@ -277,4 +317,6 @@ public class TelaCadastroPecaController implements Initializable {
 
         return image;
     }
+
+
 }
