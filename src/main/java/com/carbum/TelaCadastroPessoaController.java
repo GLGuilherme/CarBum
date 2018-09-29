@@ -1,19 +1,15 @@
 package com.carbum;
 
+import com.carbum.endereco.DAOEndereco;
+import com.carbum.endereco.Endereco;
+import com.carbum.pessoa.DAOPessoa;
+import com.carbum.pessoa.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.Scene;
-
-import java.io.IOException;
-
-import com.carbum.pessoa.DAOPessoa;
-import com.carbum.pessoa.Pessoa;
-import com.carbum.endereco.DAOEndereco;
-import com.carbum.endereco.Endereco;
 
 import java.io.IOException;
 import java.sql.SQLException;

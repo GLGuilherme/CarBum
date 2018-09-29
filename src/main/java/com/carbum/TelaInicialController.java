@@ -85,10 +85,10 @@ public class TelaInicialController {
         rootPane.getChildren().clear();
 
         try {
-            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+            AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
                     .getResource("/fxml/TelaCadastroPeca.fxml"));
 
-            rootPane.getChildren().setAll(telaPecaPesquisas);
+            rootPane.getChildren().setAll(telaCadastroPeca);
         } catch (IOException e) {
             e.printStackTrace();
         }
