@@ -89,19 +89,19 @@
       </Label>
       <HBox layoutX="621.0" layoutY="114.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
          <children>
-            <ImageView fx:id="imagemPeca1" fitHeight="164.0" fitWidth="200.0" onMouseClicked="#selecionarImagem1" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/semfoto.jpeg" />
-               </image>
+            <ImageView fx:id="imagemPeca1" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem1" pickOnBounds="true">
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <image>
+                  <Image url="@../images/semfoto.jpeg" />
+               </image>
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="623.0" layoutY="256.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
+      <HBox layoutX="621.0" layoutY="251.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
          <children>
-            <ImageView fx:id="imagemPeca2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selecionarImagem2" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagemPeca2" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem2" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../images/semfoto.jpeg" />
                </image>
