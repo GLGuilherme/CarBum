@@ -1,7 +1,6 @@
 package com.carbum.anuncio;
 
 public class Anuncio {
-    private String titulo;
     private String parteCarro;
     private String descricao;
     private String conservacao;
@@ -11,14 +10,13 @@ public class Anuncio {
     private String modelo;
     private String imagem1;
     private String imagem2;
+    private String preco;
 
     public Anuncio() {
     }
 
-    public Anuncio(String titulo, String parteCarro, String descricao, String conservacao, String nomeCarro,
-                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2) {
-
-        this.titulo = titulo;
+    public Anuncio(String parteCarro, String descricao, String conservacao, String nomeCarro,
+                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2, String preco) {
         this.parteCarro = parteCarro;
         this.descricao = descricao;
         this.conservacao = conservacao;
@@ -28,14 +26,7 @@ public class Anuncio {
         this.modelo = modelo;
         this.imagem1 = imagem1;
         this.imagem2 = imagem2;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.preco = preco;
     }
 
     public String getParteCarro() {
@@ -108,6 +99,14 @@ public class Anuncio {
 
     public void setImagem2(String imagem2) {
         this.imagem2 = imagem2;
+    }
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
     }
 
     @Override

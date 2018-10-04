@@ -4,22 +4,24 @@ package com.carbum;
 import com.carbum.anuncio.Anuncio;
 import com.carbum.anuncio.DAOAnuncio;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.FloatStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 import org.apache.commons.lang.ObjectUtils;
 import org.postgresql.util.Base64;
 import sun.misc.BASE64Decoder;
@@ -35,10 +37,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class TelaCadastroPecaController implements Initializable {
 
-    public TextField inputTitulo;
     public ComboBox<String> inputMarca;
     public ComboBox<String> inputModelo;
     public ComboBox<String> inputAno;
@@ -49,8 +51,9 @@ public class TelaCadastroPecaController implements Initializable {
     public ImageView imagemPeca2;
     public String imagem1;
     public String imagem2;
-    public JFXComboBox<String> inputNomeCarro;
-    public JFXComboBox<String> inputPeca;
+    public ComboBox<String> inputNomeCarro;
+    public ComboBox<String> inputPeca;
+    public TextField inputPreco;
 
 
     private ConexaoBanco conexao;
@@ -71,7 +74,6 @@ public class TelaCadastroPecaController implements Initializable {
     private void salvarPeca(ActionEvent event) throws IOException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         boolean operacaoCompleta = false;
 
-        String titulo = inputTitulo.getText();
         String marca = inputMarca.getValue();
         String modelo = inputModelo.getValue();
         String ano = inputAno.getValue();
@@ -79,14 +81,20 @@ public class TelaCadastroPecaController implements Initializable {
         String nomeCarro = inputNomeCarro.getValue();
         String descricao = inputDescricao.getText();
         String peca = inputPeca.getValue();
+        String preco = inputPreco.getText();
 
-        Anuncio anuncioNovo = new Anuncio(titulo, peca, descricao, conservacao, nomeCarro,
-                marca, ano, modelo, imagem1, imagem2);
+        Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
+                marca, ano, modelo, imagem1, imagem2, preco);
 
         DAOAnuncio daoAnuncio = new DAOAnuncio();
         operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
 
         if (operacaoCompleta) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro de Peça");
+            alert.setHeaderText(null);
+            alert.setContentText("Peça cadastrada com sucesso!");
+            alert.showAndWait();
             this.navegaTelaInicial();
 
         } else {
@@ -133,7 +141,7 @@ public class TelaCadastroPecaController implements Initializable {
         return inputMarca;
     }
 
-    public JFXComboBox<String> getInputNomeCarro() {
+    public ComboBox<String> getInputNomeCarro() {
 
         try {
 
@@ -156,8 +164,17 @@ public class TelaCadastroPecaController implements Initializable {
         return inputNomeCarro;
     }
 
+
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        inputPreco.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,7}([\\,]\\d{0,4})?")) {
+                    inputPreco.setText(oldValue);
+                }
+            }
+        });
 
         getInputMarca();
         getInputNomeCarro();
@@ -317,6 +334,8 @@ public class TelaCadastroPecaController implements Initializable {
 
         return image;
     }
+
+
 
 
 }
