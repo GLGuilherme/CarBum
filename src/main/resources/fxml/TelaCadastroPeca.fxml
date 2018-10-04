@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -20,27 +20,20 @@
                 <Image url="/images/LogoCarBum.jpeg" />
             </image>
         </ImageView>
-        <TextField fx:id="inputTitulo" layoutX="112.0" layoutY="118.0" prefHeight="41.0" prefWidth="500.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </TextField>
-        <ComboBox fx:id="inputMarca" layoutX="112.0" layoutY="188.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a Marca" />
-        <ComboBox fx:id="inputModelo" layoutX="372.0" layoutY="188.0" prefHeight="41.0" prefWidth="240.0" />
-        <ComboBox fx:id="inputAno" layoutX="112.0" layoutY="259.0" prefHeight="41.0" prefWidth="240.0" />
-        <ComboBox fx:id="inputConservacao" layoutX="372.0" layoutY="259.0" prefHeight="41.0" prefWidth="240.0" />
-        <TextArea fx:id="inputDescricao" layoutX="112.0" layoutY="393.0" prefHeight="109.0" prefWidth="500.0" />
-        <Button fx:id="btSalvarPeca" layoutX="497.0" layoutY="521.0" mnemonicParsing="false" onAction="#salvarPeca" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
+        <ComboBox fx:id="inputMarca" layoutX="367.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a Marca" />
+        <ComboBox fx:id="inputModelo" layoutX="367.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o Modelo" />
+        <ComboBox fx:id="inputAno" layoutX="108.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o Ano">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></ComboBox>
+        <ComboBox fx:id="inputConservacao" layoutX="367.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a Conservação" />
+        <TextArea fx:id="inputDescricao" layoutX="108.0" layoutY="385.0" prefHeight="130.0" prefWidth="499.0" />
+        <Button fx:id="btSalvarPeca" layoutX="492.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPeca" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-        <Label layoutX="112.0" layoutY="98.0" prefHeight="18.0" prefWidth="149.0" text="Título">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="113.0" layoutY="168.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
+        <Label layoutX="368.0" layoutY="185.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
             <font>
                 <Font size="14.0" />
             </font>
@@ -55,39 +48,37 @@
                 <Font size="22.0" />
             </font>
         </Label>
-        <Label layoutX="372.0" layoutY="168.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
+        <Label layoutX="368.0" layoutY="251.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="113.0" layoutY="239.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
+        <Label layoutX="108.0" layoutY="251.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="372.0" layoutY="239.0" prefHeight="18.0" prefWidth="115.0" text="Conservação">
+        <Label layoutX="368.0" layoutY="119.0" prefHeight="18.0" prefWidth="115.0" text="Conservação">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="113.0" layoutY="375.0" prefHeight="18.0" prefWidth="115.0" text="Descrição">
+        <Label layoutX="108.0" layoutY="367.0" prefHeight="18.0" prefWidth="115.0" text="Descrição">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-      <JFXComboBox fx:id="inputNomeCarro" layoutX="113.0" layoutY="315.0" prefHeight="41.0" prefWidth="240.0" />
-      <Label layoutX="113.0" layoutY="306.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
+      <Label layoutX="108.0" layoutY="185.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="inputPeca" layoutX="372.0" layoutY="315.0" prefHeight="41.0" prefWidth="240.0" />
-      <Label layoutX="372.0" layoutY="306.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
+      <Label layoutX="113.0" layoutY="119.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox layoutX="621.0" layoutY="114.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
+      <HBox layoutX="618.0" layoutY="137.0" prefHeight="132.0" prefWidth="149.0" style="-fx-border-color: black;">
          <children>
             <ImageView fx:id="imagemPeca1" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem1" pickOnBounds="true">
                <viewport>
@@ -99,7 +90,7 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="621.0" layoutY="251.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
+      <HBox layoutX="618.0" layoutY="276.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
          <children>
             <ImageView fx:id="imagemPeca2" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem2" pickOnBounds="true" smooth="false">
                <image>
@@ -108,5 +99,23 @@
             </ImageView>
          </children>
       </HBox>
+      <ComboBox fx:id="inputNomeCarro" layoutX="108.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o Carro" />
+      <ComboBox fx:id="inputPeca" layoutX="108.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a Peça" />
+      <TextField fx:id="inputPreco" cache="true" layoutX="127.0" layoutY="335.0" prefHeight="26.0" prefWidth="221.0" promptText="Digite o Preço da Peça" />
+      <Label layoutX="108.0" layoutY="317.0" prefHeight="18.0" prefWidth="115.0" text="Preço">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="618.0" layoutY="119.0" prefHeight="18.0" prefWidth="115.0" text="Fotos da Peça">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="109.0" layoutY="335.0" prefHeight="26.0" prefWidth="24.0" text="R$">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
