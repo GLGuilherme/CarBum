@@ -116,8 +116,6 @@ public class TelaCadastroPecaController implements Initializable {
         }
     }
 
-    
-
     public ComboBox<String> getInputMarca() {
 
         try {
@@ -134,9 +132,6 @@ public class TelaCadastroPecaController implements Initializable {
             e.printStackTrace();
 
         }
-
-        
-
 
         return inputMarca;
     }
