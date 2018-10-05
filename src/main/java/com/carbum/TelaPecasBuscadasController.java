@@ -112,10 +112,8 @@ public class TelaPecasBuscadasController implements Initializable{
                     + ano + "/" + modelo + " em um " + conservacao + " estado");
 
                 titulo.setWrapText(true);
-                titulo.setFont(Font.font(13));
+                titulo.setFont(Font.font(10));
                 titulo.setTextAlignment(TextAlignment.LEFT);
-
-
 
                 Label valor = new Label("R$" + preco);
                 valor.setStyle("-fx-background-color: orange");
@@ -124,12 +122,15 @@ public class TelaPecasBuscadasController implements Initializable{
                 VBox vBox = new VBox(imageView, titulo, valor);
 
                 vBox.setSpacing(10);
-                vBox.setAlignment(Pos.TOP_CENTER);
-                vBox.setStyle("-fx-border-color: black");
+                vBox.setAlignment(Pos.TOP_LEFT);
+                //vBox.setStyle("-fx-border-color: black");
                 vBox.setStyle("-fx-background-color: darkgray");
-                pecasBuscadas.addRow(contR, vBox);
+                vBox.setPrefHeight(800);
+                //pecasBuscadas.addRow(contR, vBox);
+                pecasBuscadas.add(vBox, contC, contR);
+                //pecasBuscadas.getRowConstraints().get(0).setPrefHeight(400);
                 contC++;
-                if (contC > 1){
+                if (contC > 2){
                     contC = 0;
                     contR++;
                 }
