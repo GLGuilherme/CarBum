@@ -19,6 +19,8 @@ public class TelaInicialController {
     public Button btBuscar;
     public TextField inputTermoBusca;
     public static String pecaBuscada;
+    public Button btVenderPeca;
+    public Button btMinhaConta;
     @FXML
     private AnchorPane rootPane;
     private Scene scene;

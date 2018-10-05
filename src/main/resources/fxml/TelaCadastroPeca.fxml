@@ -73,11 +73,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-<<<<<<< HEAD
-      <Label layoutX="108.0" layoutY="119.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
-=======
+
       <Label layoutX="109.0" layoutY="119.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
->>>>>>> master
+
          <font>
             <Font size="14.0" />
          </font>
