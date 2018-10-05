@@ -2,6 +2,7 @@ package com.carbum;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
@@ -72,9 +76,30 @@ public class TelaPecasBuscadasController implements Initializable{
 
     public void vender(ActionEvent actionEvent) {
 
+        rootPane.getChildren().clear();
+
+        try {
+            AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaCadastroPeca.fxml"));
+
+            rootPane.getChildren().setAll(telaCadastroPeca);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void conta(ActionEvent actionEvent) {
+        rootPane.getChildren().clear();
+
+        try {
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaCadastroPessoa.fxml"));
+
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -112,33 +137,48 @@ public class TelaPecasBuscadasController implements Initializable{
                     + ano + "/" + modelo + " em um " + conservacao + " estado");
 
                 titulo.setWrapText(true);
-                titulo.setFont(Font.font(10));
+                titulo.setFont(Font.font(20));
                 titulo.setTextAlignment(TextAlignment.LEFT);
+                titulo.setAlignment(Pos.TOP_LEFT);
 
                 Label valor = new Label("R$" + preco);
                 valor.setStyle("-fx-background-color: orange");
                 valor.setFont(Font.font(20));
+                //valor.setPrefHeight(200);
 
                 VBox vBox = new VBox(imageView, titulo, valor);
 
                 vBox.setSpacing(10);
                 vBox.setAlignment(Pos.TOP_LEFT);
-                //vBox.setStyle("-fx-border-color: black");
                 vBox.setStyle("-fx-background-color: darkgray");
-                vBox.setPrefHeight(800);
+                //vBox.setPrefHeight(800);
                 //pecasBuscadas.addRow(contR, vBox);
+
                 pecasBuscadas.add(vBox, contC, contR);
-                //pecasBuscadas.getRowConstraints().get(0).setPrefHeight(400);
                 contC++;
                 if (contC > 2){
                     contC = 0;
                     contR++;
                 }
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
     }
+
+    @FXML
+    public void onEnter(ActionEvent ae){
+
+        try {
+            TelaInicialController.pecaBuscada = inputTermoBusca.getText();
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
+
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

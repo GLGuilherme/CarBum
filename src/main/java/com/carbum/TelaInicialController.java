@@ -102,4 +102,18 @@ public class TelaInicialController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void onEnter(ActionEvent ae){
+
+        try {
+            TelaInicialController.pecaBuscada = inputTermoBusca.getText();
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
+
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
