@@ -3,6 +3,9 @@ package com.carbum;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +16,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
 
 public class TelaInicialController {
+    public Button btBuscar;
+    public TextField inputTermoBusca;
+    public static String pecaBuscada;
     @FXML
     private AnchorPane rootPane;
     private Scene scene;
@@ -53,17 +59,18 @@ public class TelaInicialController {
 
 
     @FXML
-    public void buscar(ActionEvent event) throws IOException {
-//        rootPane.getChildren().clear();
-//
-//        try {
-//            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-//                    .getResource("/fxml/TelaPecasPesquisadas.fxml"));
-//
-//            rootPane.getChildren().setAll(telaPecaPesquisas);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    public  void buscar(ActionEvent event) throws IOException {
+        rootPane.getChildren().clear();
+
+        try {
+            pecaBuscada = inputTermoBusca.getText();
+           AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                  .getResource("/fxml/TelaPecasBuscadas.fxml"));
+
+           rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
     }
 
     @FXML

@@ -17,6 +17,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
@@ -54,6 +57,7 @@ public class TelaCadastroPecaController implements Initializable {
     public ComboBox<String> inputNomeCarro;
     public ComboBox<String> inputPeca;
     public TextField inputPreco;
+    public WebView webView;
 
 
     private ConexaoBanco conexao;
@@ -167,6 +171,7 @@ public class TelaCadastroPecaController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         inputPreco.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -220,25 +225,6 @@ public class TelaCadastroPecaController implements Initializable {
             e.printStackTrace();
 
         }
-
-        /*try { Código para recuperar base64 do banco e transformar em imagem
-            sql = "SELECT imagem1 FROM anuncio WHERE idanuncio = 9";
-            Statement stm = conexao.getConnection().createStatement();
-            stm.execute(sql);
-            ResultSet rs = stm.executeQuery(sql);
-            while (rs.next()){
-                String imagem = rs.getString("imagem1");
-
-                BufferedImage bufferedImage = decodeToImage(imagem);
-                Image card = SwingFXUtils.toFXImage(bufferedImage, null );
-
-                imagemTeste.setImage(card);
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }*/
 
     }
 
