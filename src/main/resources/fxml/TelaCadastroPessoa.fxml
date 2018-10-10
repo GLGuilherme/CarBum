@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaCadastroPessoaController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaCadastroPessoaController">
     <children>
         <ImageView fitHeight="107.0" fitWidth="78.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <!--<image>-->
@@ -30,12 +30,12 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0">
+        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -46,6 +46,11 @@
             </font>
         </TextField>
         <TextField fx:id="inputNumero" layoutX="520.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -146,11 +151,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
       <Label layoutX="520.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="Senha">
          <font>
             <Font size="14.0" />
