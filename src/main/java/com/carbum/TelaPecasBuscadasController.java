@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -139,7 +140,6 @@ public class TelaPecasBuscadasController implements Initializable{
 
                 Label titulo = new Label(partecarro + " " + nomecarro + " " + marcacarro + " "
                     + ano + "/" + modelo + " em um " + conservacao + " estado");
-
                 titulo.setWrapText(true);
                 titulo.setFont(Font.font(20));
                 titulo.setPrefHeight(400);
@@ -147,16 +147,27 @@ public class TelaPecasBuscadasController implements Initializable{
                 titulo.setAlignment(Pos.TOP_LEFT);
 
                 Label valor = new Label("R$" + preco);
+                valor.setWrapText(true);
                 valor.setStyle("-fx-background-color: orange");
                 valor.setFont(Font.font(20));
+                valor.setTextAlignment(TextAlignment.LEFT);
+                valor.setAlignment(Pos.TOP_LEFT);
                 //valor.setPrefHeight(200);
 
-                VBox vBox = new VBox(imageView, titulo, valor);
+                StackPane stackPane= new StackPane();
+
+                stackPane.getChildren().add(imageView);
+                stackPane.getChildren().add(valor);
+                stackPane.setStyle("-fx-alignment: bottom_center");
+
+                //stackPane.setAlignment(Pos.CENTER);
+
+                VBox vBox = new VBox(stackPane, titulo);
 
                 vBox.setSpacing(10);
-                vBox.setAlignment(Pos.TOP_LEFT);
+                //vBox.setAlignment(Pos.CENTER);
                 vBox.setStyle("-fx-background-color: darkgray");
-                vBox.setMinHeight(400);
+                vBox.setMinHeight(titulo.getPrefHeight());
 
 
                 GridPane.setConstraints(vBox, contC, contR);
