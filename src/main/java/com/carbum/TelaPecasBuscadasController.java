@@ -1,5 +1,7 @@
 package com.carbum;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -142,9 +144,10 @@ public class TelaPecasBuscadasController implements Initializable{
                     + ano + "/" + modelo + " em um " + conservacao + " estado");
                 titulo.setWrapText(true);
                 titulo.setFont(Font.font(20));
-                titulo.setPrefHeight(400);
+                titulo.setMaxHeight(Double.MAX_VALUE);
                 titulo.setTextAlignment(TextAlignment.LEFT);
                 titulo.setAlignment(Pos.TOP_LEFT);
+                titulo.setStyle("-fx-background-color: darkgray");
 
                 Label valor = new Label("R$" + preco);
                 valor.setWrapText(true);
@@ -155,24 +158,22 @@ public class TelaPecasBuscadasController implements Initializable{
                 //valor.setPrefHeight(200);
 
                 StackPane stackPane= new StackPane();
-
+                StackPane.setAlignment(valor, Pos.BOTTOM_RIGHT);
                 stackPane.getChildren().add(imageView);
                 stackPane.getChildren().add(valor);
-                stackPane.setStyle("-fx-alignment: bottom_center");
+                stackPane.setStyle("-fx-alignment: top_center");
 
-                //stackPane.setAlignment(Pos.CENTER);
 
                 VBox vBox = new VBox(stackPane, titulo);
-
-                vBox.setSpacing(10);
-                //vBox.setAlignment(Pos.CENTER);
-                vBox.setStyle("-fx-background-color: darkgray");
-                vBox.setMinHeight(titulo.getPrefHeight());
+                VBox.setVgrow(titulo, Priority.ALWAYS);
+                //vBox.setMinHeight(imageView.getFitHeight() + titulo.getPrefHeight());
+                //vBox.setMaxHeight(Double.MAX_VALUE);
 
 
                 GridPane.setConstraints(vBox, contC, contR);
                 pecasBuscadas.getChildren().addAll(vBox);
-                rowConstraints.setMinHeight(vBox.getPrefHeight());
+                rowConstraints.setMinHeight(400);
+                //rowConstraints.setMaxHeight(Double.MAX_VALUE);
                 contC++;
                 if (contC > 2){
                     contC = 0;
