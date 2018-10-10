@@ -167,6 +167,9 @@ public class TelaCadastroPecaController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        getInputMarca();
+        getInputNomeCarro();
+
         inputPreco.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -176,8 +179,6 @@ public class TelaCadastroPecaController implements Initializable {
             }
         });
 
-        getInputMarca();
-        getInputNomeCarro();
         try {
             sql = "SELECT * FROM anomodelo";
             Statement stm = conexao.getConnection().createStatement();

@@ -107,6 +107,10 @@ public class TelaPecasBuscadasController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         scrollPane.setFitToWidth(true);
+        RowConstraints rowConstraints = new RowConstraints();
+        rowConstraints.setVgrow(Priority.ALWAYS);
+
+        pecasBuscadas.getRowConstraints().addAll(rowConstraints);
 
         try {
 
@@ -129,15 +133,16 @@ public class TelaPecasBuscadasController implements Initializable{
                 Image card = SwingFXUtils.toFXImage(bufferedImage, null );
 
                 ImageView imageView = new ImageView(card);
-
                 imageView.setFitWidth(310);
                 imageView.setFitHeight(250);
+                imageView.setPreserveRatio(true);
 
                 Label titulo = new Label(partecarro + " " + nomecarro + " " + marcacarro + " "
                     + ano + "/" + modelo + " em um " + conservacao + " estado");
 
                 titulo.setWrapText(true);
                 titulo.setFont(Font.font(20));
+                titulo.setPrefHeight(400);
                 titulo.setTextAlignment(TextAlignment.LEFT);
                 titulo.setAlignment(Pos.TOP_LEFT);
 
@@ -151,14 +156,17 @@ public class TelaPecasBuscadasController implements Initializable{
                 vBox.setSpacing(10);
                 vBox.setAlignment(Pos.TOP_LEFT);
                 vBox.setStyle("-fx-background-color: darkgray");
-                //vBox.setPrefHeight(800);
-                //pecasBuscadas.addRow(contR, vBox);
+                vBox.setMinHeight(400);
 
-                pecasBuscadas.add(vBox, contC, contR);
+
+                GridPane.setConstraints(vBox, contC, contR);
+                pecasBuscadas.getChildren().addAll(vBox);
+                rowConstraints.setMinHeight(vBox.getPrefHeight());
                 contC++;
                 if (contC > 2){
                     contC = 0;
                     contR++;
+                    pecasBuscadas.getRowConstraints().addAll(rowConstraints);
                 }
             }
         } catch (SQLException e) {
