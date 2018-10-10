@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class TelaCadastroPessoaController {
 
-    public TextField inputNome, inputCpf, inputEmail, inputDDD, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
+    public TextField inputNome, inputCpf, inputEmail, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
 
     @FXML
     private AnchorPane rootPane;
@@ -28,8 +28,7 @@ public class TelaCadastroPessoaController {
         String nome = inputNome.getText(),
                 cpf = inputCpf.getText(),
                 email = inputEmail.getText(),
-                ddd = inputDDD.getText(),
-                telefone = inputTelefone.getText(),
+                senha = inputSenha.getText(),
                 rua = inputRua.getText(),
                 bairro = inputBairro.getText(),
                 numero = inputNumero.getText(),
@@ -38,7 +37,7 @@ public class TelaCadastroPessoaController {
                 estado = inputEstado.getText(),
                 cep = inputCep.getText();
 
-        Pessoa pessoaNova = new Pessoa(nome, cpf, email, "123456");
+        Pessoa pessoaNova = new Pessoa(nome, cpf, email, senha);
         pessoaNova.setEmailLogin(email);
 
         DAOPessoa daoPessoa = new DAOPessoa();
