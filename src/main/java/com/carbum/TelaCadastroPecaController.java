@@ -48,14 +48,14 @@ public class TelaCadastroPecaController implements Initializable {
     public ComboBox<String> inputModelo;
     public ComboBox<String> inputAno;
     public ComboBox<String> inputConservacao;
+    public ComboBox<String> inputNomeCarro;
+    public ComboBox<String> inputPeca;
     public TextArea inputDescricao;
     public Button btSalvarPeca;
     public ImageView imagemPeca1;
     public ImageView imagemPeca2;
     public String imagem1;
     public String imagem2;
-    public ComboBox<String> inputNomeCarro;
-    public ComboBox<String> inputPeca;
     public TextField inputPreco;
     public WebView webView;
 

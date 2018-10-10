@@ -3,17 +3,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaCadastroPessoaController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaCadastroPessoaController">
     <children>
         <ImageView fitHeight="107.0" fitWidth="78.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="/images/LogoCarBum.jpeg" />
-            </image>
+            <!--<image>-->
+                <!--<Image url="/images/LogoCarBum.jpeg" />-->
+            <!--</image>-->
         </ImageView>
 
         <Label alignment="CENTER" layoutX="393.0" layoutY="14.0" text="Cadastro de Pessoa">
@@ -26,22 +25,17 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCpf" layoutX="517.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputCpf" layoutX="520.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputDDD" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="75.0">
+        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputTelefone" layoutX="211.0" layoutY="224.0" prefHeight="41.0" prefWidth="270.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="inputEmail" layoutX="517.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -51,7 +45,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputNumero" layoutX="519.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0">
+        <TextField fx:id="inputNumero" layoutX="520.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -66,7 +60,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputComplemento" layoutX="519.0" layoutY="385.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputComplemento" layoutX="520.0" layoutY="385.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -76,7 +70,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEstado" layoutX="519.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputEstado" layoutX="520.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0">
             <font>
                 <Font size="14.0" />
             </font>
@@ -92,37 +86,32 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label focusTraversable="false" layoutX="517.0" layoutY="112.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
+        <Label focusTraversable="false" layoutX="520.0" layoutY="112.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="204.0" prefHeight="18.0" prefWidth="115.0" text="DDD">
+        <Label layoutX="660.0" layoutY="290.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="211.0" layoutY="204.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
+        <Label layoutX="112.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="E-mail">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="517.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="E-mail">
+        <Label layoutX="520.0" layoutY="291.0" prefHeight="17.0" prefWidth="59.0" text="Número">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="519.0" layoutY="291.0" prefHeight="17.0" prefWidth="59.0" text="Número">
+        <Label layoutX="520.0" layoutY="364.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="519.0" layoutY="364.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="519.0" layoutY="436.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
+        <Label layoutX="520.0" layoutY="436.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
             <font>
                 <Font size="14.0" />
             </font>
@@ -157,5 +146,15 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <TextField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="520.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="Senha">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
