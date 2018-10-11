@@ -22,8 +22,11 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import org.apache.log4j.Layout;
 
 import javax.swing.*;
@@ -140,14 +143,6 @@ public class TelaPecasBuscadasController implements Initializable{
                 imageView.setFitHeight(250);
                 imageView.setPreserveRatio(true);
 
-                Label titulo = new Label(partecarro + " " + nomecarro + " " + marcacarro + " "
-                    + ano + "/" + modelo + " em um " + conservacao + " estado");
-                titulo.setWrapText(true);
-                titulo.setFont(Font.font(20));
-                titulo.setMaxHeight(Double.MAX_VALUE);
-                titulo.setTextAlignment(TextAlignment.LEFT);
-                titulo.setAlignment(Pos.TOP_LEFT);
-                titulo.setStyle("-fx-background-color: darkgray");
 
                 Label valor = new Label("R$" + preco);
                 valor.setWrapText(true);
@@ -155,7 +150,6 @@ public class TelaPecasBuscadasController implements Initializable{
                 valor.setFont(Font.font(20));
                 valor.setTextAlignment(TextAlignment.LEFT);
                 valor.setAlignment(Pos.TOP_LEFT);
-                //valor.setPrefHeight(200);
 
                 StackPane stackPane= new StackPane();
                 StackPane.setAlignment(valor, Pos.BOTTOM_RIGHT);
@@ -163,17 +157,22 @@ public class TelaPecasBuscadasController implements Initializable{
                 stackPane.getChildren().add(valor);
                 stackPane.setStyle("-fx-alignment: top_center");
 
+                Text text = new Text(partecarro + " " + nomecarro + " " + marcacarro + " "
+                        + ano + "/" + modelo + " em um " + conservacao + " estado");
+                text.setWrappingWidth(310);
+                text.setFont(Font.font(20));
 
-                VBox vBox = new VBox(stackPane, titulo);
-                VBox.setVgrow(titulo, Priority.ALWAYS);
-                //vBox.setMinHeight(imageView.getFitHeight() + titulo.getPrefHeight());
-                //vBox.setMaxHeight(Double.MAX_VALUE);
+                FlowPane flowPane = new FlowPane(text);
+                flowPane.setStyle("-fx-background-color: darkgray");
+
+                VBox vBox = new VBox(stackPane, flowPane);
+                VBox.setVgrow(flowPane, Priority.ALWAYS);
+                vBox.setMaxHeight(Double.MAX_VALUE);
 
 
                 GridPane.setConstraints(vBox, contC, contR);
                 pecasBuscadas.getChildren().addAll(vBox);
-                rowConstraints.setMinHeight(400);
-                //rowConstraints.setMaxHeight(Double.MAX_VALUE);
+                rowConstraints.setMaxHeight(Double.MAX_VALUE);
                 contC++;
                 if (contC > 2){
                     contC = 0;
