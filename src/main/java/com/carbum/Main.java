@@ -20,7 +20,7 @@ public class Main extends Application {
 
         log.info("Starting Hello JavaFX and Maven demonstration application");
 
-        String fxmlFile = "/fxml/TelaInicial.fxml";
+        String fxmlFile = "/fxml/Login.fxml";
         log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
