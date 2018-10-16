@@ -77,7 +77,7 @@ public class TelaInicialController {
 
     @FXML
     public void conta(ActionEvent event) throws IOException {
-        rootPane.getChildren().clear();
+        /*rootPane.getChildren().clear();
 
         try {
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
@@ -86,7 +86,7 @@ public class TelaInicialController {
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @FXML

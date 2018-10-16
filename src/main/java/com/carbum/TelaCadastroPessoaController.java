@@ -70,10 +70,10 @@ public class TelaCadastroPessoaController {
     public void navegaTelaInicial() throws IOException {
         rootPane.getChildren().clear();
         try {
-            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaInicial.fxml"));
+            AnchorPane telaLogin = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaLogin.fxml"));
 
-            rootPane.getChildren().setAll(telaPecaPesquisas);
+            rootPane.getChildren().setAll(telaLogin);
         } catch (IOException e) {
             e.printStackTrace();
         }
