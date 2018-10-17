@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -24,6 +25,8 @@ public class TelaCadastroPessoaController implements Initializable {
     public TextField inputNome, inputCpf, inputEmail, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
     public Button btSalvarPessoa;
     public Button btVoltar;
+    public Label erroNome;
+    public Label erroCpf;
 
     @FXML
     private AnchorPane rootPane;
@@ -44,6 +47,17 @@ public class TelaCadastroPessoaController implements Initializable {
                 estado = inputEstado.getText(),
                 cep = Mascaras.onlyDigitsValue(this.inputCep);
 
+        if (nome.isEmpty()){
+            erroNome.setText("Campo Nome Obrigatório");
+        }
+        if (cpf.length() <= 11){
+            System.out.println("entrou");
+            erroCpf.setText("Campo CPF Obrigatório");
+        }
+        if (nome.isEmpty() || cpf.length() < 11){
+            return;
+        }
+
         Pessoa pessoaNova = new Pessoa(nome, cpf, email, senha);
         pessoaNova.setEmailLogin(email);
 
@@ -62,7 +76,7 @@ public class TelaCadastroPessoaController implements Initializable {
             alert.setContentText("Pessoa cadastrada com sucesso!");
 
             alert.showAndWait();
-            this.navegaTelaInicial();
+            //this.navegaTelaInicial();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Pessoa já existente");
