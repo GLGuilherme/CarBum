@@ -33,7 +33,7 @@ public class TelaCadastroPessoaController implements Initializable {
         boolean operacaoCompleta = false;
 
         String nome = inputNome.getText(),
-                cpf = inputCpf.getText(),
+                cpf = Mascaras.onlyDigitsValue(this.inputCpf),
                 email = inputEmail.getText(),
                 senha = inputSenha.getText(),
                 rua = inputRua.getText(),
@@ -42,7 +42,7 @@ public class TelaCadastroPessoaController implements Initializable {
                 complemento = inputComplemento.getText(),
                 cidade = inputCidade.getText(),
                 estado = inputEstado.getText(),
-                cep = inputCep.getText();
+                cep = Mascaras.onlyDigitsValue(this.inputCep);
 
         Pessoa pessoaNova = new Pessoa(nome, cpf, email, senha);
         pessoaNova.setEmailLogin(email);
@@ -71,7 +71,6 @@ public class TelaCadastroPessoaController implements Initializable {
 
             alert.showAndWait();
         }
-        getValores();
     }
 
     @FXML
@@ -93,9 +92,5 @@ public class TelaCadastroPessoaController implements Initializable {
         Mascaras.cepField(this.inputCep);
         Mascaras.foneField(this.inputTelefone);
         Mascaras.numericField(this.inputNumero);
-    }
-
-    public void getValores(){
-        System.out.println("CPF: " + Mascaras.onlyDigitsValue(this.inputCpf));
     }
 }
