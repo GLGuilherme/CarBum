@@ -15,7 +15,7 @@ public class ConexaoBanco {
             DriverManager.registerDriver(new org.postgresql.Driver());
             String databaseURL = "jdbc:postgresql://localhost:5432/carbum";
             String usuario = "postgres";
-            String senha = "";
+            String senha = "gabrielopes";
             String driverName = "org.postgresql.Driver";
             Class.forName(driverName).newInstance();
 

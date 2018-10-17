@@ -18,6 +18,29 @@
 -fx-text-fill: #FFF;
 }
 
+.text-field
+{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-color: white;
+    -fx-border-color: #355ECE;
+    -fx-text-fill:  #0C3988;
+}
+
+.text-area
+{
+    -fx-border-color: #355ECE;
+    -fx-text-fill:  #0C3988;
+}
+.combo-box
+{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-color: white;
+    -fx-border-color: #355ECE;
+    -fx-text-fill:  #0C3988;
+}
+
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;

@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaCadastroPessoaController">
     <children>
         <ImageView fitHeight="107.0" fitWidth="78.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -20,67 +21,67 @@
                 <Font size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="inputNome" layoutX="112.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputNome" layoutX="112.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCpf" layoutX="520.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputCpf" layoutX="520.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0">
+        <PasswordField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </PasswordField>
+        <TextField fx:id="inputRua" layoutX="112.0" layoutY="310.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputRua" layoutX="112.0" layoutY="310.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputNumero" layoutX="520.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputNumero" layoutX="520.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0">
+        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0">
+        <TextField fx:id="inputBairro" layoutX="112.0" layoutY="385.0" prefHeight="41.0" prefWidth="234.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputBairro" layoutX="112.0" layoutY="385.0" prefHeight="41.0" prefWidth="234.0">
+        <TextField fx:id="inputCep" layoutX="370.0" layoutY="385.0" prefHeight="41.0" prefWidth="108.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCep" layoutX="370.0" layoutY="385.0" prefHeight="41.0" prefWidth="108.0">
+        <TextField fx:id="inputComplemento" layoutX="520.0" layoutY="385.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputComplemento" layoutX="520.0" layoutY="385.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputCidade" layoutX="112.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCidade" layoutX="112.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0">
+        <TextField fx:id="inputEstado" layoutX="520.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEstado" layoutX="520.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </TextField>
-        <Button fx:id="btSalvarPessoa" layoutX="772.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
+        <Button fx:id="btSalvarPessoa" layoutX="772.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Salvar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -146,7 +147,7 @@
                 <Font size="22.0" />
             </font>
         </Label>
-      <Button fx:id="btVoltar" layoutX="114.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #e4e4e4; -fx-border-width: 0; -fx-max-height: 39px;" text="Voltar">
+      <Button fx:id="btVoltar" layoutX="114.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Voltar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -20,15 +20,15 @@
                 <Image url="/images/LogoCarBum.jpeg" />
             </image>
         </ImageView>
-        <ComboBox fx:id="inputMarca" layoutX="108.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a marca" />
-        <ComboBox fx:id="inputModelo" layoutX="367.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o modelo" />
-        <ComboBox fx:id="inputAno" layoutX="108.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o ano">
+        <ComboBox fx:id="inputMarca" layoutX="108.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a marca" stylesheets="@/styling/fullpackstyling.css" />
+        <ComboBox fx:id="inputModelo" layoutX="367.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o modelo" stylesheets="@/styling/fullpackstyling.css" />
+        <ComboBox fx:id="inputAno" layoutX="108.0" layoutY="269.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o ano" stylesheets="@/styling/fullpackstyling.css">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></ComboBox>
-        <ComboBox fx:id="inputConservacao" layoutX="367.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a conservação" />
-        <TextArea fx:id="inputDescricao" layoutX="109.0" layoutY="410.0" prefHeight="103.0" prefWidth="499.0" />
-        <Button fx:id="btSalvarPeca" layoutX="492.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPeca" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #f75959; -fx-border-width: 0; -fx-max-height: 39px;" text="Salvar" textFill="WHITE">
+        <ComboBox fx:id="inputConservacao" layoutX="367.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a conservação" stylesheets="@/styling/fullpackstyling.css" />
+        <TextArea fx:id="inputDescricao" layoutX="109.0" layoutY="410.0" prefHeight="103.0" prefWidth="499.0" stylesheets="@/styling/fullpackstyling.css"/>
+        <Button fx:id="btSalvarPeca" layoutX="492.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPeca" prefHeight="39.0" prefWidth="115.0" text="Salvar" textFill="WHITE" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -101,8 +101,8 @@
             </ImageView>
          </children>
       </HBox>
-      <ComboBox fx:id="inputPeca" layoutX="108.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a peça" />
-      <TextField fx:id="inputPreco" cache="true" layoutX="108.0" layoutY="335.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="240.0" promptText="Digite o valor" />
+      <ComboBox fx:id="inputPeca" layoutX="108.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a peça" stylesheets="@/styling/fullpackstyling.css" />
+      <TextField fx:id="inputPreco" cache="true" layoutX="108.0" layoutY="335.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="240.0" promptText="Digite o valor" stylesheets="@/styling/fullpackstyling.css"/>
       <Label layoutX="109.0" layoutY="317.0" prefHeight="18.0" prefWidth="115.0" text="Preço">
          <font>
             <Font size="14.0" />
@@ -118,11 +118,11 @@
             <Font size="16.0" />
          </font>
       </Label>
-    <Button fx:id="btVoltar" layoutX="109.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #e4e4e4; -fx-border-width: 0; -fx-max-height: 39px;" text="Voltar">
+    <Button fx:id="btVoltar" layoutX="109.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" text="Voltar" stylesheets="@/styling/fullpackstyling.css">
     <font>
         <Font name="System Bold" size="14.0" />
     </font>
     </Button>
-      <ComboBox fx:id="inputNomeCarro" layoutX="367.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o Carro" />
+      <ComboBox fx:id="inputNomeCarro" layoutX="367.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o Carro" stylesheets="@/styling/fullpackstyling.css"/>
     </children>
 </AnchorPane>
