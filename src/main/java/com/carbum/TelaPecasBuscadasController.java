@@ -96,7 +96,7 @@ public class TelaPecasBuscadasController implements Initializable{
     }
 
     public void conta(ActionEvent actionEvent) {
-        rootPane.getChildren().clear();
+        /*rootPane.getChildren().clear();
 
         try {
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
@@ -105,7 +105,7 @@ public class TelaPecasBuscadasController implements Initializable{
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

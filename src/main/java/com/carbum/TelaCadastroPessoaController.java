@@ -1,5 +1,6 @@
 package com.carbum;
 
+import com.carbum.auxiliares.Mascaras;
 import com.carbum.endereco.DAOEndereco;
 import com.carbum.endereco.Endereco;
 import com.carbum.pessoa.DAOPessoa;
@@ -7,15 +8,18 @@ import com.carbum.pessoa.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class TelaCadastroPessoaController {
+public class TelaCadastroPessoaController implements Initializable {
 
     public TextField inputNome, inputCpf, inputEmail, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
     public Button btSalvarPessoa;
@@ -67,6 +71,7 @@ public class TelaCadastroPessoaController {
 
             alert.showAndWait();
         }
+        getValores();
     }
 
     @FXML
@@ -80,5 +85,17 @@ public class TelaCadastroPessoaController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Mascaras.cpfField(this.inputCpf);
+        Mascaras.cepField(this.inputCep);
+        Mascaras.foneField(this.inputTelefone);
+        Mascaras.numericField(this.inputNumero);
+    }
+
+    public void getValores(){
+        System.out.println("CPF: " + Mascaras.onlyDigitsValue(this.inputCpf));
     }
 }

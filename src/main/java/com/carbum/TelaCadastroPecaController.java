@@ -3,6 +3,7 @@ package com.carbum;
 
 import com.carbum.anuncio.Anuncio;
 import com.carbum.anuncio.DAOAnuncio;
+import com.carbum.auxiliares.Mascaras;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -166,18 +167,18 @@ public class TelaCadastroPecaController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Mascaras.monetaryField(this.inputPreco);
         getInputMarca();
         getInputNomeCarro();
 
-        inputPreco.textProperty().addListener(new ChangeListener<String>() {
+        /*inputPreco.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.matches("\\d{0,7}([\\,]\\d{0,2})?")) {
                     inputPreco.setText(oldValue);
                 }
             }
-        });
+        });*/
 
         try {
             sql = "SELECT * FROM anomodelo";
