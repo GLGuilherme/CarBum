@@ -44,7 +44,6 @@ public class LoginController {
             ResultSet rs = pstatement.executeQuery();
             if (rs.next()){
                 String email = rs.getString("emaillogin");
-                System.out.println(email);
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaInicial = (AnchorPane) FXMLLoader.load(getClass()

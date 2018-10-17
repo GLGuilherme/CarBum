@@ -27,6 +27,9 @@ import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.FloatStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import org.apache.commons.lang.ObjectUtils;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 import org.postgresql.util.Base64;
 import sun.misc.BASE64Decoder;
 
@@ -59,6 +62,7 @@ public class TelaCadastroPecaController implements Initializable {
     public String imagem2;
     public TextField inputPreco;
     public WebView webView;
+    public Label erroPeca;
 
 
     private ConexaoBanco conexao;
@@ -87,6 +91,15 @@ public class TelaCadastroPecaController implements Initializable {
         String descricao = inputDescricao.getText();
         String peca = inputPeca.getValue();
         String preco = inputPreco.getText();
+
+        if (peca == null){
+            erroPeca.setText("Campo peça obrigatório");
+        }else {
+            erroPeca.setText("");
+        }
+        if (peca == null){
+            return;
+        }
 
         Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
                 marca, ano, modelo, imagem1, imagem2, preco);
