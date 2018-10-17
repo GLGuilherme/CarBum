@@ -38,7 +38,21 @@
     -fx-border-radius: 20;
     -fx-background-color: white;
     -fx-border-color: #355ECE;
-    -fx-text-fill:  #0C3988;
+    -fx-prompt-text-fill:  #0C3988;
+}
+
+.combo-box:hover
+{
+    -fx-background-radius: 20;
+    -fx-background-color : #355ECE ;
+    -fx-prompt-text-fill:  #FFF;
+}
+
+.combo-box:pressed
+{
+    -fx-background-radius: 20;
+    -fx-background-color : #0C39FF ;
+    -fx-prompt-text-fill: #FFF;
 }
 
 .table-view .column-header,
