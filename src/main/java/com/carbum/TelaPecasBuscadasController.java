@@ -168,6 +168,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 VBox vBox = new VBox(stackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
                 vBox.setMaxHeight(Double.MAX_VALUE);
+                vBox.setSpacing(-1);
 
 
                 GridPane.setConstraints(vBox, contC, contR);

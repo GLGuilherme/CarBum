@@ -173,7 +173,7 @@ public class TelaCadastroPecaController implements Initializable {
         inputPreco.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\,]\\d{0,4})?")) {
+                if (!newValue.matches("\\d{0,7}([\\,]\\d{0,2})?")) {
                     inputPreco.setText(oldValue);
                 }
             }
