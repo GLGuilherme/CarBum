@@ -80,7 +80,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox layoutX="618.0" layoutY="137.0" prefHeight="132.0" prefWidth="149.0" style="-fx-border-color: black;">
+      <HBox layoutX="618.0" layoutY="137.0" prefHeight="132.0" prefWidth="149.0" style="-fx-border-color: #355ECE;">
          <children>
             <ImageView fx:id="imagemPeca1" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem1" pickOnBounds="true">
                <viewport>
@@ -92,7 +92,7 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="618.0" layoutY="276.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: black;">
+      <HBox layoutX="618.0" layoutY="276.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: #355ECE;">
          <children>
             <ImageView fx:id="imagemPeca2" fitHeight="130.0" fitWidth="203.0" onMouseClicked="#selecionarImagem2" pickOnBounds="true" smooth="false">
                <image>

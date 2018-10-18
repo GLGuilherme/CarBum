@@ -194,8 +194,6 @@ public class TelaPecasBuscadasController implements Initializable{
                 FlowPane flowPane = new FlowPane(hBoxDescricao, hBoxEndereco);
                 flowPane.setStyle("-fx-background-color: #282828");
 
-
-
                 VBox vBox = new VBox(stackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
                 vBox.setMaxHeight(Double.MAX_VALUE);
@@ -210,6 +208,9 @@ public class TelaPecasBuscadasController implements Initializable{
                     contR++;
                     pecasBuscadas.getRowConstraints().addAll(rowConstraints);
                 }
+            }
+            if(contC == 0){
+                pecasBuscadas.getRowConstraints().removeAll(rowConstraints);
             }
         } catch (SQLException e) {
             e.printStackTrace();
