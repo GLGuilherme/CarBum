@@ -78,7 +78,47 @@
     -fx-text-fill: #FFF;
 }
 
-.table-view .column-header,
+.scroll-pane .scroll-bar{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color: #282828;
+}
+
+.scroll-pane .scroll-bar .thumb{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color:  #FFF;
+}
+
+.scroll-pane .scroll-bar .thumb:hover{
+    -fx-background-color:  orange;
+}
+
+.scroll-pane .scroll-bar .thumb:pressed{
+    -fx-background-color:  darkorange;
+}
+
+.scroll-bar{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color: #282828;
+}
+
+.scroll-bar .thumb{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color:  #FFF;
+}
+
+.scroll-bar .thumb:hover{
+    -fx-background-color:  #355ECE;
+}
+
+.scroll-bar .thumb:pressed{
+    -fx-background-color:  #0C39FF;
+}
+
+/*.table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
     -fx-background-color:   #2D75E8;
@@ -106,14 +146,14 @@
 /* scroll bar starts here */
 
 /* The increment and decrement button CSS class of scrollbar */
-.table-view .increment-button ,.table-view .decrement-button {
+/*.table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;
 	-fx-background-radius: 2em;
 
 }
 
 /* The main scrollbar **track** CSS class  */
-.table-view .scroll-bar:horizontal .track,
+/*.table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
 	-fx-background-color: transparent;
 	-fx-border-color:derive(  #2D75E8,80%);
@@ -122,17 +162,17 @@
 }
 
 /* The main scrollbar **thumb** CSS class which we drag every time (movable) */
-.table-view .scroll-bar:horizontal .thumb,
+/*.table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
     -fx-background-color:derive( #2D75E8,90%);
 	-fx-background-insets: 2, 0, 0;
 	-fx-background-radius: 2em;
 
-}
+}*/
 
 /* chart properties */
 
-.chart {
+/*.chart {
     -fx-padding: 10px;
     -fx-background-color: transparent;
     -fx-legend-visible: false;
@@ -144,4 +184,4 @@
 .chart-pie {
     -fx-border-color: derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
-}
+}*/

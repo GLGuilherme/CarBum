@@ -11,12 +11,13 @@ public class Anuncio {
     private String imagem1;
     private String imagem2;
     private String preco;
+    private int idUsuario;
 
     public Anuncio() {
     }
 
     public Anuncio(String parteCarro, String descricao, String conservacao, String nomeCarro,
-                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2, String preco) {
+                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2, String preco, int idUsuario) {
         this.parteCarro = parteCarro;
         this.descricao = descricao;
         this.conservacao = conservacao;
@@ -27,6 +28,7 @@ public class Anuncio {
         this.imagem1 = imagem1;
         this.imagem2 = imagem2;
         this.preco = preco;
+        this.idUsuario = idUsuario;
     }
 
     public String getParteCarro() {
@@ -107,6 +109,14 @@ public class Anuncio {
 
     public void setPreco(String preco) {
         this.preco = preco;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     @Override

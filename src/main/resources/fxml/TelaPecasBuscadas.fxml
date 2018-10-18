@@ -38,7 +38,7 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-      <ScrollPane fx:id="scrollPane" layoutY="106.0" prefHeight="495.0" prefWidth="1000.0" style="-fx-background-color: white;">
+      <ScrollPane styleClass="scroll-pane" id="scrollPecas" fx:id="scrollPane" layoutY="106.0" prefHeight="495.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="@/styling/fullpackstyling.css">
          <content>
             <GridPane fx:id="pecasBuscadas" hgap="30.0" prefHeight="494.0" prefWidth="1000.0" style="-fx-background-color: white;" vgap="30.0">
               <columnConstraints>

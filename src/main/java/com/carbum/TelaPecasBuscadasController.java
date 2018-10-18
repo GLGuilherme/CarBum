@@ -121,7 +121,7 @@ public class TelaPecasBuscadasController implements Initializable{
 
         try {
 
-            sql = "SELECT partecarro, nomecarro, marcacarro, ano, modelo, conservacao, preco, imagem1 FROM anuncio WHERE partecarro ~* ?";
+            sql = "SELECT a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setString(1, TelaInicialController.pecaBuscada);
             ResultSet rs = pstatement.executeQuery();
@@ -135,6 +135,11 @@ public class TelaPecasBuscadasController implements Initializable{
                 String conservacao = rs.getString("conservacao");
                 String preco = rs.getString("preco");
                 String imagem = rs.getString("imagem1");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String numero = rs.getString("numero");
 
                 BufferedImage bufferedImage = decodeToImage(imagem);
                 Image card = SwingFXUtils.toFXImage(bufferedImage, null );
@@ -144,13 +149,22 @@ public class TelaPecasBuscadasController implements Initializable{
                 imageView.setFitHeight(250);
                 imageView.setPreserveRatio(true);
 
-
-                Label valor = new Label("R$" + preco);
-                valor.setWrapText(true);
-                valor.setStyle("-fx-background-color: orange");
-                valor.setFont(Font.font(20));
-                valor.setTextAlignment(TextAlignment.LEFT);
-                valor.setAlignment(Pos.TOP_LEFT);
+                Label valor;
+                if (preco.isEmpty()){
+                    valor = new Label("Valor a Combinar");
+                    valor.setWrapText(true);
+                    valor.setStyle("-fx-background-color: orange");
+                    valor.setFont(Font.font(20));
+                    valor.setTextAlignment(TextAlignment.LEFT);
+                    valor.setAlignment(Pos.TOP_LEFT);
+                }else {
+                    valor = new Label("R$" + preco);
+                    valor.setWrapText(true);
+                    valor.setStyle("-fx-background-color: orange");
+                    valor.setFont(Font.font(20));
+                    valor.setTextAlignment(TextAlignment.LEFT);
+                    valor.setAlignment(Pos.TOP_LEFT);
+                }
 
                 StackPane stackPane= new StackPane();
                 StackPane.setAlignment(valor, Pos.BOTTOM_RIGHT);
@@ -160,18 +174,32 @@ public class TelaPecasBuscadasController implements Initializable{
 
                 Text text = new Text(partecarro + " " + nomecarro + " " + marcacarro + " "
                         + ano + "/" + modelo + " em um " + conservacao + " estado");
-                text.setWrappingWidth(310);
+                text.setWrappingWidth(280);
                 text.setFont(Font.font(20));
                 text.setStyle("-fx-fill: white");
 
-                FlowPane flowPane = new FlowPane(text);
+                Text textEndereco = new Text("Rua " + rua + ", " + numero+ "\n" + bairro + "\n"
+                        + cidade + " - " + estado);
+                textEndereco.setWrappingWidth(280);
+                textEndereco.setFont(Font.font(20));
+                textEndereco.setStyle("-fx-fill: white");
+
+                ImageView iconeDescricao = new ImageView("images/catalogue.png");
+                ImageView iconeEndereco = new ImageView("images/digital-map.png");
+
+                HBox hBoxDescricao = new HBox(iconeDescricao, text);
+                HBox hBoxEndereco = new HBox(iconeEndereco, textEndereco);
+                hBoxEndereco.setMaxWidth(310);
+
+                FlowPane flowPane = new FlowPane(hBoxDescricao, hBoxEndereco);
                 flowPane.setStyle("-fx-background-color: #282828");
+
+
 
                 VBox vBox = new VBox(stackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
                 vBox.setMaxHeight(Double.MAX_VALUE);
                 vBox.setSpacing(-1);
-
 
                 GridPane.setConstraints(vBox, contC, contR);
                 pecasBuscadas.getChildren().addAll(vBox);

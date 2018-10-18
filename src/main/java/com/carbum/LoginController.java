@@ -22,6 +22,7 @@ public class LoginController {
     public AnchorPane rootPane;
     private ConexaoBanco conexao;
     private String sql;
+    public static int idUsuario;
 
     public LoginController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
         this.conexao = new ConexaoBanco();
@@ -37,13 +38,14 @@ public class LoginController {
 
     public void Entrar(ActionEvent actionEvent) {
         try {
-            sql = "SELECT emaillogin FROM pessoa WHERE emaillogin = ? AND senha = ?";
+            sql = "SELECT emaillogin, senha, idpessoa FROM pessoa WHERE emaillogin = ? AND senha = ?";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setString(1, txtUsername.getText());
             pstatement.setString(2, txtPassword.getText());
             ResultSet rs = pstatement.executeQuery();
             if (rs.next()){
                 String email = rs.getString("emaillogin");
+                idUsuario = rs.getInt("idpessoa");
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaInicial = (AnchorPane) FXMLLoader.load(getClass()

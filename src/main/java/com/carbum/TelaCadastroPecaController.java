@@ -102,7 +102,7 @@ public class TelaCadastroPecaController implements Initializable {
         }
 
         Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
-                marca, ano, modelo, imagem1, imagem2, preco);
+                marca, ano, modelo, imagem1, imagem2, preco, LoginController.idUsuario);
 
         DAOAnuncio daoAnuncio = new DAOAnuncio();
         operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
@@ -236,13 +236,13 @@ public class TelaCadastroPecaController implements Initializable {
 
         }
 
-        ValidationSupport validationSupport = new ValidationSupport();
+        /*ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(inputPeca, Validator.createEmptyValidator("asdfdfsdf"));
         validationSupport.registerValidator(inputConservacao, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputMarca, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputNomeCarro, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputAno, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputModelo, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputModelo, Validator.createEmptyValidator("safdfasdfasd"));*/
     }
 
     @FXML
