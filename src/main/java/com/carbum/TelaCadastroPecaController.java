@@ -236,6 +236,13 @@ public class TelaCadastroPecaController implements Initializable {
 
         }
 
+        ValidationSupport validationSupport = new ValidationSupport();
+        validationSupport.registerValidator(inputPeca, Validator.createEmptyValidator("asdfdfsdf"));
+        validationSupport.registerValidator(inputConservacao, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputMarca, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputNomeCarro, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputAno, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputModelo, Validator.createEmptyValidator("safdfasdfasd"));
     }
 
     @FXML

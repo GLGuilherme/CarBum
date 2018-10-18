@@ -31,7 +31,7 @@
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEmail" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputUsuario" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
@@ -102,7 +102,7 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="E-mail">
+        <Label layoutX="112.0" layoutY="204.0" prefHeight="20.0" prefWidth="158.0" text="Nome de Usuário">
             <font>
                 <Font size="14.0" />
             </font>
@@ -167,7 +167,7 @@
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroEmail" layoutX="114.0" layoutY="265.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroUsuario" layoutX="114.0" layoutY="265.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>

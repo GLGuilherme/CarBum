@@ -15,7 +15,7 @@
     <children>
         <ImageView fitHeight="97.0" fitWidth="51.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/images/LogoCarBum.jpeg" />
+                <Image url="@images/logo.png" />
             </image>
         </ImageView>
         <TextField id="inputTermoBusca" fx:id="inputTermoBusca" layoutX="147.0" layoutY="13.0" onAction="#onEnter" prefHeight="41.0" prefWidth="411.0" promptText="Estou procurando por..." stylesheets="@/styling/fullpackstyling.css">

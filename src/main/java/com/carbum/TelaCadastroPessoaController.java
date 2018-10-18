@@ -14,30 +14,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.util.Callback;
-import org.controlsfx.control.GridCell;
-import org.controlsfx.control.GridView;
-import org.controlsfx.control.cell.ColorGridCell;
-import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class TelaCadastroPessoaController implements Initializable {
 
-    public TextField inputNome, inputCpf, inputEmail, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
+    public TextField inputNome, inputCpf, inputUsuario, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
     public Button btSalvarPessoa;
     public Button btVoltar;
     public Label erroNome;
     public Label erroCpf;
-    public Label erroEmail;
+    public Label erroUsuario;
     public Label erroSenha;
     public Label erroRua;
     public Label erroNumero;
@@ -55,7 +47,7 @@ public class TelaCadastroPessoaController implements Initializable {
 
         String nome = inputNome.getText(),
                 cpf = Mascaras.onlyDigitsValue(this.inputCpf),
-                email = inputEmail.getText(),
+                email = inputUsuario.getText(),
                 senha = inputSenha.getText(),
                 rua = inputRua.getText(),
                 bairro = inputBairro.getText(),
@@ -77,9 +69,9 @@ public class TelaCadastroPessoaController implements Initializable {
             erroCpf.setText("");
         }
         if (email.isEmpty()){
-            erroEmail.setText("Campo e-mail obrigatório");
+            erroUsuario.setText("Campo nome de usuário obrigatório");
         }else {
-            erroEmail.setText("");
+            erroUsuario.setText("");
         }
         if (senha.length() < 4){
             erroSenha.setText("Campo senha obrigatório com mais de 4 caracteres");
@@ -178,7 +170,7 @@ public class TelaCadastroPessoaController implements Initializable {
         ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(inputNome, Validator.createEmptyValidator("asdfdfsdf"));
         validationSupport.registerValidator(inputCpf, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputEmail, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputUsuario, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputSenha, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputRua, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputBairro, Validator.createEmptyValidator("safdfasdfasd"));
