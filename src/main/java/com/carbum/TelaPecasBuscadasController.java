@@ -28,6 +28,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import org.apache.log4j.Layout;
+import sun.plugin2.util.ColorUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,6 +42,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
+import static javafx.scene.paint.Color.BLUE;
 
 public class TelaPecasBuscadasController implements Initializable{
     public TextField inputTermoBusca;
@@ -111,7 +113,6 @@ public class TelaPecasBuscadasController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);
@@ -161,9 +162,10 @@ public class TelaPecasBuscadasController implements Initializable{
                         + ano + "/" + modelo + " em um " + conservacao + " estado");
                 text.setWrappingWidth(310);
                 text.setFont(Font.font(20));
+                text.setStyle("-fx-fill: white");
 
                 FlowPane flowPane = new FlowPane(text);
-                flowPane.setStyle("-fx-background-color: darkgray");
+                flowPane.setStyle("-fx-background-color: #282828");
 
                 VBox vBox = new VBox(stackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);

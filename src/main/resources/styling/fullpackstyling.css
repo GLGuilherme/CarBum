@@ -38,21 +38,44 @@
     -fx-border-radius: 20;
     -fx-background-color: white;
     -fx-border-color: #355ECE;
-    -fx-prompt-text-fill:  #0C3988;
 }
 
 .combo-box:hover
 {
     -fx-background-radius: 20;
-    -fx-background-color : #355ECE ;
-    -fx-prompt-text-fill:  #FFF;
+    -fx-background-color : #355ECE;
 }
 
 .combo-box:pressed
 {
     -fx-background-radius: 20;
     -fx-background-color : #0C39FF ;
-    -fx-prompt-text-fill: #FFF;
+}
+
+.combo-box .list-view .scroll-bar{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+.combo-box .list-view{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #355ECE;
+}
+.combo-box .list-view .list-cell{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-text-fill:  #0C3988;
+}
+.combo-box .list-view .list-cell:hover{
+    -fx-background-color: #355ECE;
+    -fx-text-fill: #FFF;
+}
+.combo-box .list-view .list-cell:pressed{
+    -fx-background-color: #0C39FF;
+}
+.combo-box .list-view .list-cell:selected{
+    -fx-background-color: #0C39FF;
+    -fx-text-fill: #FFF;
 }
 
 .table-view .column-header,
