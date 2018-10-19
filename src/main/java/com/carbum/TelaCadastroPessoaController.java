@@ -99,7 +99,7 @@ public class TelaCadastroPessoaController implements Initializable {
             erroBairro.setText("");
         }
         if (cep.length() < 8){
-            erroCep.setText("Campo obrigatório com 8 números");
+            erroCep.setText("Campo obrigatório com 8 dígitos");
         }else {
             erroCep.setText("");
         }
