@@ -173,7 +173,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 stackPane.getChildren().add(valor);
                 stackPane.setStyle("-fx-alignment: top_center");
 
-                Text text = new Text(partecarro + " " + nomecarro + " " + marcacarro + " "
+                Text text = new Text(partecarro + " " + marcacarro + " " + nomecarro + " "
                         + ano + "/" + modelo + " em um " + conservacao + " estado");
                 text.setWrappingWidth(280);
                 text.setFont(Font.font(20));
