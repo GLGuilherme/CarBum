@@ -118,6 +118,16 @@
     -fx-background-color:  #0C39FF;
 }
 
+.textDescricao{
+    -fx-fill: white;
+}
+.textDescricao:hover{
+    -fx-fill: orange;
+}
+.textDescricao:pressed{
+    -fx-fill: darkorange;
+}
+
 /*.table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;

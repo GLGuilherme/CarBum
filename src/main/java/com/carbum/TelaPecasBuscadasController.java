@@ -19,9 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -32,6 +30,7 @@ import org.apache.log4j.Layout;
 import sun.plugin2.util.ColorUtil;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -44,7 +43,6 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
-import static javafx.scene.paint.Color.BLUE;
 
 public class TelaPecasBuscadasController implements Initializable{
     public TextField inputTermoBusca;
@@ -150,6 +148,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 imageView.setFitWidth(310);
                 imageView.setFitHeight(250);
                 imageView.setPreserveRatio(true);
+                imageView.setCursor(Cursor.HAND);
 
                 Label valor;
                 if (preco.isEmpty()){
@@ -178,13 +177,15 @@ public class TelaPecasBuscadasController implements Initializable{
                         + ano + "/" + modelo + " em um " + conservacao + " estado");
                 text.setWrappingWidth(280);
                 text.setFont(Font.font(20));
-                text.setStyle("-fx-fill: white");
+                text.getStyleClass().add("textDescricao");
+                text.setCursor(Cursor.HAND);
 
                 Text textEndereco = new Text("Rua " + rua + ", " + numero+ "\n" + bairro + "\n"
                         + cidade + " - " + estado);
                 textEndereco.setWrappingWidth(280);
                 textEndereco.setFont(Font.font(20));
                 textEndereco.setStyle("-fx-fill: white");
+                textEndereco.setCursor(Cursor.TEXT);
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
                 ImageView iconeEndereco = new ImageView("images/digital-map.png");
@@ -192,7 +193,6 @@ public class TelaPecasBuscadasController implements Initializable{
                 HBox hBoxDescricao = new HBox(iconeDescricao, text);
                 HBox hBoxEndereco = new HBox(iconeEndereco, textEndereco);
                 hBoxEndereco.setMaxWidth(310);
-                hBoxDescricao.setCursor(Cursor.HAND);
 
                 FlowPane flowPane = new FlowPane(hBoxDescricao, hBoxEndereco);
                 flowPane.setStyle("-fx-background-color: #282828");

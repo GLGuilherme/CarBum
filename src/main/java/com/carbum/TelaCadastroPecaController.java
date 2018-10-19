@@ -61,8 +61,8 @@ public class TelaCadastroPecaController implements Initializable {
     public String imagem1;
     public String imagem2;
     public TextField inputPreco;
-    public WebView webView;
     public Label erroPeca;
+    public String marcaPeca;
 
 
     private ConexaoBanco conexao;
@@ -138,7 +138,7 @@ public class TelaCadastroPecaController implements Initializable {
 
         try {
 
-            sql = "SELECT DISTINCT marca FROM nomecarroemarca";
+            sql = "SELECT DISTINCT marca FROM nomecarroemarca ORDER BY marca ASC ";
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
             ResultSet rs = stm.executeQuery(sql);
@@ -150,7 +150,6 @@ public class TelaCadastroPecaController implements Initializable {
             e.printStackTrace();
 
         }
-
         return inputMarca;
     }
 
@@ -158,9 +157,9 @@ public class TelaCadastroPecaController implements Initializable {
 
         try {
 
-            sql = "SELECT nomecarro FROM nomecarroemarca";
+            sql = "SELECT nomecarro FROM nomecarroemarca WHERE marca = ? ORDER BY nomecarro ASC";
             PreparedStatement stm = conexao.getConnection().prepareStatement(sql);
-            //stm.setString(1, String.valueOf(getInputMarca()));
+            stm.setString(1, marcaPeca);
             ResultSet resultSet = stm.executeQuery();
             /*Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
@@ -184,17 +183,8 @@ public class TelaCadastroPecaController implements Initializable {
         getInputMarca();
         getInputNomeCarro();
 
-        /*inputPreco.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}([\\,]\\d{0,2})?")) {
-                    inputPreco.setText(oldValue);
-                }
-            }
-        });*/
-
         try {
-            sql = "SELECT * FROM anomodelo";
+            sql = "SELECT * FROM anomodelo ORDER BY anomodelo ASC";
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
             ResultSet rs = stm.executeQuery(sql);
@@ -223,7 +213,7 @@ public class TelaCadastroPecaController implements Initializable {
         }
 
         try {
-            sql = "SELECT * FROM partecarro";
+            sql = "SELECT * FROM partecarro ORDER BY partecarro ASC";
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);
             ResultSet rs = stm.executeQuery(sql);
@@ -338,7 +328,11 @@ public class TelaCadastroPecaController implements Initializable {
         return image;
     }
 
-
-
-
+    public void inputMarcaAction(ActionEvent actionEvent) {
+        marcaPeca = inputMarca.getValue();
+        inputNomeCarro.setPromptText("Escolha o carro");
+        inputNomeCarro.getItems().clear();
+        inputNomeCarro.getItems().removeAll();
+        getInputNomeCarro();
+    }
 }
