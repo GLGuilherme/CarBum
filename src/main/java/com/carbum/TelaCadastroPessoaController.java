@@ -59,42 +59,42 @@ public class TelaCadastroPessoaController implements Initializable {
                 cep = Mascaras.onlyDigitsValue(this.inputCep);
 
         if (nome.isEmpty()){
-            erroNome.setText("Campo nome obrigatório");
+            erroNome.setText("Campo obrigatório");
         }else {
             erroNome.setText("");
         }
         if (cpf.length() < 11){
-            erroCpf.setText("Campo cpf obrigatório com 11 números");
+            erroCpf.setText("Campo obrigatório com 11 dígitos");
         }else {
             erroCpf.setText("");
         }
         if (email.isEmpty()){
-            erroUsuario.setText("Campo nome de usuário obrigatório");
+            erroUsuario.setText("Campo obrigatório");
         }else {
             erroUsuario.setText("");
         }
         if (senha.length() < 4){
-            erroSenha.setText("Campo senha obrigatório com mais de 4 caracteres");
+            erroSenha.setText("Campo obrigatório com mais de 4 caracteres");
         }else {
             erroSenha.setText("");
         }
         if (rua.isEmpty()){
-            erroRua.setText("Campo rua obrigatório");
+            erroRua.setText("Campo obrigatório");
         }else {
             erroRua.setText("");
         }
         if (numero.isEmpty()){
-            erroNumero.setText("Campo número obrigatório");
+            erroNumero.setText("Campo obrigatório");
         }else {
             erroNumero.setText("");
         }
         if (telefone.length() < 11){
-            erroTelefone.setText("Campo telefone obrigatório com 11 números");
+            erroTelefone.setText("Campo obrigatório com 11 dígitos");
         }else {
             erroTelefone.setText("");
         }
         if (bairro.isEmpty()){
-            erroBairro.setText("Campo bairro obrigatório");
+            erroBairro.setText("Campo obrigatório");
         }else {
             erroBairro.setText("");
         }
@@ -104,12 +104,12 @@ public class TelaCadastroPessoaController implements Initializable {
             erroCep.setText("");
         }
         if (cidade.isEmpty()){
-            erroCidade.setText("Campo cidade obrigatório");
+            erroCidade.setText("Campo obrigatório");
         }else {
             erroCidade.setText("");
         }
         if (estado.isEmpty()){
-            erroEstado.setText("Campo estado obrigatório");
+            erroEstado.setText("Campo obrigatório");
         }else {
             erroEstado.setText("");
         }

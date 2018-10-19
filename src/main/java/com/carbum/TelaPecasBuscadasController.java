@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,6 +35,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.annotation.Inherited;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,6 +192,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 HBox hBoxDescricao = new HBox(iconeDescricao, text);
                 HBox hBoxEndereco = new HBox(iconeEndereco, textEndereco);
                 hBoxEndereco.setMaxWidth(310);
+                hBoxDescricao.setCursor(Cursor.HAND);
 
                 FlowPane flowPane = new FlowPane(hBoxDescricao, hBoxEndereco);
                 flowPane.setStyle("-fx-background-color: #282828");

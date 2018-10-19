@@ -197,7 +197,7 @@
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroCep" layoutX="370.0" layoutY="425.0" prefHeight="23.0" prefWidth="108.0" textFill="#ff6354">
+      <Label fx:id="erroCep" layoutX="370.0" layoutY="425.0" prefHeight="32.0" prefWidth="108.0" textFill="#ff6354" wrapText="true">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
