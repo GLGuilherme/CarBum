@@ -205,7 +205,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 textArea.setWrapText(true);
                 textArea.setFont(Font.font(17));
                 textArea.setMaxWidth(276);
-                textArea.setPrefHeight(textEndereco.getLayoutBounds().getHeight() + (textEndereco.getLayoutBounds().getHeight() * 37/100));
+                textArea.setPrefHeight(textEndereco.getLayoutBounds().getHeight() + (textEndereco.getLayoutBounds().getHeight() * 35.5/100));
                 System.out.println(textArea.getPrefHeight());
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
