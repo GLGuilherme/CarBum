@@ -195,10 +195,9 @@ public class TelaPecasBuscadasController implements Initializable{
                 textEndereco.setWrappingWidth(276);
                 textEndereco.setFont(Font.font(17));
                 textEndereco.setStyle("-fx-fill: white");
-                textEndereco.setCursor(Cursor.TEXT);
-                System.out.println(textEndereco.getLayoutBounds().getHeight());
+                textEndereco.setCursor(Cursor.HAND);
 
-                javafx.scene.control.TextArea textArea = new TextArea("Rua " + rua + ", " + numero+ " \n" + bairro + " \n"
+                /*javafx.scene.control.TextArea textArea = new TextArea("Rua " + rua + ", " + numero+ " \n" + bairro + " \n"
                         + cidade + " - " + estado);
                 textArea.getStyleClass().add("textEndereco");
                 textArea.setEditable(false);
@@ -206,7 +205,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 textArea.setFont(Font.font(17));
                 textArea.setMaxWidth(276);
                 textArea.setPrefHeight(textEndereco.getLayoutBounds().getHeight() + (textEndereco.getLayoutBounds().getHeight() * 35.5/100));
-                System.out.println(textArea.getPrefHeight());
+                System.out.println(textArea.getPrefHeight());*/
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
                 ImageView iconeEndereco = new ImageView("images/digital-map.png");
@@ -216,7 +215,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 hBoxDescricao.setMaxWidth(310);
                 hBoxDescricao.setSpacing(10);
 
-                HBox hBoxEndereco = new HBox(iconeEndereco, textArea);
+                HBox hBoxEndereco = new HBox(iconeEndereco, textEndereco);
                 hBoxEndereco.setAlignment(Pos.CENTER_LEFT);
                 hBoxEndereco.setMaxWidth(310);
                 hBoxEndereco.setSpacing(10);
