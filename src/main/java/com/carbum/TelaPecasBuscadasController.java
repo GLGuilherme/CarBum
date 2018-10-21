@@ -1,5 +1,6 @@
 package com.carbum;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
@@ -11,10 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SingleSelectionModel;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +32,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import org.apache.log4j.Layout;
 import sun.plugin2.util.ColorUtil;
+import sun.reflect.generics.tree.BottomSignature;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -40,6 +45,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
@@ -148,9 +154,8 @@ public class TelaPecasBuscadasController implements Initializable{
                 imageView.setFitWidth(310);
                 imageView.setFitHeight(250);
                 imageView.setPreserveRatio(true);
-                imageView.setCursor(Cursor.HAND);
 
-                Label valor;
+                    Label valor;
                 if (preco.isEmpty()){
                     valor = new Label("Valor a Combinar");
                     valor.setWrapText(true);
@@ -173,31 +178,56 @@ public class TelaPecasBuscadasController implements Initializable{
                 stackPane.getChildren().add(valor);
                 stackPane.setStyle("-fx-alignment: top_center");
 
+                HBox hBoxStackPane = new HBox(stackPane);
+                HBox.setHgrow(stackPane, Priority.ALWAYS);
+                hBoxStackPane.setStyle("-fx-background-color: black");
+                hBoxStackPane.setCursor(Cursor.HAND);
+
                 Text text = new Text(partecarro + " " + marcacarro + " " + nomecarro + " "
                         + ano + "/" + modelo + " em um " + conservacao + " estado");
-                text.setWrappingWidth(280);
+                text.setWrappingWidth(270);
                 text.setFont(Font.font(20));
                 text.getStyleClass().add("textDescricao");
                 text.setCursor(Cursor.HAND);
 
                 Text textEndereco = new Text("Rua " + rua + ", " + numero+ "\n" + bairro + "\n"
                         + cidade + " - " + estado);
-                textEndereco.setWrappingWidth(280);
-                textEndereco.setFont(Font.font(20));
+                textEndereco.setWrappingWidth(276);
+                textEndereco.setFont(Font.font(17));
                 textEndereco.setStyle("-fx-fill: white");
                 textEndereco.setCursor(Cursor.TEXT);
+                System.out.println(textEndereco.getLayoutBounds().getHeight());
+
+                javafx.scene.control.TextArea textArea = new TextArea("Rua " + rua + ", " + numero+ " \n" + bairro + " \n"
+                        + cidade + " - " + estado);
+                textArea.getStyleClass().add("textEndereco");
+                textArea.setEditable(false);
+                textArea.setWrapText(true);
+                textArea.setFont(Font.font(17));
+                textArea.setMaxWidth(276);
+                textArea.setPrefHeight(textEndereco.getLayoutBounds().getHeight() + (textEndereco.getLayoutBounds().getHeight() * 37/100));
+                System.out.println(textArea.getPrefHeight());
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
                 ImageView iconeEndereco = new ImageView("images/digital-map.png");
 
                 HBox hBoxDescricao = new HBox(iconeDescricao, text);
-                HBox hBoxEndereco = new HBox(iconeEndereco, textEndereco);
+                hBoxDescricao.setAlignment(Pos.CENTER_LEFT);
+                hBoxDescricao.setMaxWidth(310);
+                hBoxDescricao.setSpacing(10);
+
+                HBox hBoxEndereco = new HBox(iconeEndereco, textArea);
+                hBoxEndereco.setAlignment(Pos.CENTER_LEFT);
                 hBoxEndereco.setMaxWidth(310);
+                hBoxEndereco.setSpacing(10);
+                hBoxEndereco.setStyle("-fx-background-color: #343434");
 
                 FlowPane flowPane = new FlowPane(hBoxDescricao, hBoxEndereco);
+                flowPane.setMaxHeight(hBoxDescricao.getHeight() + hBoxEndereco.getHeight());
+                flowPane.setVgap(15);
                 flowPane.setStyle("-fx-background-color: #282828");
 
-                VBox vBox = new VBox(stackPane, flowPane);
+                VBox vBox = new VBox(hBoxStackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
                 vBox.setMaxHeight(Double.MAX_VALUE);
                 vBox.setSpacing(-1);

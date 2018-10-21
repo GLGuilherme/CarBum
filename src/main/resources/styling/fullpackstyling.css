@@ -27,11 +27,11 @@
     -fx-text-fill:  #0C3988;
 }
 
-.text-area
+/*.text-area
 {
     -fx-border-color: #355ECE;
     -fx-text-fill:  #0C3988;
-}
+}*/
 .combo-box
 {
     -fx-background-radius: 20;
@@ -128,6 +128,114 @@
     -fx-fill: darkorange;
 }
 
+/*.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, black, transparent, black;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-box-border: none;
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
+
+.text-area .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.text-area:focused .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+.scroll-pane {
+}
+
+.viewport {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
+
+.content {
+}
+
+.text {
+}
+
+.text-area:focused {
+    -fx-highlight-fill: #7ecfff;
+
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}*/
+
+
+.textEndereco{
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, #343434, transparent, #343434;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-box-border: none;
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+    -fx-text-fill: white;
+}
+
+.textEndereco .content{
+    -fx-background-color: transparent, #343434, transparent, #343434;
+}
+
+.textEndereco:focused .content{
+    -fx-background-color: transparent, #343434, transparent, #343434;
+}
+
+.textEndereco .scroll-pane{
+
+}
+
+.textEndereco .viewport {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, #343434, transparent, #343434;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
+
+.textEndereco .content{
+}
+
+.textEndereco .text{
+}
+
+.textEndereco:focused {
+
+
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, #343434, transparent, #343434;
+    -fx-background-radius: 0, 0, 0, 0;
+
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+    -fx-text-box-border: -fx-control-inner-background;
+    -fx-border-width: -1;
+}
 /*.table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
