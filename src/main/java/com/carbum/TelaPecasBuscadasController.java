@@ -3,6 +3,7 @@ package com.carbum;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,6 +31,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import org.apache.log4j.Layout;
 import sun.plugin2.util.ColorUtil;
 import sun.reflect.generics.tree.BottomSignature;
@@ -225,6 +228,18 @@ public class TelaPecasBuscadasController implements Initializable{
                 flowPane.setMaxHeight(hBoxDescricao.getHeight() + hBoxEndereco.getHeight());
                 flowPane.setVgap(15);
                 flowPane.setStyle("-fx-background-color: #282828");
+
+                /*WebView webView = new WebView();
+                final WebEngine webEngine = webView.getEngine();
+                webEngine.load("https://www.google.com.br/maps");
+                webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
+                        if (newValue == Worker.State.SUCCEEDED){
+                            System.out.println("entrou");
+                        }
+                    }
+                });*/
 
                 VBox vBox = new VBox(hBoxStackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
