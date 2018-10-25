@@ -130,12 +130,13 @@ public class TelaPecasBuscadasController implements Initializable{
 
         try {
 
-            sql = "SELECT a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND a.idpessoa = e.idpessoa";
+            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setString(1, TelaInicialController.pecaBuscada);
             ResultSet rs = pstatement.executeQuery();
             int contC = 0, contR = 0;
             while (rs.next()){
+                String idAnuncio = rs.getString("idanuncio");
                 String partecarro = rs.getString("partecarro");
                 String nomecarro = rs.getString("nomecarro");
                 String marcacarro = rs.getString("marcacarro");
@@ -255,13 +256,25 @@ public class TelaPecasBuscadasController implements Initializable{
                     contR++;
                     pecasBuscadas.getRowConstraints().addAll(rowConstraints);
                 }
+                text.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        System.out.println(idAnuncio);
+                    }
+                });
+
+                imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        System.out.println(idAnuncio);
+                    }
+                });
             }
             if(contC == 0){
                 pecasBuscadas.getRowConstraints().removeAll(rowConstraints);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 
