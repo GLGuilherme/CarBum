@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -61,17 +62,17 @@ public class TelaInicialController {
 
 
     @FXML
-    public  void buscar(ActionEvent event) throws IOException {
+    public void buscar(ActionEvent event) throws IOException {
         rootPane.getChildren().clear();
 
         try {
             pecaBuscada = inputTermoBusca.getText();
-           AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                  .getResource("/fxml/TelaPecasBuscadas.fxml"));
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
 
-           rootPane.getChildren().setAll(telaPecaPesquisas);
+            rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -104,8 +105,7 @@ public class TelaInicialController {
     }
 
     @FXML
-    public void onEnter(ActionEvent ae){
-
+    public void onEnter(ActionEvent ae) {
         try {
             TelaInicialController.pecaBuscada = inputTermoBusca.getText();
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()

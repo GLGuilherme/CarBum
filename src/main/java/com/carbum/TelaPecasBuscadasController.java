@@ -1,9 +1,5 @@
 package com.carbum;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,44 +7,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import org.apache.log4j.Layout;
-import sun.plugin2.util.ColorUtil;
-import sun.reflect.generics.tree.BottomSignature;
 
-import javax.swing.*;
-import javax.swing.text.AbstractDocument;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.annotation.Inherited;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
@@ -259,14 +236,30 @@ public class TelaPecasBuscadasController implements Initializable{
                 text.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        System.out.println(idAnuncio);
+                        try {
+                            TelaDetalheAnuncioController.idAnuncioClicado = idAnuncio;
+                            AnchorPane telaDetalheAnuncio = (AnchorPane) FXMLLoader.load(getClass()
+                                    .getResource("/fxml/TelaDetalheAnuncio.fxml"));
+
+                            rootPane.getChildren().setAll(telaDetalheAnuncio);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
                 imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        System.out.println(idAnuncio);
+                        try {
+                            TelaDetalheAnuncioController.idAnuncioClicado = idAnuncio;
+                            AnchorPane telaDetalheAnuncio = (AnchorPane) FXMLLoader.load(getClass()
+                                    .getResource("/fxml/TelaDetalheAnuncio.fxml"));
+
+                            rootPane.getChildren().setAll(telaDetalheAnuncio);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }

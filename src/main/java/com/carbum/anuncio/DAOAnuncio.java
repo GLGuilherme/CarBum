@@ -2,6 +2,7 @@ package com.carbum.anuncio;
 
 import com.carbum.ConexaoBanco;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -35,4 +36,16 @@ public class DAOAnuncio {
         return true;
     }
 
+    public void buscarAnuncio(String idAnuncio) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
+        sql = "SELECT * FROM anuncio WHERE idanuncio = '" + idAnuncio + "';";
+
+        Statement stm = conexao.getConnection().createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        if(rs.next()){
+//            String descricao = rs.getString("descricao");
+//            return descricao;
+//        } else {
+//            return 0;
+        }
+    }
 }

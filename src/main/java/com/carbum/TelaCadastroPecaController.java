@@ -94,7 +94,7 @@ public class TelaCadastroPecaController implements Initializable {
 
         if (peca == null){
             erroPeca.setText("Campo peça obrigatório");
-        }else {
+        } else {
             erroPeca.setText("");
         }
         if (peca == null){
