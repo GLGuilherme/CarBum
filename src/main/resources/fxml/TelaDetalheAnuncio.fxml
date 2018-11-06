@@ -9,58 +9,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1100.0" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
     <children>
-        <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/logo.png" />
-            </image>
-        </ImageView>
-        <Label layoutX="269.0" layoutY="198.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="376.0" layoutY="14.0" text="Detalhes do anúncio">
+        <Label alignment="CENTER" layoutX="363.0" layoutY="28.0" text="Detalhes do anúncio">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-        <Label layoutX="482.0" layoutY="226.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="269.0" layoutY="225.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="482.0" layoutY="174.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="269.0" layoutY="120.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="482.0" layoutY="199.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-
-        <Label layoutX="269.0" layoutY="174.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
-
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <HBox layoutX="53.0" layoutY="261.0" prefHeight="132.0" prefWidth="205.0" style="-fx-border-color: #355ECE;">
+        <HBox layoutX="110.0" layoutY="80.0" prefHeight="208.0" prefWidth="323.0" style="-fx-border-color: #355ECE;">
          <children>
-                <ImageView fx:id="imagemPeca1" fitHeight="130.0" fitWidth="203.0" pickOnBounds="true">
+                <ImageView fx:id="imagemPeca2" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" smooth="false">
+                    <image>
+                        <Image url="@../images/semfoto.jpeg" />
+                    </image>
+                </ImageView>
+         </children>
+        </HBox>
+        <HBox layoutX="510.0" layoutY="80.0" prefHeight="208.0" prefWidth="324.0" style="-fx-border-color: #355ECE;">
+         <children>
+                <ImageView fx:id="imagemPeca1" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -70,21 +37,54 @@
                 </ImageView>
          </children>
         </HBox>
-        <HBox layoutX="53.0" layoutY="124.0" prefHeight="127.0" prefWidth="202.0" style="-fx-border-color: #355ECE;">
-         <children>
-                <ImageView fx:id="imagemPeca2" fitHeight="130.0" fitWidth="203.0" pickOnBounds="true" smooth="false">
-                    <image>
-                        <Image url="@../images/semfoto.jpeg" />
-                    </image>
-                </ImageView>
-         </children>
-        </HBox>
-        <Label layoutX="269.0" layoutY="254.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
+        <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/logo.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="110.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="350.0" layoutY="253.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
+        <Label layoutX="509.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="110.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="509.0" layoutY="347.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="110.0" layoutY="304.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="509.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="110.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
+
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="110.0" layoutY="418.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="191.0" layoutY="417.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
             <font>
                 <Font size="14.0" />
             </font>
@@ -94,77 +94,72 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-      <Label layoutX="359.0" layoutY="174.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
+      <Label layoutX="200.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="596.0" layoutY="173.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
+      <Label layoutX="623.0" layoutY="346.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="359.0" layoutY="198.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
+      <Label layoutX="200.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="597.0" layoutY="199.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
+      <Label layoutX="624.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="359.0" layoutY="225.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
+      <Label layoutX="200.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="597.0" layoutY="226.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
+      <Label layoutX="624.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="376.0" layoutY="254.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
+      <Label layoutX="217.0" layoutY="418.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="359.0" layoutY="119.0" prefHeight="20.0" prefWidth="341.0" text="Descrição" textAlignment="JUSTIFY">
+      <Label layoutX="200.0" layoutY="303.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-        <Label layoutX="53.0" layoutY="101.0" prefHeight="18.0" prefWidth="137.0" text="Imagens da peça">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-      <Label layoutX="269.0" layoutY="315.0" text="Telefone:">
+      <Label layoutX="507.0" layoutY="444.0" text="Telefone:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="342.0" text="E-mail:">
+      <Label layoutX="110.0" layoutY="466.0" text="E-mail:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="285.0" text="Anunciante:">
+      <Label layoutX="110.0" layoutY="444.0" text="Anunciante:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="285.0" text="Anunciante">
+      <Label layoutX="199.0" layoutY="444.0" text="Anunciante">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="315.0" text="(46) 99125-1777">
+      <Label layoutX="596.0" layoutY="444.0" text="(46) 99125-1777">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="360.0" layoutY="342.0" text="cassianomontanari@gmail.com">
+      <Label layoutX="201.0" layoutY="466.0" text="cassianomontanari@gmail.com">
          <font>
             <Font size="14.0" />
          </font>
