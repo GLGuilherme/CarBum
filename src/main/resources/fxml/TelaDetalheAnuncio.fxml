@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
     <children>
         <Label alignment="CENTER" layoutX="363.0" layoutY="28.0" text="Detalhes do anúncio">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-        <HBox layoutX="110.0" layoutY="80.0" prefHeight="208.0" prefWidth="323.0" style="-fx-border-color: #355ECE;">
+        <HBox fx:id="hbox" layoutX="110.0" layoutY="80.0" prefHeight="208.0" prefWidth="323.0" style="-fx-border-color: #355ECE;">
          <children>
-                <ImageView fx:id="imagemPeca2" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" smooth="false">
+                <ImageView fx:id="imagemPeca1" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                     <image>
                         <Image url="@../images/semfoto.jpeg" />
                     </image>
                 </ImageView>
          </children>
         </HBox>
-        <HBox layoutX="510.0" layoutY="80.0" prefHeight="208.0" prefWidth="324.0" style="-fx-border-color: #355ECE;">
+        <HBox fx:id="hbox1" layoutX="510.0" layoutY="80.0" prefHeight="208.0" prefWidth="324.0" style="-fx-border-color: #355ECE;">
          <children>
-                <ImageView fx:id="imagemPeca1" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true">
+                <ImageView fx:id="imagemPeca2" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                     <viewport>
                         <Rectangle2D />
                     </viewport>
@@ -94,42 +94,42 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-      <Label layoutX="200.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
+      <Label fx:id="peca" layoutX="200.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="623.0" layoutY="346.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
+      <Label fx:id="estadoPeca" layoutX="623.0" layoutY="346.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="200.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
+      <Label fx:id="marca" layoutX="200.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="624.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
+      <Label fx:id="carro" layoutX="624.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="200.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
+      <Label fx:id="ano" layoutX="200.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="624.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
+      <Label fx:id="modelo" layoutX="624.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="217.0" layoutY="418.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
+      <Label fx:id="preco" layoutX="217.0" layoutY="418.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="200.0" layoutY="303.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
+      <Label fx:id="descricao" layoutX="200.0" layoutY="303.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font>
@@ -139,27 +139,17 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="466.0" text="E-mail:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <Label layoutX="110.0" layoutY="444.0" text="Anunciante:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="199.0" layoutY="444.0" text="Anunciante">
+      <Label fx:id="anunciante" layoutX="199.0" layoutY="444.0" text="Anunciante">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="596.0" layoutY="444.0" text="(46) 99125-1777">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="201.0" layoutY="466.0" text="cassianomontanari@gmail.com">
+      <Label fx:id="telefone" layoutX="596.0" layoutY="444.0" text="(46) 99125-1777">
          <font>
             <Font size="14.0" />
          </font>

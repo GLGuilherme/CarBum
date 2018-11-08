@@ -29,11 +29,12 @@ public class DAOPessoa {
 
     public boolean inserirPessoaNova(Pessoa pessoa) throws SQLException {
         if (this.buscarPessoaBanco(pessoa.getEmailLogin()) == 0) {
-            sql = "INSERT INTO pessoa (nomepessoa, emaillogin, senha, cpf) VALUES ('"
+            sql = "INSERT INTO pessoa (nomepessoa, emaillogin, senha, cpf, telefone) VALUES ('"
                     + pessoa.getNome() + "', '"
                     + pessoa.getEmailLogin() + "', '"
                     + pessoa.getSenha() + "', '"
-                    + pessoa.getCPF() + "');";
+                    + pessoa.getCPF() + "', '"
+                    + pessoa.getTelefone() + "');";
 
             Statement stm = conexao.getConnection().createStatement();
             stm.execute(sql);

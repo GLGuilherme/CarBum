@@ -113,7 +113,7 @@ public class TelaPecasBuscadasController implements Initializable{
             ResultSet rs = pstatement.executeQuery();
             int contC = 0, contR = 0;
             while (rs.next()){
-                String idAnuncio = rs.getString("idanuncio");
+                int idAnuncio = rs.getInt("idanuncio");
                 String partecarro = rs.getString("partecarro");
                 String nomecarro = rs.getString("nomecarro");
                 String marcacarro = rs.getString("marcacarro");

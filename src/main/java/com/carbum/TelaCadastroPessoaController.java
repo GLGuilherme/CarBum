@@ -58,6 +58,7 @@ public class TelaCadastroPessoaController implements Initializable {
                 estado = inputEstado.getText(),
                 cep = Mascaras.onlyDigitsValue(this.inputCep);
 
+
         if (nome.isEmpty()){
             erroNome.setText("Campo obrigatório");
         }else {
@@ -119,7 +120,7 @@ public class TelaCadastroPessoaController implements Initializable {
             return;
         }
 
-        Pessoa pessoaNova = new Pessoa(nome, cpf, email, senha);
+        Pessoa pessoaNova = new Pessoa(nome, cpf, email, senha, telefone);
         pessoaNova.setEmailLogin(email);
 
         DAOPessoa daoPessoa = new DAOPessoa();
