@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaEscolhaPlanosController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaEscolhaPlanosController">
    <children>
       <Button layoutX="125.0" layoutY="140.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Simples" textAlignment="CENTER">
          <font>
@@ -19,8 +19,32 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <TextArea layoutX="125.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="Anúncio sobe ao topo 3&#10;vezes (uma vez a cada 3&#10;dias)&#10;" />
-      <TextArea layoutX="381.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="Anúncio sobe ao topo 5&#10;vezes (uma vez por dia&#10;durante 5 dias)&#10;&#10;Aparece na galeria das&#10;páginas internas por 7 dias&#10;" />
-      <TextArea layoutX="638.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="Anúncio sobe ao topo 7&#10;vezes (uma vez por dia&#10;durante 7 dias)&#10;&#10;Aparece na galeria das&#10;páginas internas por 7 dias&#10;&#10;Aparece na galeria da&#10;página principal da OLX por&#10;7 dias" />
+      <TextArea layoutX="125.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;Anúncio sobe ao topo 3&#10;vezes (uma vez a cada 3&#10;dias)&#10;">
+         <font>
+            <Font size="12.0" />
+         </font></TextArea>
+      <TextArea layoutX="381.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;Anúncio sobe ao topo 5&#10;vezes (uma vez por dia&#10;durante 5 dias)&#10;&#10;Aparece na galeria das&#10;páginas internas por 7 dias&#10;">
+         <font>
+            <Font size="12.0" />
+         </font></TextArea>
+      <TextArea layoutX="638.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;Anúncio sobe ao topo 7&#10;vezes (uma vez por dia&#10;durante 7 dias)&#10;&#10;Aparece na galeria das&#10;páginas internas por 7 dias&#10;&#10;Aparece na galeria da&#10;página principal da OLX por&#10;7 dias">
+         <font>
+            <Font size="12.0" />
+         </font></TextArea>
+      <Button layoutX="125.0" layoutY="431.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="210.0" text="Escolher" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="381.0" layoutY="431.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="210.0" text="Escolher" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="638.0" layoutY="431.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="210.0" text="Escolher" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
