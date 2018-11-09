@@ -30,7 +30,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@/images/icons8_Home_32px.png" />
+                                <Image url="@/images/homeDash.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -48,7 +48,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-
+                                <Image url="@/images/userDash.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -60,7 +60,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-
+                                <Image url="@/images/money.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -68,11 +68,11 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnHistorico" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@/styling/DashBoardStyle.css" text="Histórico">
+                <Button fx:id="btnHistorico" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@/styling/DashBoardStyle.css" text="Favoritos">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-
+                                <Image url="@/images/starDash.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -84,7 +84,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-
+                                <Image url="@/images/settingsDash.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -96,19 +96,7 @@
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0" />
-                    </padding>
-                </Button>
-                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@/styling/DashBoardStyle.css" text="Sair">
-                    <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-
+                                <Image url="@/images/logoutDash.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -118,7 +106,7 @@
                 </Button>
             </children>
         </VBox>
-        <StackPane fx:id="rootPane" layoutX="258.0" prefHeight="576.0" prefWidth="793.0">
+        <StackPane fx:id="rootPane" layoutX="258.0" prefHeight="576.0" prefWidth="799.0">
            
         </StackPane>
     </children>

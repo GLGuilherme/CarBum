@@ -168,7 +168,7 @@ public class TelaCadastroPessoaController implements Initializable {
         Mascaras.cepField(this.inputCep);
         Mascaras.foneField(this.inputTelefone);
         Mascaras.numericField(this.inputNumero);
-        ValidationSupport validationSupport = new ValidationSupport();
+       /* ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(inputNome, Validator.createEmptyValidator("asdfdfsdf"));
         validationSupport.registerValidator(inputCpf, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputUsuario, Validator.createEmptyValidator("safdfasdfasd"));
@@ -179,6 +179,6 @@ public class TelaCadastroPessoaController implements Initializable {
         validationSupport.registerValidator(inputTelefone, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputCidade, Validator.createEmptyValidator("safdfasdfasd"));
         validationSupport.registerValidator(inputEstado, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputCep, Validator.createEmptyValidator("safdfasdfasd"));
+        validationSupport.registerValidator(inputCep, Validator.createEmptyValidator("safdfasdfasd"));*/
     }
 }

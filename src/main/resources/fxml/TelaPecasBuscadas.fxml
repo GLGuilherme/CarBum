@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1200.0" minHeight="600.0" minWidth="1200.0" prefHeight="600.0" prefWidth="1200.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaPecasBuscadasController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1250.0" minHeight="600.0" minWidth="1250.0" prefHeight="600.0" prefWidth="1250.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaPecasBuscadasController">
 
     <children>
         <ImageView fitHeight="39.0" fitWidth="57.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -38,7 +38,7 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
-      <ScrollPane id="scrollPecas" fx:id="scrollPane" layoutY="106.0" prefHeight="495.0" prefWidth="1000.0" style="-fx-background-color: white;" styleClass="scroll-pane" stylesheets="@/styling/fullpackstyling.css">
+      <ScrollPane id="scrollPecas" fx:id="scrollPane" layoutY="105.0" prefHeight="495.0" prefWidth="1000.0" style="-fx-background-color: white;" styleClass="scroll-pane" stylesheets="@/styling/fullpackstyling.css" AnchorPane.leftAnchor="3.0">
          <content>
             <GridPane fx:id="pecasBuscadas" hgap="30.0" prefHeight="494.0" prefWidth="1000.0" style="-fx-background-color: white;" vgap="30.0">
               <columnConstraints>
