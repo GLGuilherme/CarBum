@@ -29,7 +29,7 @@ public class Main extends Application {
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
         log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 1000, 600);
+        Scene scene = new Scene(rootNode, 1255, 600);
         scene.getStylesheets().add("/styles/styles.css");
 
         stage.setTitle("CarBum");

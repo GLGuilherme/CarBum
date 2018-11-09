@@ -49,7 +49,7 @@ public class LoginController {
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaInicial = (AnchorPane) FXMLLoader.load(getClass()
-                            .getResource("/fxml/TelaInicial.fxml"));
+                            .getResource("/fxml/TesteDashBoard.fxml"));
                     rootPane.getChildren().setAll(telaInicial);
                 } catch (IOException e) {
                     e.printStackTrace();
