@@ -3,7 +3,6 @@ package com.carbum;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -14,7 +13,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -30,21 +29,19 @@ import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
 
-public class TelaPecasBuscadasController implements Initializable{
+public class TelaMeusAnunciosController implements Initializable {
+    public ScrollPane scrollPane;
+    public GridPane pecasBuscadas;
+    public AnchorPane rootPane;
     public TextField inputTermoBusca;
     public Button btBuscar;
-    public GridPane pecasBuscadas = new GridPane();
-    public Button button;
-    public ScrollPane scrollPane;
-    public static String pecaBuscada;
+    public static String busca = "";
 
-    @FXML
-    AnchorPane rootPane;
 
     private ConexaoBanco conexao;
     private String sql;
 
-    public TelaPecasBuscadasController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+    public TelaMeusAnunciosController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
         this.conexao = new ConexaoBanco();
     }
 
@@ -52,22 +49,9 @@ public class TelaPecasBuscadasController implements Initializable{
         return conexao;
     }
 
-    public void buscar(ActionEvent actionEvent) {
-
-        try {
-            TelaInicialController.pecaBuscada = inputTermoBusca.getText();
-            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
-
-            rootPane.getChildren().setAll(telaPecaPesquisas);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);
@@ -76,9 +60,10 @@ public class TelaPecasBuscadasController implements Initializable{
 
         try {
 
-            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND a.idpessoa = e.idpessoa";
+            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE a.partecarro ~* ? AND a.idpessoa = ? AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
-            pstatement.setString(1, TelaInicialController.pecaBuscada);
+            pstatement.setString(1, TelaMeusAnunciosController.busca);
+            pstatement.setInt(2, LoginController.idUsuario);
             ResultSet rs = pstatement.executeQuery();
             int contC = 0, contR = 0;
             while (rs.next()){
@@ -105,7 +90,7 @@ public class TelaPecasBuscadasController implements Initializable{
                 imageView.setFitHeight(250);
                 imageView.setPreserveRatio(true);
 
-                    Label valor;
+                Label valor;
                 if (preco.isEmpty()){
                     valor = new Label("Valor a Combinar");
                     valor.setWrapText(true);
@@ -240,18 +225,25 @@ public class TelaPecasBuscadasController implements Initializable{
         }
     }
 
-    @FXML
-    public void onEnter(ActionEvent ae){
+    public void onEnter(ActionEvent actionEvent) {
+        acaoBuscar();
+    }
 
+    public void buscar(ActionEvent actionEvent) {
+
+       acaoBuscar();
+    }
+
+    public void acaoBuscar(){
         try {
-            TelaInicialController.pecaBuscada = inputTermoBusca.getText();
+            rootPane.getChildren().clear();
+            TelaMeusAnunciosController.busca = inputTermoBusca.getText();
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
+                    .getResource("/fxml/TelaMeusAnuncios.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

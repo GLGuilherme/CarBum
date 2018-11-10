@@ -67,7 +67,7 @@ public class TelaDetalheAnuncioController implements Initializable {
 
         try {
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaInicial.fxml"));
+                    .getResource("/fxml/TelaPecasBuscadas.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {

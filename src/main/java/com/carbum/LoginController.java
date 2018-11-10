@@ -36,7 +36,7 @@ public class LoginController {
 
     }
 
-    public void Entrar(ActionEvent actionEvent) {
+    public void validarLogin(){
         try {
             sql = "SELECT emaillogin, senha, idpessoa FROM pessoa WHERE emaillogin = ? AND senha = ?";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
@@ -62,6 +62,10 @@ public class LoginController {
         }
     }
 
+    public void Entrar(ActionEvent actionEvent) {
+        validarLogin();
+    }
+
     public void Cadastrar(ActionEvent actionEvent) {
         rootPane.getChildren().clear();
 
@@ -73,5 +77,9 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onEnter(ActionEvent actionEvent) {
+        validarLogin();
     }
 }

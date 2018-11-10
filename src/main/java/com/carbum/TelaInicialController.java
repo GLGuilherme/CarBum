@@ -20,8 +20,6 @@ public class TelaInicialController {
     public Button btBuscar;
     public TextField inputTermoBusca;
     public static String pecaBuscada;
-    public Button btVenderPeca;
-    public Button btMinhaConta;
     @FXML
     private AnchorPane rootPane;
     private Scene scene;
@@ -71,34 +69,6 @@ public class TelaInicialController {
                     .getResource("/fxml/TelaPecasBuscadas.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void conta(ActionEvent event) throws IOException {
-        /*rootPane.getChildren().clear();
-
-        try {
-            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaCadastroPessoa.fxml"));
-
-            rootPane.getChildren().setAll(telaPecaPesquisas);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-    }
-
-    @FXML
-    public void vender(ActionEvent event) throws IOException {
-        rootPane.getChildren().clear();
-
-        try {
-            AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaCadastroPeca.fxml"));
-
-            rootPane.getChildren().setAll(telaCadastroPeca);
         } catch (IOException e) {
             e.printStackTrace();
         }

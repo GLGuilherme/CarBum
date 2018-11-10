@@ -1,5 +1,6 @@
 package com.carbum;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ public class TesteController implements Initializable {
     public Button btnConfiguracoes;
     public Button btnSair;
     public AnchorPane totalPane;
+    public Button btnMeusAnuncios;
 
     public void handleClicks(ActionEvent actionEvent) {
 
@@ -28,10 +30,10 @@ public class TesteController implements Initializable {
             rootPane.getChildren().clear();
 
             try {
-                AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
+                AnchorPane telaInicio = (AnchorPane) FXMLLoader.load(getClass()
                         .getResource("/fxml/TelaInicial.fxml"));
 
-                rootPane.getChildren().setAll(telaCadastroPeca);
+                rootPane.getChildren().setAll(telaInicio);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -55,16 +57,29 @@ public class TesteController implements Initializable {
             rootPane.getChildren().clear();
 
             try {
-                AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
+                AnchorPane telaVenderPeca = (AnchorPane) FXMLLoader.load(getClass()
                         .getResource("/fxml/TelaCadastroPeca.fxml"));
 
-                rootPane.getChildren().setAll(telaCadastroPeca);
+                rootPane.getChildren().setAll(telaVenderPeca);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
             /*pnlCustomer.setStyle("-fx-background-color : #1620A1");
             pnlCustomer.toFront();*/
+        }
+
+        if (actionEvent.getSource() == btnMeusAnuncios){
+            rootPane.getChildren().clear();
+
+            try {
+                AnchorPane telaMeusAnuncios = (AnchorPane) FXMLLoader.load(getClass()
+                        .getResource("/fxml/TelaMeusAnuncios.fxml"));
+
+                rootPane.getChildren().setAll(telaMeusAnuncios);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         /*if (actionEvent.getSource() == btnHistorico){
@@ -95,22 +110,17 @@ public class TesteController implements Initializable {
 
         if (actionEvent.getSource() == btnSair){
             totalPane.getChildren().clear();
+            rootPane.getChildren().clear();
 
             try {
-                AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
+                AnchorPane telaLogin = (AnchorPane) FXMLLoader.load(getClass()
                         .getResource("/fxml/TelaLogin.fxml"));
 
-                totalPane.getChildren().setAll(telaCadastroPeca);
+                totalPane.getChildren().setAll(telaLogin);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
-    }
-
-    public void onEnter(ActionEvent actionEvent) {
-        
     }
 
     @Override
@@ -118,10 +128,10 @@ public class TesteController implements Initializable {
         rootPane.getChildren().clear();
 
         try {
-            AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
+            AnchorPane telaInicial = (AnchorPane) FXMLLoader.load(getClass()
                     .getResource("/fxml/TelaInicial.fxml"));
 
-            rootPane.getChildren().setAll(telaCadastroPeca);
+            rootPane.getChildren().setAll(telaInicial);
         } catch (IOException e) {
             e.printStackTrace();
         }
