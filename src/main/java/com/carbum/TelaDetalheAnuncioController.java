@@ -45,6 +45,7 @@ public class TelaDetalheAnuncioController implements Initializable {
     public Label marca;
     public HBox hbox;
     public HBox hbox1;
+    public static String caminho = "/fxml/TelaDetalheAnuncio.fxml";
 
     @FXML
     private AnchorPane rootPane;
@@ -77,6 +78,8 @@ public class TelaDetalheAnuncioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        TesteController.caminho = TelaDetalheAnuncioController.caminho;
 
         try {
             sql = "SELECT a.partecarro, a.descricao, a.conservacao, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.imagem1, a.imagem2, a.preco, p.nomepessoa, p.telefone FROM anuncio a, pessoa p WHERE a.idanuncio = ? AND a.idpessoa = p.idpessoa";

@@ -118,11 +118,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-    <Button fx:id="btVoltar" layoutX="109.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Voltar">
-    <font>
-        <Font name="System Bold" size="14.0" />
-    </font>
-    </Button>
       <ComboBox fx:id="inputNomeCarro" layoutX="367.0" layoutY="203.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha a marca primeiro" stylesheets="@/styling/fullpackstyling.css" />
       <Label fx:id="erroPeca" layoutX="110.0" layoutY="174.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>

@@ -235,7 +235,7 @@ public class TelaPecasBuscadasController implements Initializable{
                         mudada = mudada.replaceAll(",", "");
                         mudada = mudada.replaceAll("\n", "+");
                         caminhoUrl = mudada;
-                        
+
                         try {
                             java.awt.Desktop.getDesktop().browse(new URI("https://www.google.com.br/maps/dir/Casa/" + caminhoUrl));
 

@@ -37,7 +37,6 @@ public class TelaMeusAnunciosController implements Initializable {
     public Button btBuscar;
     public static String busca = "";
 
-
     private ConexaoBanco conexao;
     private String sql;
 

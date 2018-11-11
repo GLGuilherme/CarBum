@@ -8,9 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TesteController implements Initializable {
@@ -23,6 +26,8 @@ public class TesteController implements Initializable {
     public Button btnSair;
     public AnchorPane totalPane;
     public Button btnMeusAnuncios;
+    public Button btnVoltar;
+    public static String caminho;
 
     public void handleClicks(ActionEvent actionEvent) {
 
@@ -121,10 +126,38 @@ public class TesteController implements Initializable {
                 e.printStackTrace();
             }
         }
+
+        if (actionEvent.getSource() == btnVoltar){
+            rootPane.getChildren().clear();
+
+            if (TelaDetalheAnuncioController.caminho.equals(TesteController.caminho)){
+                System.out.println(TelaDetalheAnuncioController.caminho);
+                try {
+                    AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
+                            .getResource("/fxml/TelaPecasBuscadas.fxml"));
+
+                    rootPane.getChildren().setAll(telaAnterior);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }else{
+                try {
+                    AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
+                            .getResource("/fxml/TelaInicial.fxml"));
+
+                    rootPane.getChildren().setAll(telaAnterior);
+                    TelaDetalheAnuncioController.caminho = null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         rootPane.getChildren().clear();
 
         try {
