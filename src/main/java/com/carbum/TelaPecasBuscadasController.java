@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -19,13 +22,17 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
@@ -36,7 +43,7 @@ public class TelaPecasBuscadasController implements Initializable{
     public GridPane pecasBuscadas = new GridPane();
     public Button button;
     public ScrollPane scrollPane;
-    public static String pecaBuscada;
+    public String caminhoUrl;
 
     @FXML
     AnchorPane rootPane;
@@ -176,18 +183,6 @@ public class TelaPecasBuscadasController implements Initializable{
                 flowPane.setVgap(15);
                 flowPane.setStyle("-fx-background-color: #282828");
 
-                /*WebView webView = new WebView();
-                final WebEngine webEngine = webView.getEngine();
-                webEngine.load("https://www.google.com.br/maps");
-                webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
-                        if (newValue == Worker.State.SUCCEEDED){
-                            System.out.println("entrou");
-                        }
-                    }
-                });*/
-
                 VBox vBox = new VBox(hBoxStackPane, flowPane);
                 VBox.setVgrow(flowPane, Priority.ALWAYS);
                 vBox.setMaxHeight(Double.MAX_VALUE);
@@ -227,6 +222,28 @@ public class TelaPecasBuscadasController implements Initializable{
 
                             rootPane.getChildren().setAll(telaDetalheAnuncio);
                         } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                textEndereco.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        caminhoUrl = textEndereco.getText();
+                        String mudada = caminhoUrl.replaceAll(" ", "+");
+                        mudada = mudada.replaceAll(",", "");
+                        mudada = mudada.replaceAll("\n", "+");
+                        caminhoUrl = mudada;
+                        
+                        try {
+                            java.awt.Desktop.getDesktop().browse(new URI("https://www.google.com.br/maps/dir/Casa/" + caminhoUrl));
+
+                            /*AnchorPane telaDetalheAnuncio = (AnchorPane) FXMLLoader.load(getClass()
+                                    .getResource("/fxml/TelaCaminho.fxml"));
+
+                            rootPane.getChildren().setAll(telaDetalheAnuncio);*/
+                        } catch (IOException | URISyntaxException e) {
                             e.printStackTrace();
                         }
                     }
