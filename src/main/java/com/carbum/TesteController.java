@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -12,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -28,6 +32,18 @@ public class TesteController implements Initializable {
     public Button btnMeusAnuncios;
     public Button btnVoltar;
     public static String caminho;
+    public Label nomeUsuario;
+
+    private ConexaoBanco conexao;
+    private String sql;
+
+    public TesteController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+        this.conexao = new ConexaoBanco();
+    }
+
+    public ConexaoBanco getConexao() {
+        return conexao;
+    }
 
     public void handleClicks(ActionEvent actionEvent) {
 
@@ -128,9 +144,9 @@ public class TesteController implements Initializable {
         }
 
         if (actionEvent.getSource() == btnVoltar){
-            rootPane.getChildren().clear();
 
-            if (TelaDetalheAnuncioController.caminho.equals(TesteController.caminho)){
+            if (TelaDetalheAnuncioController.caminho == caminho){
+                rootPane.getChildren().clear();
                 System.out.println(TelaDetalheAnuncioController.caminho);
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
@@ -142,6 +158,7 @@ public class TesteController implements Initializable {
                 }
 
             }else{
+                rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaInicial.fxml"));
@@ -157,7 +174,6 @@ public class TesteController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         rootPane.getChildren().clear();
 
         try {
@@ -166,6 +182,23 @@ public class TesteController implements Initializable {
 
             rootPane.getChildren().setAll(telaInicial);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+
+            sql = "SELECT p.nomepessoa FROM pessoa p WHERE p.idpessoa = ?";
+            PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+            pstatement.setInt(1, LoginController.idUsuario);
+            ResultSet rs = pstatement.executeQuery();
+
+            while (rs.next()){
+                String nome = rs.getString("nomepessoa");
+
+                nomeUsuario.setText(nome);
+            }
+
+        }catch (SQLException e){
             e.printStackTrace();
         }
     }

@@ -44,6 +44,7 @@ public class TelaPecasBuscadasController implements Initializable{
     public Button button;
     public ScrollPane scrollPane;
     public String caminhoUrl;
+    public static String caminho = "/fxml/TelaPecasBuscadas.fxml";
 
     @FXML
     AnchorPane rootPane;
@@ -75,6 +76,7 @@ public class TelaPecasBuscadasController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TesteController.caminho = caminho;
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);
@@ -151,18 +153,8 @@ public class TelaPecasBuscadasController implements Initializable{
                         + cidade + " - " + estado);
                 textEndereco.setWrappingWidth(281);
                 textEndereco.setFont(Font.font(17));
-                textEndereco.setStyle("-fx-fill: white");
+                textEndereco.getStyleClass().add("textEndereco");
                 textEndereco.setCursor(Cursor.HAND);
-
-                /*javafx.scene.control.TextArea textArea = new TextArea("Rua " + rua + ", " + numero+ " \n" + bairro + " \n"
-                        + cidade + " - " + estado);
-                textArea.getStyleClass().add("textEndereco");
-                textArea.setEditable(false);
-                textArea.setWrapText(true);
-                textArea.setFont(Font.font(17));
-                textArea.setMaxWidth(276);
-                textArea.setPrefHeight(textEndereco.getLayoutBounds().getHeight() + (textEndereco.getLayoutBounds().getHeight() * 35.5/100));
-                System.out.println(textArea.getPrefHeight());*/
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
                 ImageView iconeEndereco = new ImageView("images/digital-map.png");

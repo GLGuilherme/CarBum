@@ -3,6 +3,7 @@ package com.carbum;
 import com.carbum.anuncio.DAOAnuncio;
 import com.carbum.auxiliares.Mascaras;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -46,6 +49,11 @@ public class TelaDetalheAnuncioController implements Initializable {
     public HBox hbox;
     public HBox hbox1;
     public static String caminho = "/fxml/TelaDetalheAnuncio.fxml";
+    public Button buttonSlide;
+    public int cont;
+    public String imagem1, imagem2;
+    public ImageView next;
+    public ImageView previous;
 
     @FXML
     private AnchorPane rootPane;
@@ -78,8 +86,10 @@ public class TelaDetalheAnuncioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TesteController.caminho = caminho;
 
-        TesteController.caminho = TelaDetalheAnuncioController.caminho;
+        next.setVisible(false);
+        previous.setVisible(false);
 
         try {
             sql = "SELECT a.partecarro, a.descricao, a.conservacao, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.imagem1, a.imagem2, a.preco, p.nomepessoa, p.telefone FROM anuncio a, pessoa p WHERE a.idanuncio = ? AND a.idpessoa = p.idpessoa";
@@ -95,35 +105,25 @@ public class TelaDetalheAnuncioController implements Initializable {
                 String marcaCarro = rs.getString("marcacarro");
                 String anoCarro = rs.getString("ano");
                 String modeloCarro = rs.getString("modelo");
-                String imagem1 = rs.getString("imagem1");
-                String imagem2 = rs.getString("imagem2");
+                imagem1 = rs.getString("imagem1");
+                imagem2 = rs.getString("imagem2");
                 String precoPeca = rs.getString("preco");
                 String nomePessoa = rs.getString("nomepessoa");
                 String telefonePessoa = rs.getString("telefone");
 
-                BufferedImage bufferedImage = decodeToImage(imagem1);
-                Image card = SwingFXUtils.toFXImage(bufferedImage, null );
-                imagemPeca1.setImage(card);
-
-                BufferedImage bufferedImage2 = decodeToImage(imagem2);
-                Image card2 = SwingFXUtils.toFXImage(bufferedImage2, null );
-                imagemPeca2.setImage(card2);
+                bufferedImage(imagem1, imagemPeca1);
 
                 StackPane stackPane= new StackPane();
                 stackPane.getChildren().add(imagemPeca1);
-                stackPane.setStyle("-fx-alignment: center_center");
-
-                StackPane stackPane2 = new StackPane();
-                stackPane2.getChildren().add(imagemPeca2);
-                stackPane2.setStyle("-fx-alignment: center_center");
+                stackPane.getChildren().add(next);
+                stackPane.getChildren().add(previous);
+                StackPane.setAlignment(next, Pos.CENTER_RIGHT);
+                StackPane.setAlignment(previous, Pos.CENTER_LEFT);
+                stackPane.setStyle("-fx-alignment: center");
 
                 hbox.getChildren().add(stackPane);
                 HBox.setHgrow(stackPane, Priority.ALWAYS);
                 hbox.setStyle("-fx-background-color: black");
-
-                hbox1.getChildren().add(stackPane2);
-                HBox.setHgrow(stackPane2, Priority.ALWAYS);
-                hbox1.setStyle("-fx-background-color: black");
 
                 peca.setText(parteCarro);
                 descricao.setText(descricaoPeca);
@@ -151,5 +151,41 @@ public class TelaDetalheAnuncioController implements Initializable {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public void bufferedImage(String string, ImageView imageView){
+        BufferedImage bufferedImage = decodeToImage(string);
+        Image card = SwingFXUtils.toFXImage(bufferedImage, null );
+
+        imageView.setImage(card);
+    }
+
+    public void slideFrente(MouseEvent mouseEvent) {
+        cont++;
+        bufferedImage(imagem2, imagemPeca1);
+        if (cont > 1){
+            bufferedImage(imagem1, imagemPeca1);
+            cont = 0;
+        }
+    }
+
+    public void slideTras(javafx.scene.input.MouseEvent mouseEvent) {
+        if (cont == 1){
+            bufferedImage(imagem1, imagemPeca1);
+            cont--;
+        }else if (cont == 0){
+            bufferedImage(imagem2, imagemPeca1);
+            cont = 1;
+        }
+    }
+
+    public void showImages(MouseEvent mouseEvent) {
+        next.setVisible(true);
+        previous.setVisible(true);
+    }
+
+    public void hideImages(MouseEvent mouseEvent) {
+        next.setVisible(false);
+        previous.setVisible(false);
     }
 }

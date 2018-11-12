@@ -1,24 +1,34 @@
 package com.carbum;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
 
-public class TelaInicialController{
+import static com.carbum.TelaCadastroPecaController.decodeToImage;
+
+public class TelaInicialController implements Initializable{
     public Button btBuscar;
     public TextField inputTermoBusca;
     public static String pecaBuscada;
@@ -27,6 +37,17 @@ public class TelaInicialController{
     @FXML
     private AnchorPane rootPane;
     private Scene scene;
+
+    private ConexaoBanco conexao;
+    private String sql;
+
+    public TelaInicialController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+        this.conexao = new ConexaoBanco();
+    }
+
+    public ConexaoBanco getConexao() {
+        return conexao;
+    }
 
 //    private static final Logger log = LoggerFactory.getLogger(TelaInicialController.class);
 //
@@ -90,4 +111,23 @@ public class TelaInicialController{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        /*try{
+
+            sql = "SELECT a.imagem1, a.imagem2 FROM anuncio a WHERE a.idanuncio = ?";
+            PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+            pstatement.setInt(1, 18);
+            ResultSet rs = pstatement.executeQuery();
+
+            while (rs.next()){
+
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }*/
+    }
+
+
 }

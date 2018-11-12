@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,21 +15,9 @@
                 <Font size="22.0" />
             </font>
         </Label>
-        <HBox fx:id="hbox" layoutX="110.0" layoutY="80.0" prefHeight="208.0" prefWidth="323.0" style="-fx-border-color: #355ECE;">
+        <HBox fx:id="hbox" layoutX="221.0" layoutY="57.0" maxHeight="302.0" maxWidth="485.0" minHeight="302.0" minWidth="485.0" onMouseEntered="#showImages" onMouseExited="#hideImages" prefHeight="302.0" prefWidth="485.0" style="-fx-border-color: #355ECE;">
          <children>
-                <ImageView fx:id="imagemPeca1" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                    <image>
-                        <Image url="@../images/semfoto.jpeg" />
-                    </image>
-                </ImageView>
-         </children>
-        </HBox>
-        <HBox fx:id="hbox1" layoutX="510.0" layoutY="80.0" prefHeight="208.0" prefWidth="324.0" style="-fx-border-color: #355ECE;">
-         <children>
-                <ImageView fx:id="imagemPeca2" fitHeight="210.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                    <viewport>
-                        <Rectangle2D />
-                    </viewport>
+                <ImageView fx:id="imagemPeca1" fitHeight="300.0" fitWidth="485.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                     <image>
                         <Image url="@../images/semfoto.jpeg" />
                     </image>
@@ -41,112 +29,128 @@
                 <Image url="@images/logo.png" />
             </image>
         </ImageView>
-        <Label layoutX="110.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
+        <Label layoutX="111.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="509.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
+        <Label layoutX="510.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="110.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
+        <Label layoutX="111.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="509.0" layoutY="347.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
+        <Label layoutX="510.0" layoutY="455.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="110.0" layoutY="304.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
+        <Label layoutX="111.0" layoutY="412.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="509.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
+        <Label layoutX="510.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
 
-        <Label layoutX="110.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
+        <Label layoutX="111.0" layoutY="456.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
 
             <font>
-                <Font size="14.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="110.0" layoutY="418.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
+        <Label layoutX="111.0" layoutY="526.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="192.0" layoutY="525.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="191.0" layoutY="417.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-      <Label fx:id="peca" layoutX="200.0" layoutY="348.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
+      <Label fx:id="peca" layoutX="201.0" layoutY="456.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="estadoPeca" layoutX="623.0" layoutY="346.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
+      <Label fx:id="estadoPeca" layoutX="624.0" layoutY="454.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="marca" layoutX="200.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
+      <Label fx:id="marca" layoutX="201.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="carro" layoutX="624.0" layoutY="372.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
+      <Label fx:id="carro" layoutX="625.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="ano" layoutX="200.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
+      <Label fx:id="ano" layoutX="201.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="modelo" layoutX="624.0" layoutY="394.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
+      <Label fx:id="modelo" layoutX="625.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="preco" layoutX="217.0" layoutY="418.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
+      <Label fx:id="preco" layoutX="218.0" layoutY="526.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="descricao" layoutX="200.0" layoutY="303.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
+      <Label fx:id="descricao" layoutX="201.0" layoutY="411.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="507.0" layoutY="444.0" text="Telefone:">
+      <Label layoutX="508.0" layoutY="552.0" text="Telefone:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="111.0" layoutY="552.0" text="Anunciante:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="anunciante" layoutX="200.0" layoutY="552.0" text="Anunciante">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="444.0" text="Anunciante:">
+      <Label fx:id="telefone" layoutX="597.0" layoutY="552.0" text="(46) 99125-1777">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="anunciante" layoutX="199.0" layoutY="444.0" text="Anunciante">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="telefone" layoutX="596.0" layoutY="444.0" text="(46) 99125-1777">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <ImageView fx:id="next" fitHeight="52.0" fitWidth="52.0" layoutX="793.0" layoutY="105.0" onMouseClicked="#slideFrente" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/next.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="previous" fitHeight="52.0" fitWidth="52.0" layoutX="793.0" layoutY="173.0" onMouseClicked="#slideTras" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/previous.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
     </children>
 </AnchorPane>
