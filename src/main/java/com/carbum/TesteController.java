@@ -147,7 +147,6 @@ public class TesteController implements Initializable {
 
             if (TelaDetalheAnuncioController.caminho == caminho){
                 rootPane.getChildren().clear();
-                System.out.println(TelaDetalheAnuncioController.caminho);
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaPecasBuscadas.fxml"));

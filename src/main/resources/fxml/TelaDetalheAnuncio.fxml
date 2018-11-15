@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="960.0" minHeight="600.0" minWidth="960.0" prefHeight="600.0" prefWidth="960.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1250.0" minHeight="600.0" minWidth="1250.0" prefHeight="600.0" prefWidth="1250.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaDetalheAnuncioController">
     <children>
         <Label alignment="CENTER" layoutX="363.0" layoutY="28.0" text="Detalhes do anúncio">
             <font>
@@ -29,114 +29,114 @@
                 <Image url="@images/logo.png" />
             </image>
         </ImageView>
-        <Label layoutX="111.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
+        <Label layoutX="125.0" layoutY="477.0" prefHeight="18.0" prefWidth="115.0" text="Marca:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="510.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
+        <Label layoutX="524.0" layoutY="499.0" prefHeight="18.0" prefWidth="115.0" text="Modelo:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="111.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
+        <Label layoutX="125.0" layoutY="499.0" prefHeight="18.0" prefWidth="115.0" text="Ano:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="510.0" layoutY="455.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
+        <Label layoutX="524.0" layoutY="452.0" prefHeight="18.0" prefWidth="115.0" text="Estado da Peça:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="111.0" layoutY="412.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
+        <Label layoutX="125.0" layoutY="409.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="510.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
+        <Label layoutX="524.0" layoutY="477.0" prefHeight="18.0" prefWidth="115.0" text="Carro:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
 
-        <Label layoutX="111.0" layoutY="456.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
+        <Label layoutX="125.0" layoutY="453.0" prefHeight="18.0" prefWidth="115.0" text="Peça:">
 
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="111.0" layoutY="526.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
+        <Label layoutX="125.0" layoutY="523.0" prefHeight="18.0" prefWidth="115.0" text="Preço:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="192.0" layoutY="525.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
+        <Label layoutX="206.0" layoutY="522.0" prefHeight="20.0" prefWidth="39.0" style="-fx-padding: 0 8;" text="R$">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-      <Label fx:id="peca" layoutX="201.0" layoutY="456.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
+      <Label fx:id="peca" layoutX="215.0" layoutY="453.0" prefHeight="18.0" prefWidth="115.0" text="Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="estadoPeca" layoutX="624.0" layoutY="454.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
+      <Label fx:id="estadoPeca" layoutX="638.0" layoutY="451.0" prefHeight="20.0" prefWidth="184.0" text="Estado da Peça">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="marca" layoutX="201.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
+      <Label fx:id="marca" layoutX="215.0" layoutY="477.0" prefHeight="18.0" prefWidth="115.0" text="Marca">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="carro" layoutX="625.0" layoutY="480.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
+      <Label fx:id="carro" layoutX="639.0" layoutY="477.0" prefHeight="18.0" prefWidth="115.0" text="Carro">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="ano" layoutX="201.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
+      <Label fx:id="ano" layoutX="215.0" layoutY="499.0" prefHeight="18.0" prefWidth="115.0" text="Ano">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="modelo" layoutX="625.0" layoutY="502.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
+      <Label fx:id="modelo" layoutX="639.0" layoutY="499.0" prefHeight="18.0" prefWidth="115.0" text="Modelo">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="preco" layoutX="218.0" layoutY="526.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
+      <Label fx:id="preco" layoutX="232.0" layoutY="523.0" prefHeight="18.0" prefWidth="98.0" style="-fx-padding: 0 8;" text="9999,00">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="descricao" layoutX="201.0" layoutY="411.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
+      <Label fx:id="descricao" layoutX="215.0" layoutY="408.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="508.0" layoutY="552.0" text="Telefone:">
+      <Label layoutX="522.0" layoutY="549.0" text="Telefone:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="111.0" layoutY="552.0" text="Anunciante:">
+      <Label layoutX="125.0" layoutY="549.0" text="Anunciante:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="anunciante" layoutX="200.0" layoutY="552.0" text="Anunciante">
+      <Label fx:id="anunciante" layoutX="214.0" layoutY="549.0" text="Anunciante">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="telefone" layoutX="597.0" layoutY="552.0" text="(46) 99125-1777">
+      <Label fx:id="telefone" layoutX="793.0" layoutY="66.0" text="(46) 99125-1777">
          <font>
-            <Font size="14.0" />
+            <Font size="28.0" />
          </font>
       </Label>
-      <ImageView fx:id="next" fitHeight="52.0" fitWidth="52.0" layoutX="793.0" layoutY="105.0" onMouseClicked="#slideFrente" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="next" fitHeight="52.0" fitWidth="52.0" layoutX="138.0" layoutY="81.0" onMouseClicked="#slideFrente" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/next.png" />
          </image>
@@ -144,13 +144,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="previous" fitHeight="52.0" fitWidth="52.0" layoutX="793.0" layoutY="173.0" onMouseClicked="#slideTras" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="previous" fitHeight="52.0" fitWidth="52.0" layoutX="138.0" layoutY="143.0" onMouseClicked="#slideTras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/previous.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="52.0" layoutX="740.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/speech-bubble.png" />
+         </image>
       </ImageView>
     </children>
 </AnchorPane>
