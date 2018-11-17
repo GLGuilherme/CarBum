@@ -55,6 +55,7 @@ public class TelaDetalheAnuncioController implements Initializable {
     public ImageView next;
     public ImageView previous;
     public Button favoritos;
+    public ImageView estrela;
 
     @FXML
     private AnchorPane rootPane;
@@ -161,6 +162,8 @@ public class TelaDetalheAnuncioController implements Initializable {
             ResultSet rs = pstatement.executeQuery();
 
             if (rs.next()){
+                Image image = new Image("fxml/images/star.png");
+                estrela.setImage(image);
                 favoritos.setText("Remover dos Favoritos");
             }
 
@@ -215,6 +218,8 @@ public class TelaDetalheAnuncioController implements Initializable {
                 pstatement.setInt(2, idAnuncioClicado);
                 pstatement.execute();
                 favoritos.setText("Remover dos Favoritos");
+                Image image = new Image("fxml/images/star.png");
+                estrela.setImage(image);
             }catch (SQLException e){
                 e.printStackTrace();
             }
@@ -226,6 +231,8 @@ public class TelaDetalheAnuncioController implements Initializable {
                 pstatement.setInt(2, idAnuncioClicado);
                 pstatement.execute();
                 favoritos.setText("Adicionar aos Favoritos");
+                Image image = new Image("fxml/images/starDash.png");
+                estrela.setImage(image);
             }catch (SQLException e){
                 e.printStackTrace();
             }
