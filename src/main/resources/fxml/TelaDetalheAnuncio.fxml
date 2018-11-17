@@ -153,6 +153,9 @@
             <Image url="@images/speech-bubble.png" />
          </image>
       </ImageView>
-      <Button fx:id="favoritos" layoutX="738.0" layoutY="130.0" mnemonicParsing="false" onAction="#adicionarFavoritos" prefHeight="52.0" prefWidth="258.0" text="Adicionar aos Favoritos" />
+      <Button fx:id="favoritos" layoutX="738.0" layoutY="130.0" mnemonicParsing="false" onAction="#adicionarFavoritos" prefHeight="52.0" prefWidth="258.0" stylesheets="@/styling/fullpackstyling.css" text="Adicionar aos Favoritos" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
     </children>
 </AnchorPane>
