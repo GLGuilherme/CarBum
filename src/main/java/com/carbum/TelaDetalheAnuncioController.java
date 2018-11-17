@@ -48,7 +48,7 @@ public class TelaDetalheAnuncioController implements Initializable {
     public Label marca;
     public HBox hbox;
     public HBox hbox1;
-    public static String caminho = "/fxml/TelaDetalheAnuncio.fxml";
+    public static String caminho = null;
     public Button buttonSlide;
     public int cont;
     public String imagem1, imagem2;
