@@ -83,7 +83,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-                <Button fx:id="btnHistorico" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="265.0" stylesheets="@/styling/DashBoardStyle.css" text="Favoritos">
+                <Button fx:id="btnFavoritos" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="265.0" stylesheets="@/styling/DashBoardStyle.css" text="Favoritos">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>

@@ -29,18 +29,18 @@ import java.util.ResourceBundle;
 
 import static com.carbum.TelaCadastroPecaController.decodeToImage;
 
-public class TelaMeusAnunciosController implements Initializable {
-    public ScrollPane scrollPane;
-    public GridPane pecasBuscadas;
+public class TelaFavoritosController implements Initializable {
     public AnchorPane rootPane;
     public TextField inputTermoBusca;
     public Button btBuscar;
+    public ScrollPane scrollPane;
+    public GridPane pecasBuscadas;
     public static String busca = "";
 
     private ConexaoBanco conexao;
     private String sql;
 
-    public TelaMeusAnunciosController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+    public TelaFavoritosController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
         this.conexao = new ConexaoBanco();
     }
 
@@ -48,9 +48,9 @@ public class TelaMeusAnunciosController implements Initializable {
         return conexao;
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);
@@ -59,9 +59,9 @@ public class TelaMeusAnunciosController implements Initializable {
 
         try {
 
-            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE a.partecarro ~* ? AND a.idpessoa = ? AND a.idpessoa = e.idpessoa";
+            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e, favorito f WHERE a.partecarro ~* ? AND f.idpessoa = ? AND a.idanuncio = f.idanuncio AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
-            pstatement.setString(1, TelaMeusAnunciosController.busca);
+            pstatement.setString(1, busca);
             pstatement.setInt(2, LoginController.idUsuario);
             ResultSet rs = pstatement.executeQuery();
             int contC = 0, contR = 0;
@@ -208,16 +208,15 @@ public class TelaMeusAnunciosController implements Initializable {
     }
 
     public void buscar(ActionEvent actionEvent) {
-
-       acaoBuscar();
+        acaoBuscar();
     }
 
     public void acaoBuscar(){
         try {
             rootPane.getChildren().clear();
-            TelaMeusAnunciosController.busca = inputTermoBusca.getText();
+            busca = inputTermoBusca.getText();
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaMeusAnuncios.fxml"));
+                    .getResource("/fxml/TelaFavoritos.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {

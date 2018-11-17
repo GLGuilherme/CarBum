@@ -1,23 +1,18 @@
 package com.carbum;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class TesteController implements Initializable {
@@ -25,7 +20,7 @@ public class TesteController implements Initializable {
     public StackPane rootPane;
     public Button btnInicio;
     public Button btnMinhaConta;
-    public Button btnHistorico;
+    public Button btnFavoritos;
     public Button btnConfiguracoes;
     public Button btnSair;
     public AnchorPane totalPane;
@@ -103,18 +98,18 @@ public class TesteController implements Initializable {
             }
         }
 
-        /*if (actionEvent.getSource() == btnHistorico){
+        if (actionEvent.getSource() == btnFavoritos){
             rootPane.getChildren().clear();
 
             try {
-                AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
-                        .getResource("/fxml/TelaInicial.fxml"));
+                AnchorPane telaFavoritos = (AnchorPane) FXMLLoader.load(getClass()
+                        .getResource("/fxml/TelaFavoritos.fxml"));
 
-                rootPane.getChildren().setAll(telaCadastroPeca);
+                rootPane.getChildren().setAll(telaFavoritos);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
 
         /*if (actionEvent.getSource() == btnConfiguracoes){
             rootPane.getChildren().clear();

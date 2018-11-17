@@ -54,6 +54,7 @@ public class TelaDetalheAnuncioController implements Initializable {
     public String imagem1, imagem2;
     public ImageView next;
     public ImageView previous;
+    public Button favoritos;
 
     @FXML
     private AnchorPane rootPane;
@@ -151,6 +152,21 @@ public class TelaDetalheAnuncioController implements Initializable {
         }catch (SQLException e){
             e.printStackTrace();
         }
+
+        try {
+            sql = "SELECT f.idpessoa, f.idanuncio FROM favorito f WHERE f.idpessoa = ? AND f.idanuncio = ?";
+            PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+            pstatement.setInt(1, LoginController.idUsuario);
+            pstatement.setInt(2, idAnuncioClicado);
+            ResultSet rs = pstatement.executeQuery();
+
+            if (rs.next()){
+                favoritos.setText("Remover dos Favoritos");
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     public void bufferedImage(String string, ImageView imageView){
@@ -187,5 +203,33 @@ public class TelaDetalheAnuncioController implements Initializable {
     public void hideImages(MouseEvent mouseEvent) {
         next.setVisible(false);
         previous.setVisible(false);
+    }
+
+    public void adicionarFavoritos(ActionEvent actionEvent) {
+
+        if (favoritos.getText().equals("Adicionar aos Favoritos")){
+            try {
+                sql = "INSERT INTO favorito (idpessoa, idanuncio) VALUES (?,?)";
+                PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+                pstatement.setInt(1, LoginController.idUsuario);
+                pstatement.setInt(2, idAnuncioClicado);
+                pstatement.execute();
+                favoritos.setText("Remover dos Favoritos");
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                sql = "DELETE FROM favorito WHERE favorito.idpessoa = ? AND  favorito.idanuncio = ?";
+                PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+                pstatement.setInt(1, LoginController.idUsuario);
+                pstatement.setInt(2, idAnuncioClicado);
+                pstatement.execute();
+                favoritos.setText("Adicionar aos Favoritos");
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 }
