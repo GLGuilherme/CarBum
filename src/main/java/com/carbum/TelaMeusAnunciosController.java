@@ -39,6 +39,7 @@ public class TelaMeusAnunciosController implements Initializable {
     public Button btBuscar;
     public static String busca = "";
     public String caminhoUrl;
+    public static String caminho = "/fxml/TelaMeusAnuncios.fxml";
 
     private ConexaoBanco conexao;
     private String sql;
@@ -54,6 +55,7 @@ public class TelaMeusAnunciosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TelaDetalheAnuncioController.caminho = caminho;
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);

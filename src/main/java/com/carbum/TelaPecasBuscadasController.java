@@ -76,7 +76,7 @@ public class TelaPecasBuscadasController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        TesteController.caminho = caminho;
+        TelaDetalheAnuncioController.caminho = caminho;
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);

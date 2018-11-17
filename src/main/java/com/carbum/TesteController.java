@@ -140,17 +140,40 @@ public class TesteController implements Initializable {
 
         if (actionEvent.getSource() == btnVoltar){
 
-            if (TelaDetalheAnuncioController.caminho == caminho){
+            if (TelaDetalheAnuncioController.caminho == "/fxml/TelaPecasBuscadas.fxml"){
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaPecasBuscadas.fxml"));
 
                     rootPane.getChildren().setAll(telaAnterior);
+                    TelaDetalheAnuncioController.caminho = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
+            }else if (TelaDetalheAnuncioController.caminho == "/fxml/TelaFavoritos.fxml"){
+                rootPane.getChildren().clear();
+                try {
+                    AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
+                            .getResource("/fxml/TelaFavoritos.fxml"));
+
+                    rootPane.getChildren().setAll(telaAnterior);
+                    TelaDetalheAnuncioController.caminho = null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else if (TelaDetalheAnuncioController.caminho == "/fxml/TelaMeusAnuncios.fxml") {
+                rootPane.getChildren().clear();
+                try {
+                    AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
+                            .getResource("/fxml/TelaMeusAnuncios.fxml"));
+
+                    rootPane.getChildren().setAll(telaAnterior);
+                    TelaDetalheAnuncioController.caminho = null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }else{
                 rootPane.getChildren().clear();
                 try {

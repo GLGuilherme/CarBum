@@ -39,6 +39,7 @@ public class TelaFavoritosController implements Initializable {
     public GridPane pecasBuscadas;
     public static String busca = "";
     public String caminhoUrl;
+    public static String caminho = "/fxml/TelaFavoritos.fxml";
 
     private ConexaoBanco conexao;
     private String sql;
@@ -53,7 +54,7 @@ public class TelaFavoritosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        TelaDetalheAnuncioController.caminho = caminho;
         scrollPane.setFitToWidth(true);
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setVgrow(Priority.ALWAYS);
