@@ -21,6 +21,8 @@ import javafx.scene.text.TextAlignment;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,6 +38,7 @@ public class TelaMeusAnunciosController implements Initializable {
     public TextField inputTermoBusca;
     public Button btBuscar;
     public static String busca = "";
+    public String caminhoUrl;
 
     private ConexaoBanco conexao;
     private String sql;
@@ -128,7 +131,7 @@ public class TelaMeusAnunciosController implements Initializable {
                         + cidade + " - " + estado);
                 textEndereco.setWrappingWidth(281);
                 textEndereco.setFont(Font.font(17));
-                textEndereco.setStyle("-fx-fill: white");
+                textEndereco.getStyleClass().add("textEndereco");
                 textEndereco.setCursor(Cursor.HAND);
 
                 ImageView iconeDescricao = new ImageView("images/catalogue.png");
@@ -189,6 +192,28 @@ public class TelaMeusAnunciosController implements Initializable {
 
                             rootPane.getChildren().setAll(telaDetalheAnuncio);
                         } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                textEndereco.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        caminhoUrl = textEndereco.getText();
+                        String mudada = caminhoUrl.replaceAll(" ", "+");
+                        mudada = mudada.replaceAll(",", "");
+                        mudada = mudada.replaceAll("\n", "+");
+                        caminhoUrl = mudada;
+
+                        try {
+                            java.awt.Desktop.getDesktop().browse(new URI("https://www.google.com.br/maps/dir/Casa/" + caminhoUrl));
+
+                            /*AnchorPane telaDetalheAnuncio = (AnchorPane) FXMLLoader.load(getClass()
+                                    .getResource("/fxml/TelaCaminho.fxml"));
+
+                            rootPane.getChildren().setAll(telaDetalheAnuncio);*/
+                        } catch (IOException | URISyntaxException e) {
                             e.printStackTrace();
                         }
                     }

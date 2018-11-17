@@ -117,11 +117,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="522.0" layoutY="549.0" text="Telefone:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
       <Label layoutX="125.0" layoutY="549.0" text="Anunciante:">
          <font>
             <Font name="System Bold" size="14.0" />
