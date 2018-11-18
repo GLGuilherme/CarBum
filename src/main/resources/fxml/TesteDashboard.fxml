@@ -95,6 +95,18 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
+            <Button fx:id="btnPlanos" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="265.0" stylesheets="@/styling/DashBoardStyle.css" text="Planos">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/plansDash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
                 <Button fx:id="btnConfiguracoes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="264.0" stylesheets="@/styling/DashBoardStyle.css" text="Configurações">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -131,7 +143,7 @@
                   <Insets left="50.0" />
                </padding>
                <VBox.margin>
-                  <Insets top="100.0" />
+                  <Insets top="60.0" />
                </VBox.margin>
             </Button>
             </children>

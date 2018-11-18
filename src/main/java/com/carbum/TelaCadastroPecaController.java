@@ -9,16 +9,21 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -38,6 +43,8 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -101,22 +108,54 @@ public class TelaCadastroPecaController implements Initializable {
             return;
         }
 
-        Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
-                marca, ano, modelo, imagem1, imagem2, preco, LoginController.idUsuario);
+        try {
+            sql = "SELECT p.qtdanuncio FROM plano p WHERE p.idpessoa = ?";
+            PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+            pstatement.setInt(1, LoginController.idUsuario);
+            ResultSet rs = pstatement.executeQuery();
+            if (rs.next()) {
+               int qtdAnuncio = rs.getInt("qtdanuncio");
 
-        DAOAnuncio daoAnuncio = new DAOAnuncio();
-        operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
+               if (qtdAnuncio > 0){
 
-        if (operacaoCompleta) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Cadastro de Peça");
-            alert.setHeaderText(null);
-            alert.setContentText("Peça cadastrada com sucesso!");
-            alert.showAndWait();
-            this.navegaTelaInicial();
+                   Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
+                           marca, ano, modelo, imagem1, imagem2, preco, LoginController.idUsuario);
 
-        } else {
-            //apresentar erro na inserção, pessoa já existi no banco
+                   DAOAnuncio daoAnuncio = new DAOAnuncio();
+                   operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
+
+                   if (operacaoCompleta) {
+                       Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                       alert.setTitle("Cadastro de Peça");
+                       alert.setHeaderText(null);
+                       alert.setContentText("Peça cadastrada com sucesso!");
+                       alert.showAndWait();
+                       this.navegaTelaInicial();
+
+                       try {
+                           qtdAnuncio -= 1;
+                           sql = "UPDATE plano SET qtdanuncio = ? WHERE idpessoa = ?";
+                           PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
+                           statement.setInt(1, qtdAnuncio);
+                           statement.setInt(2, LoginController.idUsuario);
+                           statement.execute();
+                       }catch (SQLException e){
+                           e.printStackTrace();
+                       }
+                   } else {
+                       //apresentar erro na inserção, pessoa já existi no banco
+                   }
+               }else {
+                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                   alert.setTitle("Cadastro de Peça");
+                   alert.setHeaderText(null);
+                   alert.setContentText("Você não possui plano para cadastrar a peça!");
+                   alert.showAndWait();
+                   this.navegaTelaPlanos();
+               }
+            }
+        }catch(SQLException e){
+                e.printStackTrace();
         }
     }
 
@@ -127,6 +166,19 @@ public class TelaCadastroPecaController implements Initializable {
         try {
             AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
                     .getResource("/fxml/TelaInicial.fxml"));
+
+            rootPane.getChildren().setAll(telaPecaPesquisas);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void navegaTelaPlanos() throws IOException {
+        rootPane.getChildren().clear();
+
+        try {
+            AnchorPane telaPecaPesquisas = (AnchorPane) FXMLLoader.load(getClass()
+                    .getResource("/fxml/TelaEscolhaPlanos.fxml"));
 
             rootPane.getChildren().setAll(telaPecaPesquisas);
         } catch (IOException e) {

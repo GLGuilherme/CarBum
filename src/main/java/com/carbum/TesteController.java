@@ -30,6 +30,7 @@ public class TesteController implements Initializable {
     public Button btnVoltar;
     public static String caminho;
     public Label nomeUsuario;
+    public Button btnPlanos;
 
     private ConexaoBanco conexao;
     private String sql;
@@ -108,6 +109,19 @@ public class TesteController implements Initializable {
                         .getResource("/fxml/TelaFavoritos.fxml"));
 
                 rootPane.getChildren().setAll(telaFavoritos);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (actionEvent.getSource() == btnPlanos){
+            rootPane.getChildren().clear();
+
+            try {
+                AnchorPane telaPlanos = (AnchorPane) FXMLLoader.load(getClass()
+                        .getResource("/fxml/TelaEscolhaPlanos.fxml"));
+
+                rootPane.getChildren().setAll(telaPlanos);
             } catch (IOException e) {
                 e.printStackTrace();
             }
