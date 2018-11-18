@@ -39,58 +39,14 @@ public class TelaEscolhaPlanosController {
 
     public void escolhaPlano(ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnSimples){
-            Alert alert = new Alert(Alert.AlertType.WARNING, "", sim, nao);
-            alert.setTitle("Aquisição de Plano Simples");
-            alert.setHeaderText(null);
-            alert.setContentText("Se você confirmar este plano, só poderá escolher outro quando esse acabar!\nTem certeza?");
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if (result.orElse(nao) == sim){
-
-                adicionarPlano(simples);
-                telaInicial();
-
-            }else {
-                telaPlanos();
-            }
-
+           alertaEscolha("Aquisição do Plano Simples", simples);
         }
-
         if (actionEvent.getSource() == btnAvancado){
-
-            Alert alert = new Alert(Alert.AlertType.WARNING, "", sim, nao);
-            alert.setTitle("Aquisição de Plano Avancado");
-            alert.setHeaderText(null);
-            alert.setContentText("Se você confirmar este plano, só poderá escolher outro quando esse acabar!\nTem certeza?");
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if (result.orElse(nao) == sim){
-
-                adicionarPlano(avancado);
-                telaInicial();
-
-            }else {
-                telaPlanos();
-            }
-
+            alertaEscolha("Aquisição do Plano Avançado", avancado);
         }
 
         if (actionEvent.getSource() == btnSuper){
-
-            Alert alert = new Alert(Alert.AlertType.WARNING, "", sim, nao);
-            alert.setTitle("Aquisição de Plano Super");
-            alert.setHeaderText(null);
-            alert.setContentText("Se você confirmar este plano, só poderá escolher outro quando esse acabar!\nTem certeza?");
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if (result.orElse(nao) == sim){
-
-                adicionarPlano(top);
-                telaInicial();
-
-            }else {
-                telaPlanos();
-            }
+            alertaEscolha("Aquisição do Plano Super", top);
         }
     }
 
@@ -118,13 +74,10 @@ public class TelaEscolhaPlanosController {
                         statement.setInt(1, qtdAnuncio);
                         statement.setInt(2, LoginController.idUsuario);
                         statement.execute();
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Sucesso");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Plano cadastrado com sucesso!");
-                        alert.showAndWait();
+                        alertaSucesso();
                     }catch (SQLException e){
                         e.printStackTrace();
+                        alertaFalha();
                     }
                 }
             }else {
@@ -135,27 +88,15 @@ public class TelaEscolhaPlanosController {
                     statement.setInt(1, LoginController.idUsuario);
                     statement.setInt(2, qtdAnuncio);
                     statement.execute();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Sucesso");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Plano cadastrado com sucesso!");
-                    alert.showAndWait();
+                    alertaSucesso();
                 }catch (SQLException e){
                     e.printStackTrace();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Falha");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Houve um erro ao escolher o plano, tente novamente!");
-                    alert.showAndWait();
+                    alertaFalha();
                 }
             }
         }catch (SQLException e){
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Falha");
-            alert.setHeaderText(null);
-            alert.setContentText("Houve um erro ao escolher o plano, tente novamente!");
-            alert.showAndWait();
+            alertaFalha();
         }
     }
 
@@ -180,6 +121,37 @@ public class TelaEscolhaPlanosController {
             rootPane.getChildren().setAll(telaInicio);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void alertaFalha(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Falha");
+        alert.setHeaderText(null);
+        alert.setContentText("Houve um erro ao escolher o plano, tente novamente!");
+        alert.showAndWait();
+    }
+
+    public void alertaSucesso(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sucesso");
+        alert.setHeaderText(null);
+        alert.setContentText("Plano cadastrado com sucesso!");
+        alert.showAndWait();
+    }
+
+    public void alertaEscolha(String string, int qtdAnuncio){
+        Alert alert = new Alert(Alert.AlertType.WARNING, "", sim, nao);
+        alert.setTitle(string);
+        alert.setHeaderText(null);
+        alert.setContentText("Se você confirmar este plano, só poderá escolher outro quando esse acabar!\nTem certeza?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.orElse(nao) == sim){
+            adicionarPlano(qtdAnuncio);
+            telaInicial();
+        }else {
+            telaPlanos();
         }
     }
 }
