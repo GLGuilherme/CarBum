@@ -50,7 +50,7 @@ public class TelaEscolhaPlanosController {
         }
     }
 
-    public void adicionarPlano(int qtdAnuncio){
+    private void adicionarPlano(int qtdAnuncio){
 
         try {
             sql = "SELECT p.idpessoa, p.qtdanuncio FROM plano p WHERE p.idpessoa = ?";
@@ -100,7 +100,7 @@ public class TelaEscolhaPlanosController {
         }
     }
 
-    public void telaInicial(){
+    private void telaInicial(){
         rootPane.getChildren().clear();
         try {
             AnchorPane telaInicio = (AnchorPane) FXMLLoader.load(getClass()
@@ -112,7 +112,7 @@ public class TelaEscolhaPlanosController {
         }
     }
 
-    public void telaPlanos(){
+    private void telaPlanos(){
         rootPane.getChildren().clear();
         try {
             AnchorPane telaInicio = (AnchorPane) FXMLLoader.load(getClass()
@@ -124,7 +124,7 @@ public class TelaEscolhaPlanosController {
         }
     }
 
-    public void alertaFalha(){
+    private void alertaFalha(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Falha");
         alert.setHeaderText(null);
@@ -132,7 +132,7 @@ public class TelaEscolhaPlanosController {
         alert.showAndWait();
     }
 
-    public void alertaSucesso(){
+    private void alertaSucesso(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Sucesso");
         alert.setHeaderText(null);
@@ -140,7 +140,7 @@ public class TelaEscolhaPlanosController {
         alert.showAndWait();
     }
 
-    public void alertaEscolha(String string, int qtdAnuncio){
+    private void alertaEscolha(String string, int qtdAnuncio){
         Alert alert = new Alert(Alert.AlertType.WARNING, "", sim, nao);
         alert.setTitle(string);
         alert.setHeaderText(null);
