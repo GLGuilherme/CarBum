@@ -16,198 +16,198 @@
             <!--</image>-->
         </ImageView>
 
-        <Label alignment="CENTER" layoutX="393.0" layoutY="14.0" text="Cadastro de Pessoa">
+        <Label alignment="CENTER" layoutX="574.0" layoutY="16.0" text="Cadastro de Pessoa">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="inputNome" layoutX="112.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputNome" layoutX="241.0" layoutY="141.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCpf" layoutX="520.0" layoutY="132.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputCpf" layoutX="649.0" layoutY="141.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputUsuario" layoutX="112.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputUsuario" layoutX="241.0" layoutY="233.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="inputSenha" layoutX="520.0" layoutY="224.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <PasswordField fx:id="inputSenha" layoutX="649.0" layoutY="233.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </PasswordField>
-        <TextField fx:id="inputRua" layoutX="112.0" layoutY="310.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputRua" layoutX="241.0" layoutY="319.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputNumero" layoutX="520.0" layoutY="310.0" prefHeight="41.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputNumero" layoutX="649.0" layoutY="319.0" prefHeight="41.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputTelefone" layoutX="659.0" layoutY="310.0" prefHeight="41.0" prefWidth="225.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputTelefone" layoutX="788.0" layoutY="319.0" prefHeight="41.0" prefWidth="225.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputBairro" layoutX="112.0" layoutY="385.0" prefHeight="41.0" prefWidth="234.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputBairro" layoutX="241.0" layoutY="394.0" prefHeight="41.0" prefWidth="234.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCep" layoutX="370.0" layoutY="385.0" prefHeight="41.0" prefWidth="108.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputCep" layoutX="499.0" layoutY="394.0" prefHeight="41.0" prefWidth="108.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputComplemento" layoutX="520.0" layoutY="385.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputComplemento" layoutX="649.0" layoutY="394.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputCidade" layoutX="112.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputCidade" layoutX="241.0" layoutY="466.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="inputEstado" layoutX="520.0" layoutY="457.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
+        <TextField fx:id="inputEstado" layoutX="649.0" layoutY="466.0" prefHeight="41.0" prefWidth="368.0" stylesheets="@/styling/fullpackstyling.css">
             <font>
                 <Font size="14.0" />
             </font>
         </TextField>
-        <Button fx:id="btSalvarPessoa" layoutX="772.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Salvar" textFill="WHITE">
+        <Button fx:id="btSalvarPessoa" layoutX="901.0" layoutY="543.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Salvar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
 
-        <Label layoutX="112.0" layoutY="112.0" prefHeight="18.0" prefWidth="149.0" text="Nome completo">
+        <Label layoutX="241.0" layoutY="121.0" prefHeight="18.0" prefWidth="149.0" text="Nome completo">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label focusTraversable="false" layoutX="520.0" layoutY="112.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
+        <Label focusTraversable="false" layoutX="649.0" layoutY="121.0" prefHeight="17.0" prefWidth="59.0" text="CPF">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="660.0" layoutY="290.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
+        <Label layoutX="789.0" layoutY="299.0" prefHeight="18.0" prefWidth="115.0" text="Telefone">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="204.0" prefHeight="20.0" prefWidth="158.0" text="Nome de Usuário">
+        <Label layoutX="241.0" layoutY="213.0" prefHeight="20.0" prefWidth="158.0" text="Nome de Usuário">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="520.0" layoutY="291.0" prefHeight="17.0" prefWidth="59.0" text="Número">
+        <Label layoutX="649.0" layoutY="300.0" prefHeight="17.0" prefWidth="59.0" text="Número">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="520.0" layoutY="364.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
+        <Label layoutX="649.0" layoutY="373.0" prefHeight="18.0" prefWidth="115.0" text="Complemento">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="520.0" layoutY="436.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
+        <Label layoutX="649.0" layoutY="445.0" prefHeight="17.0" prefWidth="59.0" text="Estado">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="291.0" prefHeight="17.0" prefWidth="59.0" text="Rua">
+        <Label layoutX="241.0" layoutY="300.0" prefHeight="17.0" prefWidth="59.0" text="Rua">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="364.0" prefHeight="17.0" prefWidth="59.0" text="Bairro">
+        <Label layoutX="241.0" layoutY="373.0" prefHeight="17.0" prefWidth="59.0" text="Bairro">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="370.0" layoutY="364.0" prefHeight="17.0" prefWidth="59.0" text="CEP">
+        <Label layoutX="499.0" layoutY="373.0" prefHeight="17.0" prefWidth="59.0" text="CEP">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="436.0" prefHeight="17.0" prefWidth="59.0" text="Cidade">
+        <Label layoutX="241.0" layoutY="445.0" prefHeight="17.0" prefWidth="59.0" text="Cidade">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="112.0" layoutY="68.0" prefHeight="18.0" prefWidth="171.0" text="Dados Pessoais">
+        <Label layoutX="241.0" layoutY="77.0" prefHeight="18.0" prefWidth="171.0" text="Dados Pessoais">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-      <Button fx:id="btVoltar" layoutX="114.0" layoutY="534.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Voltar">
+      <Button fx:id="btVoltar" layoutX="243.0" layoutY="543.0" mnemonicParsing="false" onAction="#navegaTelaInicial" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Voltar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="520.0" layoutY="204.0" prefHeight="17.0" prefWidth="59.0" text="Senha">
+      <Label layoutX="649.0" layoutY="213.0" prefHeight="17.0" prefWidth="59.0" text="Senha">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="erroNome" layoutX="111.0" layoutY="173.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroNome" layoutX="240.0" layoutY="182.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroCpf" layoutX="520.0" layoutY="173.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroCpf" layoutX="649.0" layoutY="182.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroUsuario" layoutX="114.0" layoutY="265.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroUsuario" layoutX="243.0" layoutY="274.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroSenha" layoutX="520.0" layoutY="265.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroSenha" layoutX="649.0" layoutY="274.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroRua" layoutX="111.0" layoutY="351.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroRua" layoutX="240.0" layoutY="360.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroNumero" layoutX="520.0" layoutY="351.0" prefHeight="23.0" prefWidth="115.0" textFill="#ff6354">
+      <Label fx:id="erroNumero" layoutX="649.0" layoutY="360.0" prefHeight="23.0" prefWidth="115.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroTelefone" layoutX="660.0" layoutY="351.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroTelefone" layoutX="789.0" layoutY="360.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroBairro" layoutX="114.0" layoutY="425.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroBairro" layoutX="243.0" layoutY="434.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroCep" layoutX="370.0" layoutY="425.0" prefHeight="32.0" prefWidth="108.0" textFill="#ff6354" wrapText="true">
+      <Label fx:id="erroCep" layoutX="499.0" layoutY="434.0" prefHeight="32.0" prefWidth="108.0" textFill="#ff6354" wrapText="true">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroCidade" layoutX="114.0" layoutY="498.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroCidade" layoutX="243.0" layoutY="507.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="erroEstado" layoutX="520.0" layoutY="498.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
+      <Label fx:id="erroEstado" layoutX="649.0" layoutY="507.0" prefHeight="23.0" prefWidth="237.0" textFill="#ff6354">
          <font>
             <Font name="Segoe UI" size="10.0" />
          </font>
