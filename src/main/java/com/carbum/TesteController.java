@@ -4,9 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 
 import java.awt.*;
@@ -16,6 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static java.awt.Color.RED;
 
 public class TesteController implements Initializable {
     public Button btnVenderPeca;
@@ -44,7 +49,6 @@ public class TesteController implements Initializable {
     }
 
     public void handleClicks(ActionEvent actionEvent) {
-
         if (actionEvent.getSource() == btnInicio){
             rootPane.getChildren().clear();
 
@@ -72,7 +76,6 @@ public class TesteController implements Initializable {
         }*/
 
         if (actionEvent.getSource() == btnVenderPeca) {
-
             rootPane.getChildren().clear();
 
             try {
@@ -157,7 +160,6 @@ public class TesteController implements Initializable {
         if (actionEvent.getSource() == btnVoltar){
 
             if (TesteController.caminho == null){
-                System.out.println("entrou");
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
