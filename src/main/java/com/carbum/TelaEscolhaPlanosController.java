@@ -15,10 +15,12 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class TelaEscolhaPlanosController {
+    public Button btnFree;
     public Button btnSimples;
     public Button btnAvancado;
     public Button btnSuper;
     public AnchorPane rootPane;
+    public int free = 3;
     public int simples = 50;
     public int avancado = 90;
     public int top = 200;
@@ -37,15 +39,17 @@ public class TelaEscolhaPlanosController {
     }
 
     public void escolhaPlano(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == btnFree){
+            alertaEscolha("Aquisição do Plano Free", free);
+        }
         if (actionEvent.getSource() == btnSimples){
-           alertaEscolha("Aquisição do Plano Simples", simples);
+           alertaEscolha("Aquisição do Plano Premium", simples);
         }
         if (actionEvent.getSource() == btnAvancado){
-            alertaEscolha("Aquisição do Plano Avançado", avancado);
+            alertaEscolha("Aquisição do Plano Gold", avancado);
         }
-
         if (actionEvent.getSource() == btnSuper){
-            alertaEscolha("Aquisição do Plano Super", top);
+            alertaEscolha("Aquisição do Plano Platinum", top);
         }
     }
 
