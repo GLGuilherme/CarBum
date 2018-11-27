@@ -1,20 +1,16 @@
 package com.carbum;
 
-import com.carbum.anuncio.DAOAnuncio;
-import com.carbum.auxiliares.Mascaras;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -88,7 +84,7 @@ public class TelaDetalheAnuncioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        TesteController.caminho = caminho;
+        TelaDashboardController.caminho = caminho;
 
         next.setVisible(false);
         previous.setVisible(false);

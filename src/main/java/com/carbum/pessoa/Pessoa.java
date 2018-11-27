@@ -1,6 +1,7 @@
 package com.carbum.pessoa;
 
 public class Pessoa {
+    private Integer idpessoa;
     private String nome;
     private String emailLogin;
     private String senha;
@@ -11,7 +12,8 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String cpf, String emailLogin, String senha, String telefone) {
+    public Pessoa(Integer idpessoa, String nome, String cpf, String emailLogin, String senha, String telefone) {
+        this.idpessoa = idpessoa;
         this.nome = nome;
         this.CPF = cpf;
         this.emailLogin = emailLogin;
@@ -26,6 +28,14 @@ public class Pessoa {
 
     public void setEmailLogin(String emailLogin) {
         this.emailLogin = emailLogin;
+    }
+
+    public void setIdPessoa(Integer idpessoa) {
+        this.idpessoa =  idpessoa;
+    }
+
+    public Integer getIdPessoa() {
+        return idpessoa;
     }
 
     public String getNome() {

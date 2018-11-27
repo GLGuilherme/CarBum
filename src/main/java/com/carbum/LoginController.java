@@ -47,9 +47,10 @@ public class LoginController {
                 String email = rs.getString("emaillogin");
                 idUsuario = rs.getInt("idpessoa");
                 rootPane.getChildren().clear();
+
                 try {
                     AnchorPane telaInicial = (AnchorPane) FXMLLoader.load(getClass()
-                            .getResource("/fxml/TesteDashBoard.fxml"));
+                            .getResource("/fxml/TelaDashboard.fxml"));
                     rootPane.getChildren().setAll(telaInicial);
                 } catch (IOException e) {
                     e.printStackTrace();

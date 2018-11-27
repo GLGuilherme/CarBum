@@ -4,15 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -20,9 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static java.awt.Color.RED;
-
-public class TesteController implements Initializable {
+public class TelaDashboardController implements Initializable {
     public Button btnVenderPeca;
     public StackPane rootPane;
     public Button btnInicio;
@@ -40,7 +33,7 @@ public class TesteController implements Initializable {
     private ConexaoBanco conexao;
     private String sql;
 
-    public TesteController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+    public TelaDashboardController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
         this.conexao = new ConexaoBanco();
     }
 
@@ -130,6 +123,19 @@ public class TesteController implements Initializable {
             }
         }
 
+        if (actionEvent.getSource() == btnMinhaConta){
+            rootPane.getChildren().clear();
+
+            try {
+                AnchorPane telaPlanos = (AnchorPane) FXMLLoader.load(getClass()
+                        .getResource("/fxml/TelaMinhaConta.fxml"));
+
+                rootPane.getChildren().setAll(telaPlanos);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         /*if (actionEvent.getSource() == btnConfiguracoes){
             rootPane.getChildren().clear();
 
@@ -159,7 +165,7 @@ public class TesteController implements Initializable {
 
         if (actionEvent.getSource() == btnVoltar){
 
-            if (TesteController.caminho == null){
+            if (TelaDashboardController.caminho == null){
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
@@ -170,37 +176,37 @@ public class TesteController implements Initializable {
                     e.printStackTrace();
                 }
             }
-            if (TesteController.caminho == "/fxml/TelaPecasBuscadas.fxml"){
+            if (TelaDashboardController.caminho == "/fxml/TelaPecasBuscadas.fxml"){
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaPecasBuscadas.fxml"));
 
                     rootPane.getChildren().setAll(telaAnterior);
-                    TesteController.caminho = null;
+                    TelaDashboardController.caminho = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-            }if (TesteController.caminho == "/fxml/TelaFavoritos.fxml"){
+            }if (TelaDashboardController.caminho == "/fxml/TelaFavoritos.fxml"){
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaFavoritos.fxml"));
 
                     rootPane.getChildren().setAll(telaAnterior);
-                    TesteController.caminho = null;
+                    TelaDashboardController.caminho = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }if (TesteController.caminho == "/fxml/TelaMeusAnuncios.fxml") {
+            }if (TelaDashboardController.caminho == "/fxml/TelaMeusAnuncios.fxml") {
                 rootPane.getChildren().clear();
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaMeusAnuncios.fxml"));
 
                     rootPane.getChildren().setAll(telaAnterior);
-                    TesteController.caminho = null;
+                    TelaDashboardController.caminho = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

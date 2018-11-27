@@ -14,16 +14,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class TelaCadastroPessoaController implements Initializable {
 
+public class TelaMinhaContaController implements Initializable {
+
+    public static int idPessoaSelecionada;
     public TextField inputNome, inputCpf, inputUsuario, inputSenha, inputTelefone, inputRua, inputNumero, inputComplemento, inputBairro, inputEstado, inputCidade, inputCep;
     public Button btSalvarPessoa;
     public Button btVoltar;
@@ -38,9 +43,22 @@ public class TelaCadastroPessoaController implements Initializable {
     public Label erroCep;
     public Label erroCidade;
     public Label erroEstado;
+
+    Integer idpessoa;
+
     @FXML
     private AnchorPane rootPane;
 
+    private ConexaoBanco conexao;
+    private String sql;
+
+    public TelaMinhaContaController()throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+        this.conexao = new ConexaoBanco();
+    }
+
+    public ConexaoBanco getConexao() {
+        return conexao;
+    }
     @FXML
     private void salvarPessoa(ActionEvent event) throws IOException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         boolean operacaoCompleta = false;
@@ -58,73 +76,72 @@ public class TelaCadastroPessoaController implements Initializable {
                 estado = inputEstado.getText(),
                 cep = Mascaras.onlyDigitsValue(this.inputCep);
 
-
-        if (nome.isEmpty()){
+        if (nome.isEmpty()) {
             erroNome.setText("Campo obrigatório");
-        }else {
+        } else {
             erroNome.setText("");
         }
-        if (cpf.length() < 11){
+        if (cpf.length() < 11) {
             erroCpf.setText("Campo obrigatório com 11 dígitos");
-        }else {
+        } else {
             erroCpf.setText("");
         }
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             erroUsuario.setText("Campo obrigatório");
-        }else {
+        } else {
             erroUsuario.setText("");
         }
-        if (senha.length() < 4){
+        if (senha.length() < 4) {
             erroSenha.setText("Campo obrigatório com mais de 4 caracteres");
-        }else {
+        } else {
             erroSenha.setText("");
         }
-        if (rua.isEmpty()){
+        if (rua.isEmpty()) {
             erroRua.setText("Campo obrigatório");
-        }else {
+        } else {
             erroRua.setText("");
         }
-        if (numero.isEmpty()){
+        if (numero.isEmpty()) {
             erroNumero.setText("Campo obrigatório");
-        }else {
+        } else {
             erroNumero.setText("");
         }
-        if (telefone.length() < 11){
+        if (telefone.length() < 11) {
             erroTelefone.setText("Campo obrigatório com 11 dígitos");
-        }else {
+        } else {
             erroTelefone.setText("");
         }
-        if (bairro.isEmpty()){
+        if (bairro.isEmpty()) {
             erroBairro.setText("Campo obrigatório");
-        }else {
+        } else {
             erroBairro.setText("");
         }
-        if (cep.length() < 8){
+        if (cep.length() < 8) {
             erroCep.setText("Campo obrigatório com 8 dígitos");
-        }else {
+        } else {
             erroCep.setText("");
         }
-        if (cidade.isEmpty()){
+        if (cidade.isEmpty()) {
             erroCidade.setText("Campo obrigatório");
-        }else {
+        } else {
             erroCidade.setText("");
         }
-        if (estado.isEmpty()){
+        if (estado.isEmpty()) {
             erroEstado.setText("Campo obrigatório");
-        }else {
+        } else {
             erroEstado.setText("");
         }
         if (nome.isEmpty() || cpf.length() < 11 || email.isEmpty() || senha.length() < 4 || rua.isEmpty() ||
-        numero.isEmpty() || telefone.length() < 11 || bairro.isEmpty() || cep.length() < 8 || cidade.isEmpty() ||
-        estado.isEmpty()){
+                numero.isEmpty() || telefone.length() < 11 || bairro.isEmpty() || cep.length() < 8 || cidade.isEmpty() ||
+                estado.isEmpty()) {
             return;
         }
 
-        Pessoa pessoaNova = new Pessoa(null, nome, cpf, email, senha, telefone);
+        Pessoa pessoaNova = new Pessoa(idpessoa, nome, cpf, email, senha, telefone);
         pessoaNova.setEmailLogin(email);
 
         DAOPessoa daoPessoa = new DAOPessoa();
-        operacaoCompleta = daoPessoa.inserirPessoaNova(pessoaNova);
+        operacaoCompleta = daoPessoa.editarPessoa(pessoaNova);
         if (operacaoCompleta) {
             //mensagem de exito
             int idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
@@ -135,10 +152,9 @@ public class TelaCadastroPessoaController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro de pessoa");
             alert.setHeaderText(null);
-            alert.setContentText("Pessoa cadastrada com sucesso!");
+            alert.setContentText("Cadastro alterado com sucesso!");
 
             alert.showAndWait();
-            this.navegaTelaInicial();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Pessoa já existente");
@@ -164,21 +180,53 @@ public class TelaCadastroPessoaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         Mascaras.cpfField(this.inputCpf);
         Mascaras.cepField(this.inputCep);
         Mascaras.foneField(this.inputTelefone);
         Mascaras.numericField(this.inputNumero);
-       /* ValidationSupport validationSupport = new ValidationSupport();
-        validationSupport.registerValidator(inputNome, Validator.createEmptyValidator("asdfdfsdf"));
-        validationSupport.registerValidator(inputCpf, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputUsuario, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputSenha, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputRua, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputBairro, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputNumero, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputTelefone, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputCidade, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputEstado, Validator.createEmptyValidator("safdfasdfasd"));
-        validationSupport.registerValidator(inputCep, Validator.createEmptyValidator("safdfasdfasd"));*/
+
+        try {
+            sql = "SELECT p.nomepessoa, p.idpessoa, p.cpf, p.telefone, p.emaillogin, e.rua, e.numero, e.bairro, e.complemento, e.cep, e.cidade, e.estado FROM pessoa p, endereco e WHERE e.idpessoa = p.idpessoa";
+            PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
+
+            ResultSet rs = pstatement.executeQuery();
+
+            while (rs.next()) {
+                this.idpessoa = rs.getInt("idpessoa");
+                String nomePessoa = rs.getString("nomepessoa");
+                String cpf = rs.getString("cpf");
+                String telefone = rs.getString("telefone");
+                String nomeusuario = rs.getString("emaillogin");
+
+                String rua = rs.getString("rua");
+                String numero = rs.getString("numero");
+                String bairro = rs.getString("bairro");
+                String cep = rs.getString("cep");
+                String complemento = rs.getString("complemento");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+
+                StackPane stackPane= new StackPane();
+
+                inputNome.setText(nomePessoa);
+                inputCpf.setText(cpf);
+                inputTelefone.setText(telefone);
+                inputUsuario.setText(nomeusuario);
+                inputRua.setText(rua);
+                inputNumero.setText(numero);
+                inputBairro.setText(bairro);
+                inputCep.setText(cep);
+                inputComplemento.setText(complemento);
+                inputCidade.setText(cidade);
+                inputEstado.setText(estado);
+
+            }
+        } catch (SQLException e){
+
+            e.printStackTrace();
+        }
+
     }
+
 }

@@ -45,9 +45,18 @@ public class DAOPessoa {
         }
     }
 
-    public void inserirTelefone(String telefone, int idPessoa) throws SQLException {
-        sql = "INSERT INTO telefone(idpessoa, telefone) VALUES (" + idPessoa+ ", '" + telefone + "');";
-        Statement stm = conexao.getConnection().createStatement();
-        stm.execute(sql);
+    public boolean editarPessoa(Pessoa pessoa) throws SQLException {
+            sql = "UPDATE pessoa set (nomepessoa, emaillogin, senha, cpf, telefone) = ('"
+                    + pessoa.getNome() + "', '"
+                    + pessoa.getEmailLogin() + "', '"
+                    + pessoa.getSenha() + "', '"
+                    + pessoa.getCPF() + "', '"
+                    + pessoa.getTelefone() + "') WHERE idpessoa = " + pessoa.getIdPessoa() + ";";
+
+            Statement stm = conexao.getConnection().createStatement();
+            stm.execute(sql);
+
+            return true;
     }
+
 }
