@@ -64,7 +64,7 @@ public class TelaFavoritosController implements Initializable {
 
         try {
 
-            sql = "SELECT DISTINCT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e, favorito f WHERE a.partecarro ~* ? AND f.idpessoa = ? AND a.idanuncio = f.idanuncio AND a.idpessoa = e.idpessoa";
+            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e, favorito f WHERE a.partecarro ~* ? AND f.idpessoa = ? AND a.idanuncio = f.idanuncio AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setString(1, busca);
             pstatement.setInt(2, LoginController.idUsuario);
