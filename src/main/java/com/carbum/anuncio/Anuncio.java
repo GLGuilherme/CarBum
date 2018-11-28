@@ -12,12 +12,13 @@ public class Anuncio {
     private String imagem2;
     private String preco;
     private int idUsuario;
+    private int anuncioVip;
 
     public Anuncio() {
     }
 
     public Anuncio(String parteCarro, String descricao, String conservacao, String nomeCarro,
-                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2, String preco, int idUsuario) {
+                   String marcaCarro, String ano, String modelo, String imagem1, String imagem2, String preco, int idUsuario, int anuncioVip) {
         this.parteCarro = parteCarro;
         this.descricao = descricao;
         this.conservacao = conservacao;
@@ -29,6 +30,7 @@ public class Anuncio {
         this.imagem2 = imagem2;
         this.preco = preco;
         this.idUsuario = idUsuario;
+        this.anuncioVip = anuncioVip;
     }
 
     public String getParteCarro() {
@@ -117,6 +119,14 @@ public class Anuncio {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public int getAnuncioVip() {
+        return anuncioVip;
+    }
+
+    public void setAnuncioVip(int anuncioVip) {
+        this.anuncioVip = anuncioVip;
     }
 
     @Override

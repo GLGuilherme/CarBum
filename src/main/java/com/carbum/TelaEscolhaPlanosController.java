@@ -72,12 +72,23 @@ public class TelaEscolhaPlanosController {
                     alert.showAndWait();
                 }else {
                     try {
-                        sql = "UPDATE plano SET qtdanuncio = ? WHERE idpessoa = ?";
-                        PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
-                        statement.setInt(1, qtdAnuncio);
-                        statement.setInt(2, LoginController.idUsuario);
-                        statement.execute();
-                        alertaSucesso();
+                        if (qtdAnuncio >= 90){
+                            sql = "UPDATE plano SET (qtdanuncio, anunciovip) = (?, ?) WHERE idpessoa = ?";
+                            PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
+                            statement.setInt(1, qtdAnuncio);
+                            statement.setInt(2, 1);
+                            statement.setInt(3, LoginController.idUsuario);
+                            statement.execute();
+                            alertaSucesso();
+                        }else {
+                            sql = "UPDATE plano SET (qtdanuncio, anunciovip) = (?, ?) WHERE idpessoa = ?";
+                            PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
+                            statement.setInt(1, qtdAnuncio);
+                            statement.setInt(2, 0);
+                            statement.setInt(3, LoginController.idUsuario);
+                            statement.execute();
+                            alertaSucesso();
+                        }
                     }catch (SQLException e){
                         e.printStackTrace();
                         alertaFalha();
@@ -86,12 +97,23 @@ public class TelaEscolhaPlanosController {
             }else {
 
                 try {
-                    sql = "INSERT INTO plano (idpessoa, qtdanuncio) VALUES (?,?)";
-                    PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
-                    statement.setInt(1, LoginController.idUsuario);
-                    statement.setInt(2, qtdAnuncio);
-                    statement.execute();
-                    alertaSucesso();
+                    if (qtdAnuncio >= 90){
+                        sql = "INSERT INTO plano (idpessoa, qtdanuncio, anunciovip) VALUES (?, ?, ?)";
+                        PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
+                        statement.setInt(1, LoginController.idUsuario);
+                        statement.setInt(2, qtdAnuncio);
+                        statement.setInt(3, 1);
+                        statement.execute();
+                        alertaSucesso();
+                    }else {
+                        sql = "INSERT INTO plano (idpessoa, qtdanuncio, anunciovip) VALUES (?, ?, ?)";
+                        PreparedStatement statement = conexao.getConnection().prepareStatement(sql);
+                        statement.setInt(1, LoginController.idUsuario);
+                        statement.setInt(2, qtdAnuncio);
+                        statement.setInt(3, 0);
+                        statement.execute();
+                        alertaSucesso();
+                    }
                 }catch (SQLException e){
                     e.printStackTrace();
                     alertaFalha();

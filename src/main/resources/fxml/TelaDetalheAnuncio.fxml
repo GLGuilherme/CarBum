@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,7 +51,7 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label layoutX="125.0" layoutY="409.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
+        <Label layoutX="125.0" layoutY="369.0" prefHeight="18.0" prefWidth="115.0" text="Descrição:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -112,11 +113,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="descricao" layoutX="215.0" layoutY="408.0" prefHeight="20.0" prefWidth="649.0" text="Descrição" textAlignment="JUSTIFY">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <Label layoutX="125.0" layoutY="549.0" text="Anunciante:">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -153,13 +149,28 @@
             <Image url="@images/speech-bubble.png" />
          </image>
       </ImageView>
-      <Button fx:id="favoritos" layoutX="738.0" layoutY="130.0" mnemonicParsing="false" onAction="#adicionarFavoritos" prefHeight="52.0" prefWidth="258.0" stylesheets="@/styling/fullpackstyling.css" text="Adicionar aos Favoritos" textFill="WHITE">
+      <Button fx:id="favoritos" layoutX="738.0" layoutY="183.0" mnemonicParsing="false" onAction="#adicionarFavoritos" prefHeight="52.0" prefWidth="258.0" stylesheets="@/styling/fullpackstyling.css" text="Adicionar aos Favoritos" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ImageView fx:id="estrela" fitHeight="40.0" fitWidth="39.0" layoutX="747.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="estrela" fitHeight="40.0" fitWidth="39.0" layoutX="747.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/starDash.png" />
+            <Image url="@images/starBlackDash.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="descricao" editable="false" layoutX="221.0" layoutY="369.0" prefHeight="76.0" prefWidth="485.0" text="Descrição" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="localizacao" layoutX="738.0" layoutY="293.0" mnemonicParsing="false" onAction="#mostrarLocalizacao" prefHeight="52.0" prefWidth="258.0" stylesheets="@/styling/fullpackstyling.css" text="Localização" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="imgLocalizacao" fitHeight="40.0" fitWidth="39.0" layoutX="747.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/digital-mapBlackDash.png" />
          </image>
       </ImageView>
     </children>

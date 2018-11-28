@@ -29,6 +29,7 @@ public class TelaDashboardController implements Initializable {
     public static String caminho;
     public Label nomeUsuario;
     public Button btnPlanos;
+    public Button btnVip;
 
     private ConexaoBanco conexao;
     private String sql;
@@ -50,6 +51,19 @@ public class TelaDashboardController implements Initializable {
                         .getResource("/fxml/TelaInicial.fxml"));
 
                 rootPane.getChildren().setAll(telaInicio);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (actionEvent.getSource() == btnVip){
+            rootPane.getChildren().clear();
+
+            try {
+                AnchorPane telaAnunciosVip = (AnchorPane) FXMLLoader.load(getClass()
+                        .getResource("/fxml/TelaAnunciosVip.fxml"));
+
+                rootPane.getChildren().setAll(telaAnunciosVip);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -204,6 +218,17 @@ public class TelaDashboardController implements Initializable {
                 try {
                     AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
                             .getResource("/fxml/TelaMeusAnuncios.fxml"));
+
+                    rootPane.getChildren().setAll(telaAnterior);
+                    TelaDashboardController.caminho = null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }if (TelaDashboardController.caminho == "/fxml/TelaAnunciosVip.fxml") {
+                rootPane.getChildren().clear();
+                try {
+                    AnchorPane telaAnterior = (AnchorPane) FXMLLoader.load(getClass()
+                            .getResource("/fxml/TelaAnunciosVip.fxml"));
 
                     rootPane.getChildren().setAll(telaAnterior);
                     TelaDashboardController.caminho = null;

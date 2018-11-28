@@ -87,7 +87,7 @@
             </font>
         </Button>
 
-        <Label layoutX="241.0" layoutY="121.0" prefHeight="18.0" prefWidth="149.0" text="Nome completo">
+        <Label layoutX="241.0" layoutY="121.0" prefHeight="18.0" prefWidth="149.0" text="Nome Completo">
             <font>
                 <Font size="14.0" />
             </font>

@@ -15,9 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,7 +41,7 @@ public class TelaDetalheAnuncioController implements Initializable {
     public Label ano;
     public Label modelo;
     public Label preco;
-    public Label descricao;
+    public javafx.scene.control.TextArea descricao;
     public Label anunciante;
     public Label telefone;
     public Label email;
@@ -52,6 +56,9 @@ public class TelaDetalheAnuncioController implements Initializable {
     public ImageView previous;
     public Button favoritos;
     public ImageView estrela;
+    public Button localizacao;
+    public Text textEndereco;
+    public ImageView imgLocalizacao;
 
     @FXML
     private AnchorPane rootPane;
@@ -90,11 +97,10 @@ public class TelaDetalheAnuncioController implements Initializable {
         previous.setVisible(false);
 
         try {
-            sql = "SELECT a.partecarro, a.descricao, a.conservacao, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.imagem1, a.imagem2, a.preco, p.nomepessoa, p.telefone FROM anuncio a, pessoa p WHERE a.idanuncio = ? AND a.idpessoa = p.idpessoa";
+            sql = "SELECT a.partecarro, a.descricao, a.conservacao, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.imagem1, a.imagem2, a.preco, e.cidade, e.estado,e.rua, e.bairro, e.numero, p.nomepessoa, p.telefone FROM anuncio a, endereco e,  pessoa p WHERE a.idanuncio = ? AND a.idpessoa = p.idpessoa AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setInt(1, idAnuncioClicado);
             ResultSet rs = pstatement.executeQuery();
-
             while (rs.next()){
                 String parteCarro = rs.getString("partecarro");
                 String descricaoPeca = rs.getString("descricao");
@@ -108,6 +114,14 @@ public class TelaDetalheAnuncioController implements Initializable {
                 String precoPeca = rs.getString("preco");
                 String nomePessoa = rs.getString("nomepessoa");
                 String telefonePessoa = rs.getString("telefone");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String numero = rs.getString("numero");
+
+                textEndereco = new Text("Rua " + rua + ", " + numero+ "\n" + bairro + "\n"
+                        + cidade + " - " + estado);
 
                 bufferedImage(imagem1, imagemPeca1);
 
@@ -227,12 +241,30 @@ public class TelaDetalheAnuncioController implements Initializable {
                 pstatement.setInt(2, idAnuncioClicado);
                 pstatement.execute();
                 favoritos.setText("Adicionar aos Favoritos");
-                Image image = new Image("fxml/images/starDash.png");
+                Image image = new Image("fxml/images/starBlackDash.png");
                 estrela.setImage(image);
             }catch (SQLException e){
                 e.printStackTrace();
             }
         }
 
+    }
+
+    public void mostrarLocalizacao(ActionEvent actionEvent) {
+        Image image = new Image("fxml/images/digital-mapColorDash.png");
+        imgLocalizacao.setImage(image);
+        String caminhoUrl = textEndereco.getText();
+        String mudada = caminhoUrl.replaceAll(" ", "+");
+        mudada = mudada.replaceAll(",", "");
+        mudada = mudada.replaceAll("\n", "+");
+        caminhoUrl = mudada;
+        try {
+            java.awt.Desktop.getDesktop().browse(new URI("https://www.google.com.br/maps/dir/Casa/" + caminhoUrl));
+            
+            Image image1 = new Image("fxml/images/digital-mapBlackDash.png");
+            imgLocalizacao.setImage(image1);
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 }

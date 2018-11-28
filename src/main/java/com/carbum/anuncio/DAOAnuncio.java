@@ -19,7 +19,7 @@ public class DAOAnuncio {
     }
 
     public boolean inserirAnuncio(Anuncio AnuncioNovo) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
-        sql = "Insert into  anuncio (ParteCarro, descricao, conservacao, nomecarro, marcacarro, ano, modelo, imagem1, imagem2, preco, idpessoa) values ('"
+        sql = "Insert into  anuncio (ParteCarro, descricao, conservacao, nomecarro, marcacarro, ano, modelo, imagem1, imagem2, preco, idpessoa, anunciovip) values ('"
                 + AnuncioNovo.getParteCarro() + "', '"
                 + AnuncioNovo.getDescricao() + "', '"
                 + AnuncioNovo.getConservacao() + "', '"
@@ -30,7 +30,8 @@ public class DAOAnuncio {
                 + AnuncioNovo.getImagem1() + "', '"
                 + AnuncioNovo.getImagem2() + "', '"
                 + AnuncioNovo.getPreco() + "', '"
-                + AnuncioNovo.getIdUsuario() + "');";
+                + AnuncioNovo.getIdUsuario() + "', '"
+                + AnuncioNovo.getAnuncioVip() + "');";
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
         return true;

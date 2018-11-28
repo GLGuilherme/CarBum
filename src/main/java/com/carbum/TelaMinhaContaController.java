@@ -44,8 +44,6 @@ public class TelaMinhaContaController implements Initializable {
     public Label erroCidade;
     public Label erroEstado;
 
-    Integer idpessoa;
-
     @FXML
     private AnchorPane rootPane;
 
@@ -138,7 +136,7 @@ public class TelaMinhaContaController implements Initializable {
             return;
         }
 
-        Pessoa pessoaNova = new Pessoa(idpessoa, nome, cpf, email, senha, telefone);
+        Pessoa pessoaNova = new Pessoa(LoginController.idUsuario, nome, cpf, email, senha, telefone);
         pessoaNova.setEmailLogin(email);
 
         DAOPessoa daoPessoa = new DAOPessoa();
@@ -146,10 +144,9 @@ public class TelaMinhaContaController implements Initializable {
 
         if (operacaoCompleta) {
             //mensagem de exito
-            int idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
             DAOEndereco daoEndereco = new DAOEndereco();
             Endereco enderecoPessoaNova = new Endereco("Brasil", estado, cidade, rua, numero, bairro, cep, complemento);
-            operacaoEnderecoCompleta = daoEndereco.editarEndereco(enderecoPessoaNova, idPessoa);
+            operacaoEnderecoCompleta = daoEndereco.editarEndereco(enderecoPessoaNova, LoginController.idUsuario);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro de pessoa");
@@ -190,17 +187,17 @@ public class TelaMinhaContaController implements Initializable {
         Mascaras.numericField(this.inputNumero);
 
         try {
-            sql = "SELECT p.nomepessoa, p.idpessoa, p.cpf, p.telefone, p.emaillogin, e.rua, e.numero, e.bairro, e.complemento, e.cep, e.cidade, e.estado FROM pessoa p, endereco e WHERE p.idpessoa = ? AND e.idpessoa = p.idpessoa";
+            sql = "SELECT p.nomepessoa, p.cpf, p.telefone, p.emaillogin, p.senha, e.rua, e.numero, e.bairro, e.complemento, e.cep, e.cidade, e.estado FROM pessoa p, endereco e WHERE p.idpessoa = ? AND e.idpessoa = p.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setInt(1, LoginController.idUsuario);
             ResultSet rs = pstatement.executeQuery();
 
             while (rs.next()) {
-                this.idpessoa = rs.getInt("idpessoa");
                 String nomePessoa = rs.getString("nomepessoa");
                 String cpf = rs.getString("cpf");
                 String telefone = rs.getString("telefone");
                 String nomeusuario = rs.getString("emaillogin");
+                String senha = rs.getString("senha");
 
                 String rua = rs.getString("rua");
                 String numero = rs.getString("numero");
@@ -216,6 +213,7 @@ public class TelaMinhaContaController implements Initializable {
                 inputCpf.setText(cpf);
                 inputTelefone.setText(telefone);
                 inputUsuario.setText(nomeusuario);
+                inputSenha.setText(senha);
                 inputRua.setText(rua);
                 inputNumero.setText(numero);
                 inputBairro.setText(bairro);

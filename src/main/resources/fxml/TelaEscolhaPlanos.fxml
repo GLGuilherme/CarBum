@@ -41,7 +41,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnSuper" layoutX="782.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$250,00" textAlignment="CENTER">
+      <Button fx:id="btnSuper" layoutX="782.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$500,00" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

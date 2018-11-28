@@ -109,17 +109,18 @@ public class TelaCadastroPecaController implements Initializable {
         }
 
         try {
-            sql = "SELECT p.qtdanuncio FROM plano p WHERE p.idpessoa = ?";
+            sql = "SELECT p.qtdanuncio, p.anunciovip FROM plano p WHERE p.idpessoa = ?";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setInt(1, LoginController.idUsuario);
             ResultSet rs = pstatement.executeQuery();
             if (rs.next()) {
                int qtdAnuncio = rs.getInt("qtdanuncio");
+               int anuncioVip = rs.getInt("anunciovip");
 
                if (qtdAnuncio > 0){
 
                    Anuncio anuncioNovo = new Anuncio(peca, descricao, conservacao, nomeCarro,
-                           marca, ano, modelo, imagem1, imagem2, preco, LoginController.idUsuario);
+                           marca, ano, modelo, imagem1, imagem2, preco, LoginController.idUsuario, anuncioVip);
 
                    DAOAnuncio daoAnuncio = new DAOAnuncio();
                    operacaoCompleta = daoAnuncio.inserirAnuncio(anuncioNovo);
@@ -146,13 +147,10 @@ public class TelaCadastroPecaController implements Initializable {
                        //apresentar erro na inserção, pessoa já existi no banco
                    }
                }else {
-                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                   alert.setTitle("Cadastro de Peça");
-                   alert.setHeaderText(null);
-                   alert.setContentText("Você não possui plano para cadastrar a peça!");
-                   alert.showAndWait();
-                   this.navegaTelaPlanos();
+                   alertaSemPlano();
                }
+            }else {
+                alertaSemPlano();
             }
         }catch(SQLException e){
                 e.printStackTrace();
@@ -386,5 +384,14 @@ public class TelaCadastroPecaController implements Initializable {
         inputNomeCarro.getItems().clear();
         inputNomeCarro.getItems().removeAll();
         getInputNomeCarro();
+    }
+
+    public void alertaSemPlano() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cadastro de Peça");
+        alert.setHeaderText(null);
+        alert.setContentText("Você não possui plano para cadastrar a peça!");
+        alert.showAndWait();
+        this.navegaTelaPlanos();
     }
 }
