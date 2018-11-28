@@ -62,6 +62,7 @@ public class TelaMinhaContaController implements Initializable {
     @FXML
     private void salvarPessoa(ActionEvent event) throws IOException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         boolean operacaoCompleta = false;
+        boolean operacaoEnderecoCompleta = false;
 
         String nome = inputNome.getText(),
                 cpf = Mascaras.onlyDigitsValue(this.inputCpf),
@@ -142,12 +143,13 @@ public class TelaMinhaContaController implements Initializable {
 
         DAOPessoa daoPessoa = new DAOPessoa();
         operacaoCompleta = daoPessoa.editarPessoa(pessoaNova);
+
         if (operacaoCompleta) {
             //mensagem de exito
             int idPessoa = daoPessoa.buscarPessoaBanco(pessoaNova.getEmailLogin());
             DAOEndereco daoEndereco = new DAOEndereco();
             Endereco enderecoPessoaNova = new Endereco("Brasil", estado, cidade, rua, numero, bairro, cep, complemento);
-            daoEndereco.inserirEndereco(enderecoPessoaNova, idPessoa);
+            operacaoEnderecoCompleta = daoEndereco.editarEndereco(enderecoPessoaNova, idPessoa);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro de pessoa");

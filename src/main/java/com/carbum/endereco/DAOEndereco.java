@@ -25,9 +25,28 @@ public class DAOEndereco {
                 "', '" + endereco.getNumero() +
                 "', '" + endereco.getComplemento() +
                 "', '" + endereco.getLinkGoogleMaps() +
-            "');";
+                "');";
 
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
+    }
+
+    public boolean editarEndereco(Endereco endereco, int idPessoa) throws SQLException {
+        sql = "UPDATE endereco SET (pais, estado, cidade, cep, rua, bairro, numero, complemento) = (" +
+                "'" + endereco.getPais() +
+                "', '" + endereco.getEstado() +
+                "', '" + endereco.getCidade() +
+                "', '" + endereco.getCEP() +
+                "', '" + endereco.getRua() +
+                "', '" + endereco.getBairro() +
+                "', '" + endereco.getNumero() +
+                "', '" + endereco.getComplemento() +
+                "', '" + endereco.getLinkGoogleMaps() +
+                "') WHERE idpessoa = " + idPessoa + ";";
+
+        Statement stm = conexao.getConnection().createStatement();
+        stm.execute(sql);
+
+        return true;
     }
 }
