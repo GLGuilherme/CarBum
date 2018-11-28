@@ -27,7 +27,7 @@
             <Insets />
          </opaqueInsets></ComboBox>
         <ComboBox fx:id="inputConservacao" layoutX="367.0" layoutY="137.0" prefHeight="41.0" prefWidth="240.0" promptText="Escolha o estado da peça" stylesheets="@/styling/fullpackstyling.css" />
-        <TextArea fx:id="inputDescricao" layoutX="109.0" layoutY="410.0" prefHeight="103.0" prefWidth="499.0" promptText="Faça uma breve descrição da peça..." stylesheets="@/styling/fullpackstyling.css" />
+        <TextArea fx:id="inputDescricao" layoutX="109.0" layoutY="410.0" prefHeight="103.0" prefWidth="499.0" promptText="Faça uma breve descrição da peça..." stylesheets="@/styling/fullpackstyling.css" wrapText="true" />
         <Button fx:id="btSalvarPeca" layoutX="492.0" layoutY="534.0" mnemonicParsing="false" onAction="#salvarPeca" prefHeight="39.0" prefWidth="115.0" stylesheets="@/styling/fullpackstyling.css" text="Salvar" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />

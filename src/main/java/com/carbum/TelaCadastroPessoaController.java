@@ -143,7 +143,7 @@ public class TelaCadastroPessoaController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Pessoa já existente");
             alert.setHeaderText(null);
-            alert.setContentText("Este e-mail já está cadastrado no sistema!");
+            alert.setContentText("Este usuário já está cadastrado no sistema!");
 
             alert.showAndWait();
         }

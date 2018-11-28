@@ -56,7 +56,7 @@ public class LoginController {
                     e.printStackTrace();
                 }
             }else {
-                lblErrors.setText("Email ou senha inválido");
+                lblErrors.setText("Usuário ou senha inválido");
             }
         } catch (SQLException e) {
             e.printStackTrace();

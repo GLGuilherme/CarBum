@@ -82,15 +82,17 @@ public class TelaPecasBuscadasController implements Initializable{
         rowConstraints.setVgrow(Priority.ALWAYS);
 
         pecasBuscadas.getRowConstraints().addAll(rowConstraints);
-
+        int contK = 0;
         try {
 
-            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND a.idpessoa = e.idpessoa";
+            sql = "SELECT a.idanuncio, a.partecarro, a.nomecarro, a.marcacarro, a.ano, a.modelo, a.conservacao, a.preco, a.imagem1, e.cidade, e.estado,e.rua, e.bairro, e.numero FROM anuncio a, endereco e WHERE partecarro ~* ? AND nomecarro ~* ? AND a.idpessoa = e.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
             pstatement.setString(1, TelaInicialController.pecaBuscada);
+            pstatement.setString(2, TelaInicialController.pecaBuscada);
             ResultSet rs = pstatement.executeQuery();
             int contC = 0, contR = 0;
             while (rs.next()){
+                System.out.println(contK++);
                 int idAnuncio = rs.getInt("idanuncio");
                 String partecarro = rs.getString("partecarro");
                 String nomecarro = rs.getString("nomecarro");

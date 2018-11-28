@@ -157,11 +157,12 @@ public class TelaMinhaContaController implements Initializable {
             alert.setContentText("Cadastro alterado com sucesso!");
 
             alert.showAndWait();
+            this.navegaTelaInicial();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Pessoa já existente");
             alert.setHeaderText(null);
-            alert.setContentText("Este e-mail já está cadastrado no sistema!");
+            alert.setContentText("Este nome de usuário já existe!");
 
             alert.showAndWait();
         }
@@ -172,7 +173,7 @@ public class TelaMinhaContaController implements Initializable {
         rootPane.getChildren().clear();
         try {
             AnchorPane telaLogin = (AnchorPane) FXMLLoader.load(getClass()
-                    .getResource("/fxml/TelaLogin.fxml"));
+                    .getResource("/fxml/TelaInicial.fxml"));
 
             rootPane.getChildren().setAll(telaLogin);
         } catch (IOException e) {
@@ -189,9 +190,9 @@ public class TelaMinhaContaController implements Initializable {
         Mascaras.numericField(this.inputNumero);
 
         try {
-            sql = "SELECT p.nomepessoa, p.idpessoa, p.cpf, p.telefone, p.emaillogin, e.rua, e.numero, e.bairro, e.complemento, e.cep, e.cidade, e.estado FROM pessoa p, endereco e WHERE e.idpessoa = p.idpessoa";
+            sql = "SELECT p.nomepessoa, p.idpessoa, p.cpf, p.telefone, p.emaillogin, e.rua, e.numero, e.bairro, e.complemento, e.cep, e.cidade, e.estado FROM pessoa p, endereco e WHERE p.idpessoa = ? AND e.idpessoa = p.idpessoa";
             PreparedStatement pstatement = conexao.getConnection().prepareStatement(sql);
-
+            pstatement.setInt(1, LoginController.idUsuario);
             ResultSet rs = pstatement.executeQuery();
 
             while (rs.next()) {

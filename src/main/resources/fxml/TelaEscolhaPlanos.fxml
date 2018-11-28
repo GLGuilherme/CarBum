@@ -7,41 +7,56 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1250.0" minHeight="600.0" minWidth="1250.0" prefHeight="600.0" prefWidth="1250.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaEscolhaPlanosController">
    <children>
-      <Button layoutX="125.0" layoutY="140.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Simples" textAlignment="CENTER">
+      <Button layoutX="269.0" layoutY="139.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Premium" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <Button layoutX="381.0" layoutY="140.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Avançado" textAlignment="CENTER">
+      <Button layoutX="525.0" layoutY="139.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Gold" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <Button layoutX="638.0" layoutY="140.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Super" textAlignment="CENTER">
+      <Button layoutX="782.0" layoutY="139.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Platinum" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <TextArea editable="false" layoutX="125.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;- 50 Anúncios&#10;">
+      <TextArea editable="false" layoutX="269.0" layoutY="235.0" prefHeight="207.0" prefWidth="210.0" text="50 Anúncios&#10;&#10;Suporte&#10;&#10;">
          <font>
-            <Font size="12.0" />
+            <Font size="18.0" />
          </font></TextArea>
-      <TextArea editable="false" layoutX="381.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;- 90 Anúncios">
+      <TextArea editable="false" layoutX="525.0" layoutY="235.0" prefHeight="207.0" prefWidth="210.0" text="90 Anúncios&#10;&#10;Suporte&#10;&#10;Anúncios Vip">
          <font>
-            <Font size="12.0" />
+            <Font size="18.0" />
          </font></TextArea>
-      <TextArea editable="false" layoutX="638.0" layoutY="236.0" prefHeight="200.0" prefWidth="210.0" text="&#10;- 200 Anúncios">
+      <TextArea editable="false" layoutX="782.0" layoutY="235.0" prefHeight="207.0" prefWidth="210.0" text="200 Anúncios&#10;&#10;Suporte&#10;&#10;Anúncios Vip&#10;&#10;Serviço de Anúncios">
          <font>
-            <Font size="12.0" />
+            <Font size="18.0" />
          </font></TextArea>
-      <Button fx:id="btnSimples" layoutX="125.0" layoutY="431.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$30,00" textAlignment="CENTER">
+      <Button fx:id="btnSimples" layoutX="269.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$50,00" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnAvancado" layoutX="381.0" layoutY="431.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$50,00" textAlignment="CENTER">
+      <Button fx:id="btnAvancado" layoutX="525.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$100,00" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnSuper" layoutX="638.0" layoutY="431.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$80,00" textAlignment="CENTER">
+      <Button fx:id="btnSuper" layoutX="782.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$250,00" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="139.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="Free" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <TextArea editable="false" layoutX="14.0" layoutY="235.0" prefHeight="207.0" prefWidth="210.0" text="3 Anúncios&#10;&#10;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="btnFree" layoutX="14.0" layoutY="440.0" mnemonicParsing="false" onAction="#escolhaPlano" prefHeight="43.0" prefWidth="210.0" text="R$00,00" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

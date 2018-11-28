@@ -60,6 +60,7 @@ public class TelaFavoritosController implements Initializable {
         rowConstraints.setVgrow(Priority.ALWAYS);
 
         pecasBuscadas.getRowConstraints().addAll(rowConstraints);
+        int contK = 0;
 
         try {
 
