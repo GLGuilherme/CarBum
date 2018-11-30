@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="1250.0" minHeight="600.0" minWidth="1250.0" prefHeight="600.0" prefWidth="1250.0" styleClass="main-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carbum.TelaEscolhaPlanosController">
+   <children>
+      <Label alignment="CENTER" layoutX="442.0" layoutY="32.0" text="E-Mails para Contato:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="32.0" fitWidth="52.0" layoutX="14.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/opened-email-envelope.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="46.0" layoutY="96.0" text="cassianomontanari@gmail.com">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="142.0" text="gabrielopes31@gmail.com">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="188.0" text="marcomattospetry@gmail.com">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="32.0" fitWidth="52.0" layoutX="14.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/opened-email-envelope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="52.0" layoutX="14.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/opened-email-envelope.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="431.0" layoutY="252.0" text="Telefones para Contato:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
