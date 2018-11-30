@@ -21,7 +21,7 @@ public class TelaDashboardController implements Initializable {
     public Button btnInicio;
     public Button btnMinhaConta;
     public Button btnFavoritos;
-    public Button btnConfiguracoes;
+    public Button btnContato;
     public Button btnSair;
     public AnchorPane totalPane;
     public Button btnMeusAnuncios;
@@ -68,19 +68,6 @@ public class TelaDashboardController implements Initializable {
                 e.printStackTrace();
             }
         }
-
-        /*if (actionEvent.getSource() == btnMinhaConta){
-            rootPane.getChildren().clear();
-
-            try {
-                AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
-                        .getResource("/fxml/TelaInicial.fxml"));
-
-                rootPane.getChildren().setAll(telaCadastroPeca);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
 
         if (actionEvent.getSource() == btnVenderPeca) {
             rootPane.getChildren().clear();
@@ -150,18 +137,18 @@ public class TelaDashboardController implements Initializable {
             }
         }
 
-        /*if (actionEvent.getSource() == btnConfiguracoes){
+        if (actionEvent.getSource() == btnContato){
             rootPane.getChildren().clear();
 
             try {
                 AnchorPane telaCadastroPeca = (AnchorPane) FXMLLoader.load(getClass()
-                        .getResource("/fxml/TelaInicial.fxml"));
+                        .getResource("/fxml/TelaContato.fxml"));
 
                 rootPane.getChildren().setAll(telaCadastroPeca);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
 
         if (actionEvent.getSource() == btnSair){
             totalPane.getChildren().clear();

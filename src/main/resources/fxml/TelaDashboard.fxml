@@ -119,7 +119,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-                <Button fx:id="btnConfiguracoes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="264.0" stylesheets="@/styling/DashBoardStyle.css" text="Informações e Contato">
+                <Button fx:id="btnContato" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="264.0" stylesheets="@/styling/DashBoardStyle.css" text="Contato">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
